@@ -35,7 +35,7 @@ git submodule add https://github.com/ZackShrout/CarrotHLM your_dependencies_fold
 ```
 In your CMakeLists.txt:
 ```cmake
-add_subdirectory(extern/CarrotHLM)
+add_subdirectory(your_dependencies_folder/CarrotHLM)
 target_link_libraries(your_engine PRIVATE CarrotHLM::CarrotHLM)
 ```
 Then simply:
