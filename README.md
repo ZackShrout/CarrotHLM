@@ -4,7 +4,7 @@ A fast, header-only, dependency-free math library for game engines and graphics,
 
 Built from the ground up with modern Clang/GCC **vector extensions**, CarrotHLM delivers **native 128-bit SIMD acceleration** (NEON on ARM64/Apple Silicon, SSE on x86_64) while providing the exact swizzle syntax and semantics you know from HLSL:
 
-```cpp
+```c++
 float4 pos{ 10.f, 20.f, 30.f, 40.f };
 float3 xyz = pos.xyz;             // (10, 20, 30)
 float4 weird = pos.yxwz;          // (20, 10, 30, 40)
