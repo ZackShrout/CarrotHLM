@@ -1,0 +1,21 @@
+<map id="include/chlm/MathConversions.h" name="include/chlm/MathConversions.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,240,31"/>
+<area shape="rect" id="Node000002" href="$Core_8h.html" title=" " alt="" coords="101,225,165,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,33,74,59,40,94,27,114,19,135,18,156,25,176,37,192,53,204,90,222,87,227,50,209,34,195,20,179,13,156,14,134,22,112,36,91,71,55,104,29"/>
+<area shape="rect" id="Node000006" href="$Quaternion_8h.html" title=" " alt="" coords="35,152,141,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,32,108,79,95,139,90,138,103,78,116,30"/>
+<area shape="rect" id="Node000007" href="$Matrix_8h.html" title=" " alt="" coords="217,152,293,177"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="159,28,197,47,215,61,231,77,247,107,255,137,250,139,242,109,227,80,212,65,194,52,156,33"/>
+<area shape="rect" id="Node000008" href="$Matrix3x3_8h.html" title=" " alt="" coords="117,79,217,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="132,30,155,66,150,68,128,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="11,299,77,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,253,71,292,68,288,117,249"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="102,299,165,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="136,251,136,285,131,285,131,251"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="189,299,259,324"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="150,249,200,288,197,292,146,253"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="98,176,121,212,116,215,93,179"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="237,180,166,221,163,216,234,175"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="168,105,156,178,145,213,140,212,151,177,163,104"/>
+<area shape="poly" id="edge11_Node000008_Node000006" title=" " alt="" coords="156,106,113,145,109,141,152,102"/>
+</map>
