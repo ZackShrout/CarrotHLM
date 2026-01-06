@@ -1,6 +1,6 @@
 //
 // Created by Zack Shrout on 1/5/26.
-// Copyright (c) 2026 BunnySofty. All rights reserved.
+// Copyright (c) 2026 BunnySoft. All rights reserved.
 //
 
 #pragma once
@@ -13,21 +13,21 @@ namespace chlm {
     // ========================================
     struct float4x4
     {
-        float4 columns[4] = {
-            float4{ 1.0f, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 1.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 1.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
-        }; // In-class initializer = default is identity
+        float4 columns[4]{
+            float4{ 1.f, 0.f, 0.f, 0.f },
+            float4{ 0.f, 1.f, 0.f, 0.f },
+            float4{ 0.f, 0.f, 1.f, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
+        }; // default is identity
 
         // Access column
-        float4& operator[](int i)
+        float4& operator[](const int i)
         {
             assert(i >= 0 && i < 4);
             return columns[i];
         }
 
-        const float4& operator[](int i) const
+        const float4& operator[](const int i) const
         {
             assert(i >= 0 && i < 4);
             return columns[i];
@@ -74,7 +74,6 @@ namespace chlm {
         return result;
     }
 
-    // Optional operator* overloads for nicer syntax
     inline float4 operator*(const float4x4& m, const float4& v) noexcept { return mul(m, v); }
     inline float4x4 operator*(const float4x4& a, const float4x4& b) noexcept { return mul(a, b); }
 
@@ -84,157 +83,164 @@ namespace chlm {
     inline float4x4 float4x4::translate(float3 t) noexcept
     {
         return float4x4{
-            float4{ 1.0f, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 1.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 1.0f, 0.0f },
-            float4{ t.x, t.y, t.z, 1.0f }
+            float4{ 1.f, 0.f, 0.f, 0.f },
+            float4{ 0.f, 1.f, 0.f, 0.f },
+            float4{ 0.f, 0.f, 1.f, 0.f },
+            float4{ t.x, t.y, t.z, 1.f }
         };
     }
 
     inline float4x4 float4x4::scale(float3 s) noexcept
     {
         return float4x4{
-            float4{ s.x, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, s.y, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, s.z, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
+            float4{ s.x, 0.f, 0.f, 0.f },
+            float4{ 0.f, s.y, 0.f, 0.f },
+            float4{ 0.f, 0.f, s.z, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
         };
     }
 
-    inline float4x4 float4x4::rotate_x(float rad) noexcept
+    inline float4x4 float4x4::rotate_x(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float4x4{
-            float4{ 1.0f, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, c, s, 0.0f },
-            float4{ 0.0f, -s, c, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
+            float4{ 1.f, 0.f, 0.f, 0.f },
+            float4{ 0.f, c, s, 0.f },
+            float4{ 0.f, -s, c, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
         };
     }
 
-    inline float4x4 float4x4::rotate_y(float rad) noexcept
+    inline float4x4 float4x4::rotate_y(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float4x4{
-            float4{ c, 0.0f, -s, 0.0f },
-            float4{ 0.0f, 1.0f, 0.0f, 0.0f },
-            float4{ s, 0.0f, c, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
+            float4{ c, 0.f, -s, 0.f },
+            float4{ 0.f, 1.f, 0.f, 0.f },
+            float4{ s, 0.f, c, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
         };
     }
 
-    inline float4x4 float4x4::rotate_z(float rad) noexcept
+    inline float4x4 float4x4::rotate_z(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float4x4{
-            float4{ c, s, 0.0f, 0.0f },
-            float4{ -s, c, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 1.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
+            float4{ c, s, 0.f, 0.f },
+            float4{ -s, c, 0.f, 0.f },
+            float4{ 0.f, 0.f, 1.f, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
         };
     }
 
-    inline float4x4 float4x4::rotate_axis_angle(float3 axis, float rad) noexcept
+    inline float4x4 float4x4::rotate_axis_angle(float3 axis, const float rad) noexcept
     {
         axis = normalize(axis);
-        float c = std::cos(rad);
-        float s = std::sin(rad);
-        float t = 1.0f - c;
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+        const float t{ 1.0f - c };
 
-        float x = axis.x;
-        float y = axis.y;
-        float z = axis.z;
+        const float x{ axis.x };
+        const float y{ axis.y };
+        const float z{ axis.z };
 
         return float4x4{
-            float4{ t * x * x + c, t * x * y + s * z, t * x * z - s * y, 0.0f },
-            float4{ t * x * y - s * z, t * y * y + c, t * y * z + s * x, 0.0f },
-            float4{ t * x * z + s * y, t * y * z - s * x, t * z * z + c, 0.0f },
-            float4{ 0.0f, 0.0f, 0.0f, 1.0f }
+            float4{ t * x * x + c, t * x * y + s * z, t * x * z - s * y, 0.f },
+            float4{ t * x * y - s * z, t * y * y + c, t * y * z + s * x, 0.f },
+            float4{ t * x * z + s * y, t * y * z - s * x, t * z * z + c, 0.f },
+            float4{ 0.f, 0.f, 0.f, 1.f }
         };
     }
 
-    inline float4x4 float4x4::look_at_lh(float3 eye, float3 target, float3 up) noexcept
+    inline float4x4 float4x4::look_at_lh(const float3 eye, const float3 target, const float3 up) noexcept
     {
-        float3 z = normalize(target - eye);
-        float3 x = normalize(cross(up, z));
-        float3 y = cross(z, x);
+        float3 z{ normalize(target - eye) };
+        float3 x{ normalize(cross(up, z)) };
+        float3 y{ cross(z, x) };
 
         return float4x4{
-            float4{ x.x, y.x, z.x, 0.0f },
-            float4{ x.y, y.y, z.y, 0.0f },
-            float4{ x.z, y.z, z.z, 0.0f },
-            float4{ -dot(x, eye), -dot(y, eye), -dot(z, eye), 1.0f }
+            float4{ x.x, y.x, z.x, 0.f },
+            float4{ x.y, y.y, z.y, 0.f },
+            float4{ x.z, y.z, z.z, 0.f },
+            float4{ -dot(x, eye), -dot(y, eye), -dot(z, eye), 1.f }
         };
     }
 
-    inline float4x4 float4x4::look_at_rh(float3 eye, float3 target, float3 up) noexcept
+    inline float4x4 float4x4::look_at_rh(const float3 eye, const float3 target, const float3 up) noexcept
     {
-        float3 z = normalize(eye - target); // reversed direction
-        float3 x = normalize(cross(up, z));
-        float3 y = cross(z, x);
+        float3 z{ normalize(eye - target) }; // reversed direction
+        float3 x{ normalize(cross(up, z)) };
+        float3 y{ cross(z, x) };
 
         return float4x4{
-            float4{ x.x, y.x, z.x, 0.0f },
-            float4{ x.y, y.y, z.y, 0.0f },
-            float4{ x.z, y.z, z.z, 0.0f },
-            float4{ -dot(x, eye), -dot(y, eye), -dot(z, eye), 1.0f }
+            float4{ x.x, y.x, z.x, 0.f },
+            float4{ x.y, y.y, z.y, 0.f },
+            float4{ x.z, y.z, z.z, 0.f },
+            float4{ -dot(x, eye), -dot(y, eye), -dot(z, eye), 1.f }
         };
     }
 
-    inline float4x4 float4x4::perspective_lh(float fov_y_rad, float aspect, float z_near, float z_far) noexcept
+    inline float4x4 float4x4::perspective_lh(const float fov_y_rad, const float aspect, const float z_near,
+                                             const float z_far) noexcept
     {
-        float h = 1.0f / std::tan(fov_y_rad * 0.5f);
-        float w = h / aspect;
-        float d = z_far / (z_far - z_near);
+        const float h{ 1.f / std::tan(fov_y_rad * .5f) };
+        const float w{ h / aspect };
+        const float d{ z_far / (z_far - z_near) };
 
         return float4x4{
-            float4{ w, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, h, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, d, 1.0f },
-            float4{ 0.0f, 0.0f, -d * z_near, 0.0f }
+            float4{ w, 0.f, 0.f, 0.f },
+            float4{ 0.f, h, 0.f, 0.f },
+            float4{ 0.f, 0.f, d, 1.f },
+            float4{ 0.f, 0.f, -d * z_near, 0.f }
         };
     }
 
-    inline float4x4 float4x4::perspective_rh(float fov_y_rad, float aspect, float z_near, float z_far) noexcept
+    inline float4x4 float4x4::perspective_rh(const float fov_y_rad, const float aspect, const float z_near,
+                                             const float z_far) noexcept
     {
-        float h = 1.0f / std::tan(fov_y_rad * 0.5f);
-        float w = h / aspect;
-        float d = z_far / (z_near - z_far); // note sign flip
+        const float h{ 1.f / std::tan(fov_y_rad * .5f) };
+        const float w{ h / aspect };
+        const float d{ z_far / (z_near - z_far) }; // note sign flip
 
         return float4x4{
-            float4{ w, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, h, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, d, -1.0f }, // flipped
-            float4{ 0.0f, 0.0f, d * z_near, 0.0f }
+            float4{ w, 0.f, 0.f, 0.f },
+            float4{ 0.f, h, 0.f, 0.f },
+            float4{ 0.f, 0.f, d, -1.f }, // flipped
+            float4{ 0.f, 0.f, d * z_near, 0.f }
         };
     }
 
-    inline float4x4 float4x4::ortho_lh(float width, float height, float z_near, float z_far) noexcept
+    inline float4x4 float4x4::ortho_lh(const float width, const float height, const float z_near,
+                                       const float z_far) noexcept
     {
-        float r = width * 0.5f;
-        float t = height * 0.5f;
+        const float r{ width * .5f };
+        const float t{ height * .5f };
 
         return float4x4{
-            float4{ 1.0f / r, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 1.0f / t, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, 1.0f / (z_far - z_near), 0.0f },
-            float4{ 0.0f, 0.0f, z_near / (z_near - z_far), 1.0f }
+            float4{ 1.f / r, 0.f, 0.f, 0.f },
+            float4{ 0.f, 1.f / t, 0.f, 0.f },
+            float4{ 0.f, 0.f, 1.f / (z_far - z_near), 0.f },
+            float4{ 0.f, 0.f, z_near / (z_near - z_far), 1.f }
         };
     }
 
-    inline float4x4 float4x4::ortho_rh(float width, float height, float z_near, float z_far) noexcept
+    inline float4x4 float4x4::ortho_rh(const float width, const float height, const float z_near,
+                                       const float z_far) noexcept
     {
-        float r = width * 0.5f;
-        float t = height * 0.5f;
+        const float r{ width * .5f };
+        const float t{ height * .5f };
 
         return float4x4{
-            float4{ 1.0f / r, 0.0f, 0.0f, 0.0f },
-            float4{ 0.0f, 1.0f / t, 0.0f, 0.0f },
-            float4{ 0.0f, 0.0f, -2.0f / (z_far - z_near), 0.0f },
-            float4{ 0.0f, 0.0f, (z_far + z_near) / (z_near - z_far), 1.0f }
+            float4{ 1.f / r, 0.f, 0.f, 0.f },
+            float4{ 0.f, 1.f / t, 0.f, 0.f },
+            float4{ 0.f, 0.f, -2.f / (z_far - z_near), 0.f },
+            float4{ 0.f, 0.f, (z_far + z_near) / (z_near - z_far), 1.f }
         };
     }
 } // namespace chlm

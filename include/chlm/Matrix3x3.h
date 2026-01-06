@@ -1,6 +1,6 @@
 //
 // Created by zshrout on 1/5/26.
-// Copyright (c) 2026 BunnySofty. All rights reserved.
+// Copyright (c) 2026 BunnySoft. All rights reserved.
 //
 
 #pragma once
@@ -14,12 +14,13 @@ namespace chlm {
     // ========================================
     struct float3x3
     {
-        float3 columns[3] = {
+        float3 columns[3]{
             float3{ 1.0f, 0.0f, 0.0f },
             float3{ 0.0f, 1.0f, 0.0f },
             float3{ 0.0f, 0.0f, 1.0f }
-        };
+        }; // default is identity
 
+        // Access column
         float3& operator[](int i)
         {
             assert(i >= 0 && i < 3);
@@ -32,24 +33,25 @@ namespace chlm {
             return columns[i];
         }
 
+        // Static builders
         static constexpr float3x3 identity() noexcept { return { }; }
 
         static float3x3 quat_to_float3x3_internal(const quat& q) noexcept
         {
-            float xx = q.x * q.x;
-            float yy = q.y * q.y;
-            float zz = q.z * q.z;
-            float xy = q.x * q.y;
-            float xz = q.x * q.z;
-            float yz = q.y * q.z;
-            float wx = q.w * q.x;
-            float wy = q.w * q.y;
-            float wz = q.w * q.z;
+            const float xx{ q.x * q.x };
+            const float yy{ q.y * q.y };
+            const float zz{ q.z * q.z };
+            const float xy{ q.x * q.y };
+            const float xz{ q.x * q.z };
+            const float yz{ q.y * q.z };
+            const float wx{ q.w * q.x };
+            const float wy{ q.w * q.y };
+            const float wz{ q.w * q.z };
 
             return float3x3{
-                float3{ 1.0f - 2.0f * (yy + zz), 2.0f * (xy - wz), 2.0f * (xz + wy) },
-                float3{ 2.0f * (xy + wz), 1.0f - 2.0f * (xx + zz), 2.0f * (yz - wx) },
-                float3{ 2.0f * (xz - wy), 2.0f * (yz + wx), 1.0f - 2.0f * (xx + yy) }
+                float3{ 1.f - 2.f * (yy + zz), 2.f * (xy - wz), 2.f * (xz + wy) },
+                float3{ 2.f * (xy + wz), 1.f - 2.f * (xx + zz), 2.f * (yz - wx) },
+                float3{ 2.f * (xz - wy), 2.f * (yz + wx), 1.f - 2.f * (xx + yy) }
             };
         }
 
@@ -96,48 +98,51 @@ namespace chlm {
 
     inline float3x3 inverse(const float3x3& m) noexcept
     {
-        // For pure rotation matrices, inverse = transpose
-        // (determinant = 1, orthonormal columns)
+        // Note: for pure rotation matrices, inverse = transpose
+        //       (determinant = 1, orthonormal columns)
         return transpose(m);
     }
 
     // ========================================
     // Builders
     // ========================================
-    inline float3x3 float3x3::rotate_x(float rad) noexcept
+    inline float3x3 float3x3::rotate_x(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float3x3{
-            float3{ 1.0f, 0.0f, 0.0f },
-            float3{ 0.0f, c, s },
-            float3{ 0.0f, -s, c }
+            float3{ 1.f, 0.f, 0.f },
+            float3{ 0.f, c, s },
+            float3{ 0.f, -s, c }
         };
     }
 
-    inline float3x3 float3x3::rotate_y(float rad) noexcept
+    inline float3x3 float3x3::rotate_y(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float3x3{
-            float3{ c, 0.0f, -s },
-            float3{ 0.0f, 1.0f, 0.0f },
-            float3{ s, 0.0f, c }
+            float3{ c, 0.f, -s },
+            float3{ 0.f, 1.f, 0.f },
+            float3{ s, 0.f, c }
         };
     }
 
-    inline float3x3 float3x3::rotate_z(float rad) noexcept
+    inline float3x3 float3x3::rotate_z(const float rad) noexcept
     {
-        float c = std::cos(rad);
-        float s = std::sin(rad);
+        const float c{ std::cos(rad) };
+        const float s{ std::sin(rad) };
+
         return float3x3{
-            float3{ c, s, 0.0f },
-            float3{ -s, c, 0.0f },
-            float3{ 0.0f, 0.0f, 1.0f }
+            float3{ c, s, 0.f },
+            float3{ -s, c, 0.f },
+            float3{ 0.f, 0.f, 1.f }
         };
     }
 
-    inline float3x3 float3x3::rotate_axis_angle(float3 axis, float rad) noexcept
+    inline float3x3 float3x3::rotate_axis_angle(const float3 axis, const float rad) noexcept
     {
         return quat_to_float3x3_internal(quat_from_axis_angle(axis, rad));
     }

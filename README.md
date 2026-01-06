@@ -1,8 +1,8 @@
-# CarrotHLM — Carrot HLSL Math 🥕
+# CarrotHLM - Carrot HLSL Math 🥕
 
 A fast, header-only, dependency-free math library for game engines and graphics, designed to feel like writing HLSL on the CPU.
 
-Built from the ground up with modern Clang/GCC **vector extensions**, CarrotHLM delivers **native 128-bit SIMD acceleration** (NEON on ARM64/Apple Silicon, SSE on x86_64) while providing the exact swizzle syntax and semantics you know from HLSL:
+Built from the ground up with modern Clang **vector extensions**, CarrotHLM delivers **native 128-bit SIMD acceleration** (NEON on ARM64/Apple Silicon, SSE on x86_64) while providing the exact swizzle syntax and semantics you know from HLSL:
 
 ```c++
 float4 pos{ 10.f, 20.f, 30.f, 40.f };
@@ -26,12 +26,12 @@ float2 uv  = pos.st;              // texture coords
 Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows (via clang-cl).
 
 ### Requirements
-- **Compiler**: Clang 15 or newer (required for full `ext_vector_type` swizzle support and consistent behavior across platforms).
-- GCC 11+ has partial support; MSVC is not supported (no equivalent vector extensions).
+- **Compiler**: Clang 15 or newer is highly recomended (required for full `ext_vector_type` swizzle support and consistent behavior across platforms).
+- GCC 11+ may have partial support; MSVC is not supported (no equivalent vector extensions).
 
 ### Integration (Git Submodule Recommended)
 ```bash
-git submodule add https://github.com/yourname/CarrotHLM extern/CarrotHLM
+git submodule add https://github.com/ZackShrout/CarrotHLM your_dependencies_folder/CarrotHLM
 ```
 In your CMakeLists.txt:
 ```cmake

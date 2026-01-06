@@ -1,6 +1,6 @@
 //
 // Created by Zack Shrout on 1/5/26.
-// Copyright (c) 2026 BunnySofty. All rights reserved.
+// Copyright (c) 2026 BunnySoft. All rights reserved.
 //
 
 #pragma once
