@@ -11,7 +11,15 @@
 #include "Matrix3x3.h"
 
 namespace chlm {
-    // Quaternion to float4x4
+    /**
+     * @brief Converts a unit quaternion to a 4x4 rotation matrix.
+     *
+     * The resulting matrix contains only rotation (no translation or scale).
+     * The bottom row is always {0, 0, 0, 1}.
+     *
+     * @param q Unit quaternion (assumed normalized).
+     * @return 4x4 homogeneous rotation matrix.
+     */
     inline float4x4 to_float4x4(const quat& q) noexcept
     {
         const float xx{ q.x * q.x };
@@ -32,7 +40,14 @@ namespace chlm {
         };
     }
 
-    // Quaternion to float3x3
+    /**
+     * @brief Converts a unit quaternion to a 3x3 rotation matrix.
+     *
+     * Equivalent to the upper 3x3 part of to_float4x4(q).
+     *
+     * @param q Unit quaternion (assumed normalized).
+     * @return 3x3 rotation matrix.
+     */
     inline float3x3 to_float3x3(const quat& q) noexcept
     {
         const float xx{ q.x * q.x };
@@ -52,7 +67,16 @@ namespace chlm {
         };
     }
 
-    // float3x3 to quaternion (assumes matrix is pure rotation)
+    /**
+     * @brief Extracts a quaternion from a 3x3 rotation matrix.
+     *
+     * Robust conversion that handles all cases (including singular trace).
+     * The input matrix must be orthonormal (pure rotation, det = 1).
+     * The resulting quaternion is normalized.
+     *
+     * @param m Orthonormal 3x3 rotation matrix.
+     * @return Equivalent unit quaternion.
+     */
     inline quat quat_from_float3x3(const float3x3& m) noexcept
     {
         quat q;
@@ -93,7 +117,12 @@ namespace chlm {
         return q;
     }
 
-    // Transpose float4x4
+    /**
+     * @brief Computes the transpose of a 4x4 matrix.
+     *
+     * @param m Input matrix.
+     * @return Transposed matrix (rows become columns).
+     */
     inline float4x4 transpose(const float4x4& m) noexcept
     {
         return float4x4{
@@ -104,8 +133,16 @@ namespace chlm {
         };
     }
 
-    // Fast affine inverse (rotation + translation + uniform scale)
-    // Assumes no shear, no projection - common for model matrices
+    /**
+     * @brief Fast inverse for affine transformation matrices.
+     *
+     * Assumes the matrix is composed of rotation (or rotation + uniform scale),
+     * translation, and no shear or projection - typical for object/model matrices.
+     * Much faster than general inverse.
+     *
+     * @param m Affine transformation matrix.
+     * @return Inverse matrix such that m * affine_inverse(m) ≈ identity.
+     */
     inline float4x4 affine_inverse(const float4x4& m) noexcept
     {
         const float3x3 rot{
@@ -127,8 +164,15 @@ namespace chlm {
         };
     }
 
-    // Normal matrix = inverse transpose of 3x3 rotation part
-    // Used to transform normals correctly under non-uniform scale
+    /**
+     * @brief Computes the normal matrix from a 4x4 transformation.
+     *
+     * The normal matrix is the inverse transpose of the upper 3x3 part.
+     * Used to correctly transform surface normals when non-uniform scaling is present.
+     *
+     * @param m Transformation matrix (model matrix).
+     * @return 3x3 matrix for transforming normals.
+     */
     inline float3x3 normal_matrix(const float4x4& m) noexcept
     {
         const float3x3 upper{

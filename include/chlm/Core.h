@@ -28,11 +28,44 @@ namespace chlm {
     // ========================================
     // Unit vectors
     // ========================================
+
+    /**
+     * @brief Positive X-axis unit vector (right).
+     * @return {1, 0, 0}
+     */
     constexpr float3 right()    { return { 1.f, 0.f, 0.f }; }
+
+    /**
+     * @brief Negative X-axis unit vector (left).
+     * @return {-1, 0, 0}
+     */
     constexpr float3 left()     { return { -1.f, 0.f, 0.f }; }
+
+    /**
+     * @brief Positive Y-axis unit vector (up).
+     * @return {0, 1, 0}
+     */
     constexpr float3 up()       { return { 0.f, 1.f, 0.f }; }
+
+    /**
+     * @brief Negative Y-axis unit vector (down).
+     * @return {0, -1, 0}
+     */
     constexpr float3 down()     { return { 0.f, -1.f, 0.f }; }
+
+    /**
+     * @brief Positive Z-axis unit vector (forward).
+     *
+     * Follows DirectX convention (+Z into the screen).
+     *
+     * @return {0, 0, 1}
+     */
     constexpr float3 forward()  { return { 0.f, 0.f, 1.f }; } // +Z (DirectX style)
+
+    /**
+     * @brief Negative Z-axis unit vector (back).
+     * @return {0, 0, -1}
+     */
     constexpr float3 back()     { return { 0.f, 0.f, -1.f }; }
 
     // ========================================
@@ -53,11 +86,30 @@ namespace chlm {
     // ========================================
     // Helper functions
     // ========================================
+
+    /**
+     * @brief Checks if two floating-point values are approximately equal.
+     *
+     * Uses absolute difference with a customizable tolerance.
+     *
+     * @param a First value.
+     * @param b Second value.
+     * @param eps Tolerance (defaults to chlm::epsilon = 1e-6f).
+     * @return true if |a - b| <= eps.
+     */
     constexpr bool almost_equal(const float a, const float b, const float eps = epsilon) noexcept
     {
         return std::abs(a - b) <= eps;
     }
 
+    /**
+     * @brief Clamps a value to the inclusive range [lo, hi].
+     *
+     * @param v Value to clamp.
+     * @param lo Lower bound.
+     * @param hi Upper bound.
+     * @return lo if v < lo, hi if v > hi, otherwise v.
+     */
     inline float clamp(const float v, const float lo, const float hi) noexcept
     {
         return v < lo ? lo : (v > hi ? hi : v);

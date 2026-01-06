@@ -14,10 +14,24 @@ namespace chlm {
     // ========================================
     using quat = float4;
 
-    // Constructors / constants
+    /**
+     * @brief Returns the identity quaternion.
+     *
+     * Represents no rotation (equivalent to a zero angle around any axis).
+     *
+     * @return Quaternion {0, 0, 0, 1}.
+     */
     constexpr quat quat_identity() noexcept { return quat{ 0.f, 0.f, 0.f, 1.f }; }
 
-    // Create from axis-angle (axis must be normalized)
+    /**
+     * @brief Creates a quaternion from a normalized axis and an angle.
+     *
+     * The axis must be unit-length for correct results.
+     *
+     * @param axis Normalized rotation axis.
+     * @param rad Rotation angle in radians.
+     * @return Quaternion representing the axis-angle rotation.
+     */
     inline quat quat_from_axis_angle(float3 axis, const float rad) noexcept
     {
         const float half{ rad * .5f };
@@ -26,7 +40,17 @@ namespace chlm {
         return quat{ axis.x * s, axis.y * s, axis.z * s, std::cos(half) };
     }
 
-    // Create from Euler angles (YPR: yaw Z, pitch X, roll Y — DirectX order)
+    /**
+     * @brief Creates a quaternion from Euler angles (yaw, pitch, roll).
+     *
+     * Uses DirectX/YZX order: yaw around Z, then pitch around X, then roll around Y.
+     * Angles are in radians.
+     *
+     * @param yaw_z   Yaw rotation around Z axis (in radians).
+     * @param pitch_x Pitch rotation around X axis (in radians).
+     * @param roll_y  Roll rotation around Y axis (in radians).
+     * @return Quaternion representing the combined rotation.
+     */
     inline quat quat_from_euler(const float yaw_z, const float pitch_x, const float roll_y) noexcept
     {
         const float cy{ std::cos(yaw_z * .5f) };
@@ -44,7 +68,15 @@ namespace chlm {
         };
     }
 
-    // Quaternion multiplication (Hamilton product)
+    /**
+     * @brief Multiplies two quaternions (Hamilton product).
+     *
+     * Equivalent to combining two rotations: result = a followed by b.
+     *
+     * @param a First quaternion (applied first in rotation order).
+     * @param b Second quaternion (applied after a).
+     * @return Quaternion representing the composed rotation.
+     */
     inline quat mul(const quat& a, const quat& b) noexcept
     {
         return quat{
@@ -55,13 +87,27 @@ namespace chlm {
         };
     }
 
-    // Conjugate (for unit quaternions, inverse = conjugate)
+    /**
+     * @brief Computes the conjugate of a quaternion.
+     *
+     * For unit quaternions, the conjugate is equal to the inverse.
+     *
+     * @param q Input quaternion.
+     * @return Conjugate quaternion {-x, -y, -z, w}.
+     */
     inline quat conjugate(const quat& q) noexcept
     {
         return quat{ -q.x, -q.y, -q.z, q.w };
     }
 
-    // Inverse (safe for non-unit — but assume normalized in hot paths)
+    /**
+     * @brief Computes the inverse of a quaternion.
+     *
+     * Safe for non-unit quaternions. Returns identity if quaternion is zero-length.
+     *
+     * @param q Input quaternion.
+     * @return Inverse quaternion such that q * inverse(q) = identity.
+     */
     inline quat inverse(const quat& q) noexcept
     {
         const float len_sq{ dot(q, q) };
@@ -72,13 +118,33 @@ namespace chlm {
         return conj * (1.f / len_sq);
     }
 
-    // Normalized linear interpolation (nlerp) — fast but less accurate
+    /**
+     * @brief Normalized linear interpolation between two quaternions.
+     *
+     * Fast but does not guarantee constant angular velocity.
+     * Result is always normalized.
+     *
+     * @param a Start quaternion.
+     * @param b End quaternion.
+     * @param t Interpolation factor (0 = a, 1 = b).
+     * @return Interpolated and normalized quaternion.
+     */
     inline quat nlerp(const quat& a, const quat& b, const float t) noexcept
     {
         return normalize(a + (b - a) * t);
     }
 
-    // Spherical linear interpolation (slerp) — constant angular velocity
+    /**
+     * @brief Spherical linear interpolation between two quaternions.
+     *
+     * Provides constant angular velocity along the shortest arc.
+     * Automatically handles the shortest path and falls back to nlerp when quaternions are nearly identical.
+     *
+     * @param a Start quaternion (should be unit-length).
+     * @param b End quaternion (should be unit-length).
+     * @param t Interpolation factor (0 = a, 1 = b).
+     * @return Interpolated quaternion along the great circle arc.
+     */
     inline quat slerp(const quat& a, const quat& b, const float t) noexcept
     {
         float d{ dot(a, b) };
@@ -106,7 +172,16 @@ namespace chlm {
         return a * wa + b_adj * wb;
     }
 
-    // Rotate a vector by quaternion (q * v * q^{-1})
+    /**
+     * @brief Rotates a 3D vector by a quaternion.
+     *
+     * Uses the formula q * v * q⁻¹. Assumes the quaternion is normalized
+     * (uses conjugate as inverse for performance).
+     *
+     * @param q Unit quaternion representing the rotation.
+     * @param v Vector to rotate.
+     * @return Rotated vector.
+     */
     inline float3 rotate_vector(const quat& q, float3 v) noexcept
     {
         const quat vq{ v.x, v.y, v.z, 0.f };
