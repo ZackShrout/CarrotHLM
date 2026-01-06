@@ -1,0 +1,7 @@
+build*/
+cmake-build-*/
+*.cmake
+CMakeCache.txt
+CMakeFiles/
+install/
+MATH_LIBRARY_MASTER_PLAN.md
