@@ -25,6 +25,8 @@ float2 uv  = pos.st;              // texture coords
 
 Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows (via clang-cl).
 
+[![API Documentation](https://img.shields.io/badge/docs-Doxygen-blue.svg)](https://zackshrout.github.io/CarrotHLM/)
+
 ### Requirements
 - **Compiler**: Clang 15 or newer is highly recomended (required for full `ext_vector_type` swizzle support and consistent behavior across platforms).
 - GCC 11+ may have partial support; MSVC is not supported (no equivalent vector extensions).
