@@ -56,11 +56,11 @@ namespace chlm {
     /**
      * @brief Positive Z-axis unit vector (forward).
      *
-     * Follows DirectX convention (+Z into the screen).
+     * Follows DirectX (Left-handed) convention (+Z into the screen).
      *
      * @return {0, 0, 1}
      */
-    constexpr float3 forward()  { return { 0.f, 0.f, 1.f }; } // +Z (DirectX style)
+    constexpr float3 forward()  { return { 0.f, 0.f, 1.f }; }
 
     /**
      * @brief Negative Z-axis unit vector (back).
@@ -110,7 +110,7 @@ namespace chlm {
      * @param hi Upper bound.
      * @return lo if v < lo, hi if v > hi, otherwise v.
      */
-    inline float clamp(const float v, const float lo, const float hi) noexcept
+    constexpr float clamp(const float v, const float lo, const float hi) noexcept
     {
         return v < lo ? lo : (v > hi ? hi : v);
     }

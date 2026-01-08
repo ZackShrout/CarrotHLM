@@ -53,69 +53,6 @@ namespace chlm {
          * @return 3x3 identity matrix.
          */
         static constexpr float3x3 identity() noexcept { return { }; }
-
-        /**
-         * @brief Converts a unit quaternion to a 3x3 rotation matrix.
-         *
-         * Internal helper — public version is free function quat_to_float3x3().
-         * Assumes quaternion is normalized.
-         *
-         * @param q Unit quaternion.
-         * @return Equivalent rotation matrix.
-         */
-        static float3x3 quat_to_float3x3_internal(const quat& q) noexcept
-        {
-            const float xx{ q.x * q.x };
-            const float yy{ q.y * q.y };
-            const float zz{ q.z * q.z };
-            const float xy{ q.x * q.y };
-            const float xz{ q.x * q.z };
-            const float yz{ q.y * q.z };
-            const float wx{ q.w * q.x };
-            const float wy{ q.w * q.y };
-            const float wz{ q.w * q.z };
-
-            return float3x3{
-                float3{ 1.f - 2.f * (yy + zz), 2.f * (xy - wz), 2.f * (xz + wy) },
-                float3{ 2.f * (xy + wz), 1.f - 2.f * (xx + zz), 2.f * (yz - wx) },
-                float3{ 2.f * (xz - wy), 2.f * (yz + wx), 1.f - 2.f * (xx + yy) }
-            };
-        }
-
-        /**
-         * @brief Creates a rotation matrix around the X axis.
-         *
-         * @param rad Angle in radians.
-         * @return Rotation matrix (right-handed, positive angle = counterclockwise).
-         */
-        static float3x3 rotate_x(float rad) noexcept;
-
-        /**
-         * @brief Creates a rotation matrix around the Y axis.
-         *
-         * @param rad Angle in radians.
-         * @return Rotation matrix (right-handed, positive angle = counterclockwise).
-         */
-        static float3x3 rotate_y(float rad) noexcept;
-
-        /**
-         * @brief Creates a rotation matrix around the Z axis.
-         *
-         * @param rad Angle in radians.
-         * @return Rotation matrix (right-handed, positive angle = counterclockwise).
-         */
-        static float3x3 rotate_z(float rad) noexcept;
-
-        /**
-         * @brief Creates a rotation matrix from an axis and angle.
-         *
-         * Axis must be normalized for correct results.
-         *
-         * @param axis Normalized rotation axis.
-         * @param rad  Angle in radians (right-handed).
-         * @return Rotation matrix.
-         */
-        static float3x3 rotate_axis_angle(float3 axis, float rad) noexcept;
     };
 
     // ========================================
@@ -131,7 +68,7 @@ namespace chlm {
      * @param v Vector to transform.
      * @return Transformed vector.
      */
-    inline float3 mul(const float3x3& m, const float3& v) noexcept
+    constexpr float3 mul(const float3x3& m, const float3& v) noexcept
     {
         return v.x * m.columns[0] +
                v.y * m.columns[1] +
@@ -147,7 +84,7 @@ namespace chlm {
      * @param b Second matrix (applied after).
      * @return Composed matrix.
      */
-    inline float3x3 mul(const float3x3& a, const float3x3& b) noexcept
+    constexpr float3x3 mul(const float3x3& a, const float3x3& b) noexcept
     {
         float3x3 result;
         result.columns[0] = mul(a, b.columns[0]);
@@ -159,12 +96,12 @@ namespace chlm {
     /**
      * @brief Matrix-vector multiplication operator.
      */
-    inline float3 operator*(const float3x3& m, const float3& v) noexcept { return mul(m, v); }
+    constexpr float3 operator*(const float3x3& m, const float3& v) noexcept { return mul(m, v); }
 
     /**
      * @brief Matrix-matrix multiplication operator.
      */
-    inline float3x3 operator*(const float3x3& a, const float3x3& b) noexcept { return mul(a, b); }
+    constexpr float3x3 operator*(const float3x3& a, const float3x3& b) noexcept { return mul(a, b); }
 
     // ========================================
     // Inverse (for rotation matrices: transpose = inverse)
@@ -179,9 +116,9 @@ namespace chlm {
      * @param m Input matrix.
      * @return Transposed matrix.
      */
-    inline float3x3 transpose(const float3x3& m) noexcept
+    constexpr float3x3 transpose(const float3x3& m) noexcept
     {
-        return float3x3{
+        return {
             float3{ m[0].x, m[1].x, m[2].x },
             float3{ m[0].y, m[1].y, m[2].y },
             float3{ m[0].z, m[1].z, m[2].z }
@@ -196,7 +133,7 @@ namespace chlm {
      * @param m Orthonormal rotation matrix.
      * @return Inverse matrix (equivalent to transpose).
      */
-    inline float3x3 inverse(const float3x3& m) noexcept
+    constexpr float3x3 inverse_orthonormal(const float3x3& m) noexcept
     {
         // Note: for pure rotation matrices, inverse = transpose
         //       (determinant = 1, orthonormal columns)
@@ -206,7 +143,14 @@ namespace chlm {
     // ========================================
     // Builders
     // ========================================
-    inline float3x3 float3x3::rotate_x(const float rad) noexcept
+
+    /**
+     * @brief Creates a rotation matrix around the X axis.
+     *
+     * @param rad Angle in radians.
+     * @return Rotation matrix (right-handed, positive angle = counterclockwise).
+     */
+    constexpr float3x3 rotate_x(const float rad) noexcept
     {
         const float c{ std::cos(rad) };
         const float s{ std::sin(rad) };
@@ -218,7 +162,13 @@ namespace chlm {
         };
     }
 
-    inline float3x3 float3x3::rotate_y(const float rad) noexcept
+    /**
+     * @brief Creates a rotation matrix around the Y axis.
+     *
+     * @param rad Angle in radians.
+     * @return Rotation matrix (right-handed, positive angle = counterclockwise).
+     */
+    constexpr float3x3 rotate_y(const float rad) noexcept
     {
         const float c{ std::cos(rad) };
         const float s{ std::sin(rad) };
@@ -230,7 +180,13 @@ namespace chlm {
         };
     }
 
-    inline float3x3 float3x3::rotate_z(const float rad) noexcept
+    /**
+     * @brief Creates a rotation matrix around the Z axis.
+     *
+     * @param rad Angle in radians.
+     * @return Rotation matrix (right-handed, positive angle = counterclockwise).
+     */
+    constexpr float3x3 rotate_z(const float rad) noexcept
     {
         const float c{ std::cos(rad) };
         const float s{ std::sin(rad) };
@@ -242,8 +198,33 @@ namespace chlm {
         };
     }
 
-    inline float3x3 float3x3::rotate_axis_angle(const float3 axis, const float rad) noexcept
+    /**
+     * @brief Creates a rotation matrix from an axis and angle.
+     *
+     * Axis must be normalized for correct results.
+     *
+     * @param axis Normalized rotation axis.
+     * @param rad  Angle in radians (right-handed).
+     * @return Rotation matrix.
+     */
+    inline float3x3 rotate_axis_angle(const float3 axis, const float rad) noexcept
     {
-        return quat_to_float3x3_internal(quat_from_axis_angle(axis, rad));
+        const quat q{ quat_from_axis_angle(axis, rad) };
+
+        const float xx{ q.x * q.x };
+        const float yy{ q.y * q.y };
+        const float zz{ q.z * q.z };
+        const float xy{ q.x * q.y };
+        const float xz{ q.x * q.z };
+        const float yz{ q.y * q.z };
+        const float wx{ q.w * q.x };
+        const float wy{ q.w * q.y };
+        const float wz{ q.w * q.z };
+
+        return {
+            float3{ 1.f - 2.f * (yy + zz), 2.f * (xy - wz), 2.f * (xz + wy) },
+            float3{ 2.f * (xy + wz), 1.f - 2.f * (xx + zz), 2.f * (yz - wx) },
+            float3{ 2.f * (xz - wy), 2.f * (yz + wx), 1.f - 2.f * (xx + yy) }
+        };
     }
 } // namespace chlm

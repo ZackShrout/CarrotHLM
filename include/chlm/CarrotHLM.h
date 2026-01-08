@@ -41,6 +41,7 @@
 #include "Core.h"
 #include "Vector.h"
 #include "Quaternion.h"
-#include "Matrix.h"
+#include "Matrix4x4.h"
 #include "Matrix3x3.h"
 #include "MathConversions.h"
+#include "Utilities.h"
