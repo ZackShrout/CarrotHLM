@@ -152,27 +152,60 @@ Functions</h2></td></tr>
 <tr class="memitem:a66cb1fb748f28528233ce044bb763e09" id="r_a66cb1fb748f28528233ce044bb763e09"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a66cb1fb748f28528233ce044bb763e09">almost_equal</a> (const float a, const float b, const float eps=<a class="el" href="namespacechlm.html#ae6d8ca05720a6287fab733817c52e4af">epsilon</a>) noexcept</td></tr>
 <tr class="memdesc:a66cb1fb748f28528233ce044bb763e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if two floating-point values are approximately equal.  <br /></td></tr>
 <tr class="separator:a66cb1fb748f28528233ce044bb763e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada8139128b35a6f4a0da242b56ea5805" id="r_ada8139128b35a6f4a0da242b56ea5805"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ada8139128b35a6f4a0da242b56ea5805">clamp</a> (const float v, const float lo, const float hi) noexcept</td></tr>
-<tr class="memdesc:ada8139128b35a6f4a0da242b56ea5805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps a value to the inclusive range [lo, hi].  <br /></td></tr>
-<tr class="separator:ada8139128b35a6f4a0da242b56ea5805"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab39c2af4029a831444b4d2e1e8155d6a" id="r_ab39c2af4029a831444b4d2e1e8155d6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ab39c2af4029a831444b4d2e1e8155d6a">to_float4x4</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q) noexcept</td></tr>
-<tr class="memdesc:ab39c2af4029a831444b4d2e1e8155d6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a unit quaternion to a 4x4 rotation matrix.  <br /></td></tr>
-<tr class="separator:ab39c2af4029a831444b4d2e1e8155d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b1be8b1f961bf949b65405b9c3fffb8" id="r_a1b1be8b1f961bf949b65405b9c3fffb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a1b1be8b1f961bf949b65405b9c3fffb8">to_float3x3</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q) noexcept</td></tr>
-<tr class="memdesc:a1b1be8b1f961bf949b65405b9c3fffb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a unit quaternion to a 3x3 rotation matrix.  <br /></td></tr>
-<tr class="separator:a1b1be8b1f961bf949b65405b9c3fffb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5aac2bc25b89374fef7a89ab8025274" id="r_ae5aac2bc25b89374fef7a89ab8025274"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae5aac2bc25b89374fef7a89ab8025274">quat_from_float3x3</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
-<tr class="memdesc:ae5aac2bc25b89374fef7a89ab8025274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a quaternion from a 3x3 rotation matrix.  <br /></td></tr>
-<tr class="separator:ae5aac2bc25b89374fef7a89ab8025274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e8849d521c1ac98ff1ea6a391311933" id="r_a8e8849d521c1ac98ff1ea6a391311933"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8e8849d521c1ac98ff1ea6a391311933">transpose</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
-<tr class="memdesc:a8e8849d521c1ac98ff1ea6a391311933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the transpose of a 4x4 matrix.  <br /></td></tr>
-<tr class="separator:a8e8849d521c1ac98ff1ea6a391311933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2288027db990406dde215de0b58e1ee3" id="r_a2288027db990406dde215de0b58e1ee3"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a2288027db990406dde215de0b58e1ee3">clamp</a> (const float v, const float lo, const float hi) noexcept</td></tr>
+<tr class="memdesc:a2288027db990406dde215de0b58e1ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps a value to the inclusive range [lo, hi].  <br /></td></tr>
+<tr class="separator:a2288027db990406dde215de0b58e1ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75313c71af94fd1bb0b3cec118174ccc" id="r_a75313c71af94fd1bb0b3cec118174ccc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a75313c71af94fd1bb0b3cec118174ccc">to_float4x4</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q) noexcept</td></tr>
+<tr class="memdesc:a75313c71af94fd1bb0b3cec118174ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a unit quaternion to a 4x4 rotation matrix.  <br /></td></tr>
+<tr class="separator:a75313c71af94fd1bb0b3cec118174ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd9bed94d0d7702941fd3f10beb0202f" id="r_acd9bed94d0d7702941fd3f10beb0202f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#acd9bed94d0d7702941fd3f10beb0202f">to_float3x3</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q) noexcept</td></tr>
+<tr class="memdesc:acd9bed94d0d7702941fd3f10beb0202f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a unit quaternion to a 3x3 rotation matrix.  <br /></td></tr>
+<tr class="separator:acd9bed94d0d7702941fd3f10beb0202f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a726a9759356c16bb8d659130656b3259" id="r_a726a9759356c16bb8d659130656b3259"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a726a9759356c16bb8d659130656b3259">quat_from_float3x3</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:a726a9759356c16bb8d659130656b3259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a quaternion from a 3x3 rotation matrix.  <br /></td></tr>
+<tr class="separator:a726a9759356c16bb8d659130656b3259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a574ae50e5e46570b690f24be8f0606a1" id="r_a574ae50e5e46570b690f24be8f0606a1"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a574ae50e5e46570b690f24be8f0606a1">transpose</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:a574ae50e5e46570b690f24be8f0606a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the transpose of a 4x4 matrix.  <br /></td></tr>
+<tr class="separator:a574ae50e5e46570b690f24be8f0606a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d1d7a95e8b488d497265afececced1d" id="r_a8d1d7a95e8b488d497265afececced1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8d1d7a95e8b488d497265afececced1d">affine_inverse</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
 <tr class="memdesc:a8d1d7a95e8b488d497265afececced1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast inverse for affine transformation matrices.  <br /></td></tr>
 <tr class="separator:a8d1d7a95e8b488d497265afececced1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2eacb1c24cdb60465804467ef41596e" id="r_ad2eacb1c24cdb60465804467ef41596e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad2eacb1c24cdb60465804467ef41596e">normal_matrix</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
-<tr class="memdesc:ad2eacb1c24cdb60465804467ef41596e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the normal matrix from a 4x4 transformation.  <br /></td></tr>
-<tr class="separator:ad2eacb1c24cdb60465804467ef41596e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d2fda808df2d7f551c87a1d8d5f060" id="r_ae8d2fda808df2d7f551c87a1d8d5f060"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae8d2fda808df2d7f551c87a1d8d5f060">normal_matrix</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:ae8d2fda808df2d7f551c87a1d8d5f060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the normal matrix from a 4x4 transformation.  <br /></td></tr>
+<tr class="separator:ae8d2fda808df2d7f551c87a1d8d5f060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e554d3b087f851c2efa47f10bc5a4e" id="r_ac2e554d3b087f851c2efa47f10bc5a4e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ac2e554d3b087f851c2efa47f10bc5a4e">inverse</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:ac2e554d3b087f851c2efa47f10bc5a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the general inverse of a 4x4 matrix.  <br /></td></tr>
+<tr class="separator:ac2e554d3b087f851c2efa47f10bc5a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae6764c13ce886a2a55008d30daffd0" id="r_a2ae6764c13ce886a2a55008d30daffd0"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a2ae6764c13ce886a2a55008d30daffd0">mul</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> &amp;v) noexcept</td></tr>
+<tr class="memdesc:a2ae6764c13ce886a2a55008d30daffd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies a 3x3 matrix by a 3D vector.  <br /></td></tr>
+<tr class="separator:a2ae6764c13ce886a2a55008d30daffd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d5c639e0fd46ed6ca571878bcc69d2" id="r_ab0d5c639e0fd46ed6ca571878bcc69d2"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ab0d5c639e0fd46ed6ca571878bcc69d2">mul</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;a, const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;b) noexcept</td></tr>
+<tr class="memdesc:ab0d5c639e0fd46ed6ca571878bcc69d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two 3x3 matrices.  <br /></td></tr>
+<tr class="separator:ab0d5c639e0fd46ed6ca571878bcc69d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f31bcf02b726092670ce8a0ee74d9c1" id="r_a3f31bcf02b726092670ce8a0ee74d9c1"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a3f31bcf02b726092670ce8a0ee74d9c1">operator*</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> &amp;v) noexcept</td></tr>
+<tr class="memdesc:a3f31bcf02b726092670ce8a0ee74d9c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix-vector multiplication operator.  <br /></td></tr>
+<tr class="separator:a3f31bcf02b726092670ce8a0ee74d9c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a01f3225ccf989bdaaf64003b9f715" id="r_ad9a01f3225ccf989bdaaf64003b9f715"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad9a01f3225ccf989bdaaf64003b9f715">operator*</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;a, const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;b) noexcept</td></tr>
+<tr class="memdesc:ad9a01f3225ccf989bdaaf64003b9f715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix-matrix multiplication operator.  <br /></td></tr>
+<tr class="separator:ad9a01f3225ccf989bdaaf64003b9f715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d7ad97b4e436e5ee9e1b8f4dc926da9" id="r_a0d7ad97b4e436e5ee9e1b8f4dc926da9"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a0d7ad97b4e436e5ee9e1b8f4dc926da9">transpose</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:a0d7ad97b4e436e5ee9e1b8f4dc926da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the transpose of a 3x3 matrix.  <br /></td></tr>
+<tr class="separator:a0d7ad97b4e436e5ee9e1b8f4dc926da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705836d9607fb469746ed9508875996d" id="r_a705836d9607fb469746ed9508875996d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a705836d9607fb469746ed9508875996d">inverse_orthonormal</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
+<tr class="memdesc:a705836d9607fb469746ed9508875996d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the inverse of a rotation matrix.  <br /></td></tr>
+<tr class="separator:a705836d9607fb469746ed9508875996d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd295af4d76817bbbec5aa932cff71b6" id="r_abd295af4d76817bbbec5aa932cff71b6"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#abd295af4d76817bbbec5aa932cff71b6">rotate_x</a> (const float rad) noexcept</td></tr>
+<tr class="memdesc:abd295af4d76817bbbec5aa932cff71b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rotation matrix around the X axis.  <br /></td></tr>
+<tr class="separator:abd295af4d76817bbbec5aa932cff71b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad93597a32d316090dee3a06b6326f21c" id="r_ad93597a32d316090dee3a06b6326f21c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad93597a32d316090dee3a06b6326f21c">rotate_y</a> (const float rad) noexcept</td></tr>
+<tr class="memdesc:ad93597a32d316090dee3a06b6326f21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rotation matrix around the Y axis.  <br /></td></tr>
+<tr class="separator:ad93597a32d316090dee3a06b6326f21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae55e29f9ef230e595f16831934c28f7c" id="r_ae55e29f9ef230e595f16831934c28f7c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae55e29f9ef230e595f16831934c28f7c">rotate_z</a> (const float rad) noexcept</td></tr>
+<tr class="memdesc:ae55e29f9ef230e595f16831934c28f7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rotation matrix around the Z axis.  <br /></td></tr>
+<tr class="separator:ae55e29f9ef230e595f16831934c28f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208a9a2cb21e52f6de86e45945e8fe4f" id="r_a208a9a2cb21e52f6de86e45945e8fe4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a208a9a2cb21e52f6de86e45945e8fe4f">rotate_axis_angle</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> axis, const float rad) noexcept</td></tr>
+<tr class="memdesc:a208a9a2cb21e52f6de86e45945e8fe4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a rotation matrix from an axis and angle.  <br /></td></tr>
+<tr class="separator:a208a9a2cb21e52f6de86e45945e8fe4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ad7ba16755298aabc05dc0ad28acc9" id="r_a22ad7ba16755298aabc05dc0ad28acc9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a22ad7ba16755298aabc05dc0ad28acc9">mul</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;m, const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> &amp;v) noexcept</td></tr>
 <tr class="memdesc:a22ad7ba16755298aabc05dc0ad28acc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies a 4x4 matrix by a 4D vector.  <br /></td></tr>
 <tr class="separator:a22ad7ba16755298aabc05dc0ad28acc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,24 +218,6 @@ Functions</h2></td></tr>
 <tr class="memitem:aef23ad23c20447816228d7c23b593e43" id="r_aef23ad23c20447816228d7c23b593e43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aef23ad23c20447816228d7c23b593e43">operator*</a> (const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;a, const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;b) noexcept</td></tr>
 <tr class="memdesc:aef23ad23c20447816228d7c23b593e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix-matrix multiplication operator.  <br /></td></tr>
 <tr class="separator:aef23ad23c20447816228d7c23b593e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cacaec297751fae7c4f576b6e1efa07" id="r_a9cacaec297751fae7c4f576b6e1efa07"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a9cacaec297751fae7c4f576b6e1efa07">mul</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> &amp;v) noexcept</td></tr>
-<tr class="memdesc:a9cacaec297751fae7c4f576b6e1efa07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies a 3x3 matrix by a 3D vector.  <br /></td></tr>
-<tr class="separator:a9cacaec297751fae7c4f576b6e1efa07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8c3d74d2668a3317011f29227a1f296" id="r_af8c3d74d2668a3317011f29227a1f296"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#af8c3d74d2668a3317011f29227a1f296">mul</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;a, const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;b) noexcept</td></tr>
-<tr class="memdesc:af8c3d74d2668a3317011f29227a1f296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies two 3x3 matrices.  <br /></td></tr>
-<tr class="separator:af8c3d74d2668a3317011f29227a1f296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99fd8c6f8f382c75e125edc19633c332" id="r_a99fd8c6f8f382c75e125edc19633c332"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a99fd8c6f8f382c75e125edc19633c332">operator*</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> &amp;v) noexcept</td></tr>
-<tr class="memdesc:a99fd8c6f8f382c75e125edc19633c332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix-vector multiplication operator.  <br /></td></tr>
-<tr class="separator:a99fd8c6f8f382c75e125edc19633c332"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a294e3851ee7aabddd1c8c7aa325a2e8f" id="r_a294e3851ee7aabddd1c8c7aa325a2e8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a294e3851ee7aabddd1c8c7aa325a2e8f">operator*</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;a, const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;b) noexcept</td></tr>
-<tr class="memdesc:a294e3851ee7aabddd1c8c7aa325a2e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Matrix-matrix multiplication operator.  <br /></td></tr>
-<tr class="separator:a294e3851ee7aabddd1c8c7aa325a2e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad998bc24657845ffd5579a835977859e" id="r_ad998bc24657845ffd5579a835977859e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad998bc24657845ffd5579a835977859e">transpose</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
-<tr class="memdesc:ad998bc24657845ffd5579a835977859e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the transpose of a 3x3 matrix.  <br /></td></tr>
-<tr class="separator:ad998bc24657845ffd5579a835977859e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec2ebc293633217c69cfae5a5828f0a" id="r_afec2ebc293633217c69cfae5a5828f0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#afec2ebc293633217c69cfae5a5828f0a">inverse</a> (const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;m) noexcept</td></tr>
-<tr class="memdesc:afec2ebc293633217c69cfae5a5828f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the inverse of a rotation matrix.  <br /></td></tr>
-<tr class="separator:afec2ebc293633217c69cfae5a5828f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bdd5bd89e153f07b99ee5d45ca35ec7" id="r_a9bdd5bd89e153f07b99ee5d45ca35ec7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a9bdd5bd89e153f07b99ee5d45ca35ec7">quat_identity</a> () noexcept</td></tr>
 <tr class="memdesc:a9bdd5bd89e153f07b99ee5d45ca35ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the identity quaternion.  <br /></td></tr>
 <tr class="separator:a9bdd5bd89e153f07b99ee5d45ca35ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -230,51 +245,75 @@ Functions</h2></td></tr>
 <tr class="memitem:a7cecff3920928cc0d2784a66e1835385" id="r_a7cecff3920928cc0d2784a66e1835385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a7cecff3920928cc0d2784a66e1835385">rotate_vector</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q, <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
 <tr class="memdesc:a7cecff3920928cc0d2784a66e1835385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates a 3D vector by a quaternion.  <br /></td></tr>
 <tr class="separator:a7cecff3920928cc0d2784a66e1835385"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2fc04beada4b62a0061dcc6e3c5a02" id="r_afe2fc04beada4b62a0061dcc6e3c5a02"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#afe2fc04beada4b62a0061dcc6e3c5a02">dot</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> a, const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> b) noexcept</td></tr>
-<tr class="memdesc:afe2fc04beada4b62a0061dcc6e3c5a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
-<tr class="separator:afe2fc04beada4b62a0061dcc6e3c5a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e6adf2aacadeb8399a15c9f2ac263e7" id="r_a0e6adf2aacadeb8399a15c9f2ac263e7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a0e6adf2aacadeb8399a15c9f2ac263e7">dot</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
-<tr class="memdesc:a0e6adf2aacadeb8399a15c9f2ac263e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
-<tr class="separator:a0e6adf2aacadeb8399a15c9f2ac263e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa687f880de9e7591bcbe0a079f634ae3" id="r_aa687f880de9e7591bcbe0a079f634ae3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa687f880de9e7591bcbe0a079f634ae3">dot</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> a, const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> b) noexcept</td></tr>
-<tr class="memdesc:aa687f880de9e7591bcbe0a079f634ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
-<tr class="separator:aa687f880de9e7591bcbe0a079f634ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cfab77cea14d7b75e56cee1f03f3132" id="r_a8cfab77cea14d7b75e56cee1f03f3132"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8cfab77cea14d7b75e56cee1f03f3132">length_squared</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
-<tr class="memdesc:a8cfab77cea14d7b75e56cee1f03f3132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
-<tr class="separator:a8cfab77cea14d7b75e56cee1f03f3132"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8d5cd9661e2bd6252d1e30736305a6d" id="r_af8d5cd9661e2bd6252d1e30736305a6d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#af8d5cd9661e2bd6252d1e30736305a6d">length_squared</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
-<tr class="memdesc:af8d5cd9661e2bd6252d1e30736305a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
-<tr class="separator:af8d5cd9661e2bd6252d1e30736305a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a630e2b97a0e18bb2e59a90c8ae66e313" id="r_a630e2b97a0e18bb2e59a90c8ae66e313"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a630e2b97a0e18bb2e59a90c8ae66e313">length_squared</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
-<tr class="memdesc:a630e2b97a0e18bb2e59a90c8ae66e313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
-<tr class="separator:a630e2b97a0e18bb2e59a90c8ae66e313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a4a8e2e3b955c33a246ddde72351e00" id="r_a3a4a8e2e3b955c33a246ddde72351e00"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a3a4a8e2e3b955c33a246ddde72351e00">length</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
-<tr class="separator:a3a4a8e2e3b955c33a246ddde72351e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa1e1c7bac72c6e7636beada6861d7c4" id="r_afa1e1c7bac72c6e7636beada6861d7c4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#afa1e1c7bac72c6e7636beada6861d7c4">length</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
-<tr class="separator:afa1e1c7bac72c6e7636beada6861d7c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab295e51b85586a918441af862c83ed4" id="r_aab295e51b85586a918441af862c83ed4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aab295e51b85586a918441af862c83ed4">length</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
-<tr class="separator:aab295e51b85586a918441af862c83ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85bac571ba384b11c8495e4c321a6b7d" id="r_a85bac571ba384b11c8495e4c321a6b7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a85bac571ba384b11c8495e4c321a6b7d">normalize</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
-<tr class="memdesc:a85bac571ba384b11c8495e4c321a6b7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
-<tr class="separator:a85bac571ba384b11c8495e4c321a6b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad79cbcd66314076ca02949c5b6389b45" id="r_ad79cbcd66314076ca02949c5b6389b45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad79cbcd66314076ca02949c5b6389b45">normalize</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
-<tr class="memdesc:ad79cbcd66314076ca02949c5b6389b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
-<tr class="separator:ad79cbcd66314076ca02949c5b6389b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cf7e4ee16cbe9282214f75b44df8abc" id="r_a9cf7e4ee16cbe9282214f75b44df8abc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a9cf7e4ee16cbe9282214f75b44df8abc">normalize</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
-<tr class="memdesc:a9cf7e4ee16cbe9282214f75b44df8abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
-<tr class="separator:a9cf7e4ee16cbe9282214f75b44df8abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae5027dacf6017d7b7a5df6deb224263" id="r_aae5027dacf6017d7b7a5df6deb224263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aae5027dacf6017d7b7a5df6deb224263">cross</a> (<a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
-<tr class="memdesc:aae5027dacf6017d7b7a5df6deb224263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the cross product of two 3D vectors.  <br /></td></tr>
-<tr class="separator:aae5027dacf6017d7b7a5df6deb224263"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c3d615c7134724f8a186c8837c7f99" id="r_a05c3d615c7134724f8a186c8837c7f99"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a05c3d615c7134724f8a186c8837c7f99">lerp</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> a, const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> b, const float t) noexcept</td></tr>
-<tr class="memdesc:a05c3d615c7134724f8a186c8837c7f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
-<tr class="separator:a05c3d615c7134724f8a186c8837c7f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af87e3422c79fbab7d2e3208d9807800b" id="r_af87e3422c79fbab7d2e3208d9807800b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#af87e3422c79fbab7d2e3208d9807800b">lerp</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b, const float t) noexcept</td></tr>
-<tr class="memdesc:af87e3422c79fbab7d2e3208d9807800b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
-<tr class="separator:af87e3422c79fbab7d2e3208d9807800b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91507432e900de3ccbdb30bc072e9e1" id="r_ad91507432e900de3ccbdb30bc072e9e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad91507432e900de3ccbdb30bc072e9e1">lerp</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> a, const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> b, const float t) noexcept</td></tr>
-<tr class="memdesc:ad91507432e900de3ccbdb30bc072e9e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
-<tr class="separator:ad91507432e900de3ccbdb30bc072e9e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c95cc39d4bc3f7a273002b512cb3f1" id="r_a97c95cc39d4bc3f7a273002b512cb3f1"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a97c95cc39d4bc3f7a273002b512cb3f1">reflect</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> i, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> n) noexcept</td></tr>
+<tr class="memdesc:a97c95cc39d4bc3f7a273002b512cb3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflects an incident vector across a surface normal.  <br /></td></tr>
+<tr class="separator:a97c95cc39d4bc3f7a273002b512cb3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a2710f3b89e21747b475b8c0d74488" id="r_aa6a2710f3b89e21747b475b8c0d74488"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa6a2710f3b89e21747b475b8c0d74488">refract</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> i, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> n, float eta) noexcept</td></tr>
+<tr class="memdesc:aa6a2710f3b89e21747b475b8c0d74488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the refraction direction using Snell's law.  <br /></td></tr>
+<tr class="separator:aa6a2710f3b89e21747b475b8c0d74488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca143762265196d2207aca8a8e6ea680" id="r_aca143762265196d2207aca8a8e6ea680"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aca143762265196d2207aca8a8e6ea680">faceforward</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> n, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> i, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> nref) noexcept</td></tr>
+<tr class="memdesc:aca143762265196d2207aca8a8e6ea680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orients a normal to point towards the same hemisphere as the incident direction.  <br /></td></tr>
+<tr class="separator:aca143762265196d2207aca8a8e6ea680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41e327291dd2b5681befed5d936ae6b0" id="r_a41e327291dd2b5681befed5d936ae6b0"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a41e327291dd2b5681befed5d936ae6b0">angle_between</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
+<tr class="memdesc:a41e327291dd2b5681befed5d936ae6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the angle in radians between two vectors.  <br /></td></tr>
+<tr class="separator:a41e327291dd2b5681befed5d936ae6b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8fb31dca8dca6e35d82d8cb8c8c24a" id="r_aad8fb31dca8dca6e35d82d8cb8c8c24a"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aad8fb31dca8dca6e35d82d8cb8c8c24a">angle_between_normalized</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
+<tr class="memdesc:aad8fb31dca8dca6e35d82d8cb8c8c24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the angle in radians between two normalized vectors.  <br /></td></tr>
+<tr class="separator:aad8fb31dca8dca6e35d82d8cb8c8c24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a859ec9384a2837571ab59778f1dd6d0f" id="r_a859ec9384a2837571ab59778f1dd6d0f"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a859ec9384a2837571ab59778f1dd6d0f">distance_point_plane</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> point, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> plane_normal, float plane_d) noexcept</td></tr>
+<tr class="memdesc:a859ec9384a2837571ab59778f1dd6d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed distance from a point to a plane defined as dot(p, normal) + d = 0.  <br /></td></tr>
+<tr class="separator:a859ec9384a2837571ab59778f1dd6d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bb279136a5378419da957d8b8893130" id="r_a1bb279136a5378419da957d8b8893130"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a1bb279136a5378419da957d8b8893130">distance_point_plane</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> point, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> plane_normal, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> point_on_plane) noexcept</td></tr>
+<tr class="memdesc:a1bb279136a5378419da957d8b8893130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed distance from a point to a plane defined by a normal and a point on the plane.  <br /></td></tr>
+<tr class="separator:a1bb279136a5378419da957d8b8893130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9bf29d574df6bdc003bddbb0c39dc0b" id="r_ab9bf29d574df6bdc003bddbb0c39dc0b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ab9bf29d574df6bdc003bddbb0c39dc0b">project_vector</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> onto) noexcept</td></tr>
+<tr class="memdesc:ab9bf29d574df6bdc003bddbb0c39dc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projects vector v onto the direction of another vector.  <br /></td></tr>
+<tr class="separator:ab9bf29d574df6bdc003bddbb0c39dc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5511313dd055a08476168f1359dd8b" id="r_aaf5511313dd055a08476168f1359dd8b"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aaf5511313dd055a08476168f1359dd8b">dot</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> a, const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> b) noexcept</td></tr>
+<tr class="memdesc:aaf5511313dd055a08476168f1359dd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
+<tr class="separator:aaf5511313dd055a08476168f1359dd8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ee86a26941f039316171c954ab81c80" id="r_a4ee86a26941f039316171c954ab81c80"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a4ee86a26941f039316171c954ab81c80">dot</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
+<tr class="memdesc:a4ee86a26941f039316171c954ab81c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
+<tr class="separator:a4ee86a26941f039316171c954ab81c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef63ae8f7665c9f4b11d863381c0ba5f" id="r_aef63ae8f7665c9f4b11d863381c0ba5f"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aef63ae8f7665c9f4b11d863381c0ba5f">dot</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> a, const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> b) noexcept</td></tr>
+<tr class="memdesc:aef63ae8f7665c9f4b11d863381c0ba5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the dot (scalar) product of two vectors.  <br /></td></tr>
+<tr class="separator:aef63ae8f7665c9f4b11d863381c0ba5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d9d9dc82443be3cb64122a6a1c82c48" id="r_a2d9d9dc82443be3cb64122a6a1c82c48"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a2d9d9dc82443be3cb64122a6a1c82c48">length_squared</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
+<tr class="memdesc:a2d9d9dc82443be3cb64122a6a1c82c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
+<tr class="separator:a2d9d9dc82443be3cb64122a6a1c82c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa01fdbf4d30d6f65529e42725cc77b67" id="r_aa01fdbf4d30d6f65529e42725cc77b67"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa01fdbf4d30d6f65529e42725cc77b67">length_squared</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
+<tr class="memdesc:aa01fdbf4d30d6f65529e42725cc77b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
+<tr class="separator:aa01fdbf4d30d6f65529e42725cc77b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51f8b4c8730c7546c21a259aa1fc8e54" id="r_a51f8b4c8730c7546c21a259aa1fc8e54"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a51f8b4c8730c7546c21a259aa1fc8e54">length_squared</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
+<tr class="memdesc:a51f8b4c8730c7546c21a259aa1fc8e54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared length (magnitude) of a vector.  <br /></td></tr>
+<tr class="separator:a51f8b4c8730c7546c21a259aa1fc8e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43cf18dc3fe0bb4938b4c109124d98ef" id="r_a43cf18dc3fe0bb4938b4c109124d98ef"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a43cf18dc3fe0bb4938b4c109124d98ef">length</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
+<tr class="separator:a43cf18dc3fe0bb4938b4c109124d98ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a948f44e497e888ace1af8c9df01b2fcc" id="r_a948f44e497e888ace1af8c9df01b2fcc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a948f44e497e888ace1af8c9df01b2fcc">length</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
+<tr class="separator:a948f44e497e888ace1af8c9df01b2fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0389a62dc2255451489225b292920ecc" id="r_a0389a62dc2255451489225b292920ecc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a0389a62dc2255451489225b292920ecc">length</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
+<tr class="separator:a0389a62dc2255451489225b292920ecc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d0f8648d7dacacb62200ef89942f5c" id="r_a24d0f8648d7dacacb62200ef89942f5c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a24d0f8648d7dacacb62200ef89942f5c">normalize</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> v) noexcept</td></tr>
+<tr class="memdesc:a24d0f8648d7dacacb62200ef89942f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
+<tr class="separator:a24d0f8648d7dacacb62200ef89942f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2379f910dd98a13328aaa273d10a2acb" id="r_a2379f910dd98a13328aaa273d10a2acb"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a2379f910dd98a13328aaa273d10a2acb">normalize</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
+<tr class="memdesc:a2379f910dd98a13328aaa273d10a2acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
+<tr class="separator:a2379f910dd98a13328aaa273d10a2acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbeff24f46060062ba94dbedd33fd0f" id="r_a4cbeff24f46060062ba94dbedd33fd0f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a4cbeff24f46060062ba94dbedd33fd0f">normalize</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> v) noexcept</td></tr>
+<tr class="memdesc:a4cbeff24f46060062ba94dbedd33fd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
+<tr class="separator:a4cbeff24f46060062ba94dbedd33fd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b1cf74b1f032b1e7e492ef5a937c5b7" id="r_a0b1cf74b1f032b1e7e492ef5a937c5b7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a0b1cf74b1f032b1e7e492ef5a937c5b7">cross</a> (<a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b) noexcept</td></tr>
+<tr class="memdesc:a0b1cf74b1f032b1e7e492ef5a937c5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the cross product of two 3D vectors.  <br /></td></tr>
+<tr class="separator:a0b1cf74b1f032b1e7e492ef5a937c5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad468a3fdd295f0756b72f81390964209" id="r_ad468a3fdd295f0756b72f81390964209"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad468a3fdd295f0756b72f81390964209">lerp</a> (const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> a, const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> b, const float t) noexcept</td></tr>
+<tr class="memdesc:ad468a3fdd295f0756b72f81390964209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
+<tr class="separator:ad468a3fdd295f0756b72f81390964209"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a830e522463592e925b00f4bc1709a3df" id="r_a830e522463592e925b00f4bc1709a3df"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a830e522463592e925b00f4bc1709a3df">lerp</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> a, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> b, const float t) noexcept</td></tr>
+<tr class="memdesc:a830e522463592e925b00f4bc1709a3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
+<tr class="separator:a830e522463592e925b00f4bc1709a3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54085ba718448038e028ad07e30656d6" id="r_a54085ba718448038e028ad07e30656d6"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a54085ba718448038e028ad07e30656d6">lerp</a> (const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> a, const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> b, const float t) noexcept</td></tr>
+<tr class="memdesc:a54085ba718448038e028ad07e30656d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two values.  <br /></td></tr>
+<tr class="separator:a54085ba718448038e028ad07e30656d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -531,6 +570,100 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a41e327291dd2b5681befed5d936ae6b0" name="a41e327291dd2b5681befed5d936ae6b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41e327291dd2b5681befed5d936ae6b0">&#9670;&#160;</a></span>angle_between()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float chlm::angle_between </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the angle in radians between two vectors. </p>
+<p>Safe against zero-length vectors and numerical issues.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>First vector. </td></tr>
+    <tr><td class="paramname">b</td><td>Second vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Angle in radians [0, π]. Returns 0 if either vector has zero length. </dd></dl>
+
+</div>
+</div>
+<a id="aad8fb31dca8dca6e35d82d8cb8c8c24a" name="aad8fb31dca8dca6e35d82d8cb8c8c24a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8fb31dca8dca6e35d82d8cb8c8c24a">&#9670;&#160;</a></span>angle_between_normalized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float chlm::angle_between_normalized </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the angle in radians between two normalized vectors. </p>
+<p>Faster variant that assumes both inputs are already unit length. Use this when you know the vectors are normalized.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Normalized vector. </td></tr>
+    <tr><td class="paramname">b</td><td>Normalized vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Angle in radians [0, π]. </dd></dl>
+
+</div>
+</div>
 <a id="a074c37780f161774f995987465960f0c" name="a074c37780f161774f995987465960f0c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a074c37780f161774f995987465960f0c">&#9670;&#160;</a></span>back()</h2>
 
@@ -559,8 +692,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ada8139128b35a6f4a0da242b56ea5805" name="ada8139128b35a6f4a0da242b56ea5805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada8139128b35a6f4a0da242b56ea5805">&#9670;&#160;</a></span>clamp()</h2>
+<a id="a2288027db990406dde215de0b58e1ee3" name="a2288027db990406dde215de0b58e1ee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2288027db990406dde215de0b58e1ee3">&#9670;&#160;</a></span>clamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -569,7 +702,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::clamp </td>
+          <td class="memname">constexpr float chlm::clamp </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
           <td class="paramname"><em>v</em>, </td>
@@ -594,7 +727,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -648,8 +781,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aae5027dacf6017d7b7a5df6deb224263" name="aae5027dacf6017d7b7a5df6deb224263"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae5027dacf6017d7b7a5df6deb224263">&#9670;&#160;</a></span>cross()</h2>
+<a id="a0b1cf74b1f032b1e7e492ef5a937c5b7" name="a0b1cf74b1f032b1e7e492ef5a937c5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b1cf74b1f032b1e7e492ef5a937c5b7">&#9670;&#160;</a></span>cross()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -658,7 +791,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::cross </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::cross </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -677,7 +810,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -695,8 +828,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="afe2fc04beada4b62a0061dcc6e3c5a02" name="afe2fc04beada4b62a0061dcc6e3c5a02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe2fc04beada4b62a0061dcc6e3c5a02">&#9670;&#160;</a></span>dot() <span class="overload">[1/3]</span></h2>
+<a id="a1bb279136a5378419da957d8b8893130" name="a1bb279136a5378419da957d8b8893130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb279136a5378419da957d8b8893130">&#9670;&#160;</a></span>distance_point_plane() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -705,7 +838,115 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::dot </td>
+          <td class="memname">constexpr float chlm::distance_point_plane </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>plane_normal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>point_on_plane</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signed distance from a point to a plane defined by a normal and a point on the plane. </p>
+<p>Positive values are on the side the normal points towards.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Point to test. </td></tr>
+    <tr><td class="paramname">plane_normal</td><td>Normalized plane normal. </td></tr>
+    <tr><td class="paramname">point_on_plane</td><td>Any point lying on the plane. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Signed distance to the plane. </dd></dl>
+
+</div>
+</div>
+<a id="a859ec9384a2837571ab59778f1dd6d0f" name="a859ec9384a2837571ab59778f1dd6d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859ec9384a2837571ab59778f1dd6d0f">&#9670;&#160;</a></span>distance_point_plane() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float chlm::distance_point_plane </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>plane_normal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>plane_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signed distance from a point to a plane defined as dot(p, normal) + d = 0. </p>
+<p>Positive values are on the side the normal points towards.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">point</td><td>Point to test. </td></tr>
+    <tr><td class="paramname">plane_normal</td><td>Normalized plane normal. </td></tr>
+    <tr><td class="paramname">plane_d</td><td>Plane constant (distance offset). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Signed distance to the plane. </dd></dl>
+
+</div>
+</div>
+<a id="aaf5511313dd055a08476168f1359dd8b" name="aaf5511313dd055a08476168f1359dd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf5511313dd055a08476168f1359dd8b">&#9670;&#160;</a></span>dot() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr float chlm::dot </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -724,7 +965,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -741,8 +982,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a0e6adf2aacadeb8399a15c9f2ac263e7" name="a0e6adf2aacadeb8399a15c9f2ac263e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e6adf2aacadeb8399a15c9f2ac263e7">&#9670;&#160;</a></span>dot() <span class="overload">[2/3]</span></h2>
+<a id="a4ee86a26941f039316171c954ab81c80" name="a4ee86a26941f039316171c954ab81c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ee86a26941f039316171c954ab81c80">&#9670;&#160;</a></span>dot() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -751,7 +992,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::dot </td>
+          <td class="memname">constexpr float chlm::dot </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -770,7 +1011,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -787,8 +1028,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa687f880de9e7591bcbe0a079f634ae3" name="aa687f880de9e7591bcbe0a079f634ae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa687f880de9e7591bcbe0a079f634ae3">&#9670;&#160;</a></span>dot() <span class="overload">[3/3]</span></h2>
+<a id="aef63ae8f7665c9f4b11d863381c0ba5f" name="aef63ae8f7665c9f4b11d863381c0ba5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef63ae8f7665c9f4b11d863381c0ba5f">&#9670;&#160;</a></span>dot() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -797,7 +1038,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::dot </td>
+          <td class="memname">constexpr float chlm::dot </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -816,7 +1057,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -861,6 +1102,60 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aca143762265196d2207aca8a8e6ea680" name="aca143762265196d2207aca8a8e6ea680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca143762265196d2207aca8a8e6ea680">&#9670;&#160;</a></span>faceforward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::faceforward </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>nref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Orients a normal to point towards the same hemisphere as the incident direction. </p>
+<p>Equivalent to GLSL/HLSL <a class="el" href="namespacechlm.html#aca143762265196d2207aca8a8e6ea680" title="Orients a normal to point towards the same hemisphere as the incident direction.">faceforward()</a>. Useful for ensuring consistent normal direction in shading (e.g., when a normal map might flip the geometric normal).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Normal to potentially flip. </td></tr>
+    <tr><td class="paramname">i</td><td>Incident direction (typically view direction or light direction). </td></tr>
+    <tr><td class="paramname">nref</td><td>Reference normal (usually the geometric or interpolated normal). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>n if dot(nref, i) &gt;= 0, otherwise -n. </dd></dl>
+
+</div>
+</div>
 <a id="a96d5269e025ada05113501010e9e2e22" name="a96d5269e025ada05113501010e9e2e22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96d5269e025ada05113501010e9e2e22">&#9670;&#160;</a></span>forward()</h2>
 
@@ -885,13 +1180,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Positive Z-axis unit vector (forward). </p>
-<p>Follows DirectX convention (+Z into the screen).</p>
+<p>Follows DirectX (Left-handed) convention (+Z into the screen).</p>
 <dl class="section return"><dt>Returns</dt><dd>{0, 0, 1} </dd></dl>
 
 </div>
 </div>
-<a id="afec2ebc293633217c69cfae5a5828f0a" name="afec2ebc293633217c69cfae5a5828f0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec2ebc293633217c69cfae5a5828f0a">&#9670;&#160;</a></span>inverse() <span class="overload">[1/2]</span></h2>
+<a id="ac2e554d3b087f851c2efa47f10bc5a4e" name="ac2e554d3b087f851c2efa47f10bc5a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e554d3b087f851c2efa47f10bc5a4e">&#9670;&#160;</a></span>inverse() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -900,29 +1195,30 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::inverse </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> chlm::inverse </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the inverse of a rotation matrix. </p>
-<p>Fast path: returns transpose (valid only for orthonormal matrices with det = 1).</p>
+<p>Computes the general inverse of a 4x4 matrix. </p>
+<p>Uses Gauss-Jordan elimination with partial pivoting for numerical stability. This is a full inverse that works for any invertible 4x4 matrix (including those with projection, shear, or non-uniform scaling).</p>
+<dl class="section note"><dt>Note</dt><dd>This is significantly slower than <a class="el" href="namespacechlm.html#a8d1d7a95e8b488d497265afececced1d" title="Fast inverse for affine transformation matrices.">affine_inverse()</a> or assuming an orthonormal basis. Use only when a full inverse is required (e.g. for view-projection matrices or arbitrary transformations). For model matrices, prefer <a class="el" href="namespacechlm.html#a8d1d7a95e8b488d497265afececced1d" title="Fast inverse for affine transformation matrices.">affine_inverse()</a>.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">m</td><td>Orthonormal rotation matrix. </td></tr>
+    <tr><td class="paramname">m</td><td>The matrix to invert. Must be invertible. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Inverse matrix (equivalent to transpose). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The inverse matrix such that m * inverse(m) ≈ identity. If the matrix is singular (determinant ≈ 0), returns the identity matrix as a safe fallback. </dd></dl>
 
 </div>
 </div>
@@ -962,6 +1258,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a705836d9607fb469746ed9508875996d" name="a705836d9607fb469746ed9508875996d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a705836d9607fb469746ed9508875996d">&#9670;&#160;</a></span>inverse_orthonormal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::inverse_orthonormal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the inverse of a rotation matrix. </p>
+<p>Fast path: returns transpose (valid only for orthonormal matrices with det = 1).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Orthonormal rotation matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Inverse matrix (equivalent to transpose). </dd></dl>
+
+</div>
+</div>
 <a id="aeab5d37b04d03bcc94ba162591356d61" name="aeab5d37b04d03bcc94ba162591356d61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeab5d37b04d03bcc94ba162591356d61">&#9670;&#160;</a></span>left()</h2>
 
@@ -990,8 +1322,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a4a8e2e3b955c33a246ddde72351e00" name="a3a4a8e2e3b955c33a246ddde72351e00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a4a8e2e3b955c33a246ddde72351e00">&#9670;&#160;</a></span>length() <span class="overload">[1/3]</span></h2>
+<a id="a43cf18dc3fe0bb4938b4c109124d98ef" name="a43cf18dc3fe0bb4938b4c109124d98ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43cf18dc3fe0bb4938b4c109124d98ef">&#9670;&#160;</a></span>length() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1000,7 +1332,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length </td>
+          <td class="memname">constexpr float chlm::length </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1009,7 +1341,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1024,8 +1356,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="afa1e1c7bac72c6e7636beada6861d7c4" name="afa1e1c7bac72c6e7636beada6861d7c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa1e1c7bac72c6e7636beada6861d7c4">&#9670;&#160;</a></span>length() <span class="overload">[2/3]</span></h2>
+<a id="a948f44e497e888ace1af8c9df01b2fcc" name="a948f44e497e888ace1af8c9df01b2fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a948f44e497e888ace1af8c9df01b2fcc">&#9670;&#160;</a></span>length() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1034,7 +1366,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length </td>
+          <td class="memname">constexpr float chlm::length </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1043,7 +1375,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1058,8 +1390,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aab295e51b85586a918441af862c83ed4" name="aab295e51b85586a918441af862c83ed4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab295e51b85586a918441af862c83ed4">&#9670;&#160;</a></span>length() <span class="overload">[3/3]</span></h2>
+<a id="a0389a62dc2255451489225b292920ecc" name="a0389a62dc2255451489225b292920ecc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0389a62dc2255451489225b292920ecc">&#9670;&#160;</a></span>length() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1068,7 +1400,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length </td>
+          <td class="memname">constexpr float chlm::length </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1077,7 +1409,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1092,8 +1424,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8cfab77cea14d7b75e56cee1f03f3132" name="a8cfab77cea14d7b75e56cee1f03f3132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cfab77cea14d7b75e56cee1f03f3132">&#9670;&#160;</a></span>length_squared() <span class="overload">[1/3]</span></h2>
+<a id="a2d9d9dc82443be3cb64122a6a1c82c48" name="a2d9d9dc82443be3cb64122a6a1c82c48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d9d9dc82443be3cb64122a6a1c82c48">&#9670;&#160;</a></span>length_squared() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1102,7 +1434,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length_squared </td>
+          <td class="memname">constexpr float chlm::length_squared </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1111,7 +1443,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1128,8 +1460,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af8d5cd9661e2bd6252d1e30736305a6d" name="af8d5cd9661e2bd6252d1e30736305a6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8d5cd9661e2bd6252d1e30736305a6d">&#9670;&#160;</a></span>length_squared() <span class="overload">[2/3]</span></h2>
+<a id="aa01fdbf4d30d6f65529e42725cc77b67" name="aa01fdbf4d30d6f65529e42725cc77b67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01fdbf4d30d6f65529e42725cc77b67">&#9670;&#160;</a></span>length_squared() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1138,7 +1470,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length_squared </td>
+          <td class="memname">constexpr float chlm::length_squared </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1147,7 +1479,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1164,8 +1496,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a630e2b97a0e18bb2e59a90c8ae66e313" name="a630e2b97a0e18bb2e59a90c8ae66e313"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a630e2b97a0e18bb2e59a90c8ae66e313">&#9670;&#160;</a></span>length_squared() <span class="overload">[3/3]</span></h2>
+<a id="a51f8b4c8730c7546c21a259aa1fc8e54" name="a51f8b4c8730c7546c21a259aa1fc8e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f8b4c8730c7546c21a259aa1fc8e54">&#9670;&#160;</a></span>length_squared() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1174,7 +1506,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float chlm::length_squared </td>
+          <td class="memname">constexpr float chlm::length_squared </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1183,7 +1515,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1200,8 +1532,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a05c3d615c7134724f8a186c8837c7f99" name="a05c3d615c7134724f8a186c8837c7f99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c3d615c7134724f8a186c8837c7f99">&#9670;&#160;</a></span>lerp() <span class="overload">[1/3]</span></h2>
+<a id="ad468a3fdd295f0756b72f81390964209" name="ad468a3fdd295f0756b72f81390964209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad468a3fdd295f0756b72f81390964209">&#9670;&#160;</a></span>lerp() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1210,7 +1542,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::lerp </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::lerp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1235,7 +1567,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1254,8 +1586,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af87e3422c79fbab7d2e3208d9807800b" name="af87e3422c79fbab7d2e3208d9807800b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af87e3422c79fbab7d2e3208d9807800b">&#9670;&#160;</a></span>lerp() <span class="overload">[2/3]</span></h2>
+<a id="a830e522463592e925b00f4bc1709a3df" name="a830e522463592e925b00f4bc1709a3df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a830e522463592e925b00f4bc1709a3df">&#9670;&#160;</a></span>lerp() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1264,7 +1596,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::lerp </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::lerp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1289,7 +1621,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1308,8 +1640,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad91507432e900de3ccbdb30bc072e9e1" name="ad91507432e900de3ccbdb30bc072e9e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad91507432e900de3ccbdb30bc072e9e1">&#9670;&#160;</a></span>lerp() <span class="overload">[3/3]</span></h2>
+<a id="a54085ba718448038e028ad07e30656d6" name="a54085ba718448038e028ad07e30656d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54085ba718448038e028ad07e30656d6">&#9670;&#160;</a></span>lerp() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1318,7 +1650,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> chlm::lerp </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> chlm::lerp </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1343,7 +1675,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1362,8 +1694,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af8c3d74d2668a3317011f29227a1f296" name="af8c3d74d2668a3317011f29227a1f296"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8c3d74d2668a3317011f29227a1f296">&#9670;&#160;</a></span>mul() <span class="overload">[1/5]</span></h2>
+<a id="ab0d5c639e0fd46ed6ca571878bcc69d2" name="ab0d5c639e0fd46ed6ca571878bcc69d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d5c639e0fd46ed6ca571878bcc69d2">&#9670;&#160;</a></span>mul() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1372,7 +1704,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::mul </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::mul </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1391,7 +1723,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1409,8 +1741,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9cacaec297751fae7c4f576b6e1efa07" name="a9cacaec297751fae7c4f576b6e1efa07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cacaec297751fae7c4f576b6e1efa07">&#9670;&#160;</a></span>mul() <span class="overload">[2/5]</span></h2>
+<a id="a2ae6764c13ce886a2a55008d30daffd0" name="a2ae6764c13ce886a2a55008d30daffd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae6764c13ce886a2a55008d30daffd0">&#9670;&#160;</a></span>mul() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1419,7 +1751,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::mul </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::mul </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
@@ -1438,7 +1770,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1649,8 +1981,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad2eacb1c24cdb60465804467ef41596e" name="ad2eacb1c24cdb60465804467ef41596e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2eacb1c24cdb60465804467ef41596e">&#9670;&#160;</a></span>normal_matrix()</h2>
+<a id="ae8d2fda808df2d7f551c87a1d8d5f060" name="ae8d2fda808df2d7f551c87a1d8d5f060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8d2fda808df2d7f551c87a1d8d5f060">&#9670;&#160;</a></span>normal_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1659,7 +1991,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::normal_matrix </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::normal_matrix </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
@@ -1668,7 +2000,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1685,8 +2017,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a85bac571ba384b11c8495e4c321a6b7d" name="a85bac571ba384b11c8495e4c321a6b7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85bac571ba384b11c8495e4c321a6b7d">&#9670;&#160;</a></span>normalize() <span class="overload">[1/3]</span></h2>
+<a id="a24d0f8648d7dacacb62200ef89942f5c" name="a24d0f8648d7dacacb62200ef89942f5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d0f8648d7dacacb62200ef89942f5c">&#9670;&#160;</a></span>normalize() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1695,7 +2027,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::normalize </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::normalize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1704,7 +2036,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1721,8 +2053,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad79cbcd66314076ca02949c5b6389b45" name="ad79cbcd66314076ca02949c5b6389b45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad79cbcd66314076ca02949c5b6389b45">&#9670;&#160;</a></span>normalize() <span class="overload">[2/3]</span></h2>
+<a id="a2379f910dd98a13328aaa273d10a2acb" name="a2379f910dd98a13328aaa273d10a2acb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2379f910dd98a13328aaa273d10a2acb">&#9670;&#160;</a></span>normalize() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1731,7 +2063,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::normalize </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::normalize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1740,7 +2072,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1757,8 +2089,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9cf7e4ee16cbe9282214f75b44df8abc" name="a9cf7e4ee16cbe9282214f75b44df8abc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cf7e4ee16cbe9282214f75b44df8abc">&#9670;&#160;</a></span>normalize() <span class="overload">[3/3]</span></h2>
+<a id="a4cbeff24f46060062ba94dbedd33fd0f" name="a4cbeff24f46060062ba94dbedd33fd0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbeff24f46060062ba94dbedd33fd0f">&#9670;&#160;</a></span>normalize() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1767,7 +2099,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> chlm::normalize </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a> chlm::normalize </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -1776,7 +2108,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1793,8 +2125,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a294e3851ee7aabddd1c8c7aa325a2e8f" name="a294e3851ee7aabddd1c8c7aa325a2e8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a294e3851ee7aabddd1c8c7aa325a2e8f">&#9670;&#160;</a></span>operator*() <span class="overload">[1/4]</span></h2>
+<a id="ad9a01f3225ccf989bdaaf64003b9f715" name="ad9a01f3225ccf989bdaaf64003b9f715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a01f3225ccf989bdaaf64003b9f715">&#9670;&#160;</a></span>operator*() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1803,7 +2135,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::operator* </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::operator* </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1822,7 +2154,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1831,8 +2163,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a99fd8c6f8f382c75e125edc19633c332" name="a99fd8c6f8f382c75e125edc19633c332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99fd8c6f8f382c75e125edc19633c332">&#9670;&#160;</a></span>operator*() <span class="overload">[2/4]</span></h2>
+<a id="a3f31bcf02b726092670ce8a0ee74d9c1" name="a3f31bcf02b726092670ce8a0ee74d9c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f31bcf02b726092670ce8a0ee74d9c1">&#9670;&#160;</a></span>operator*() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1841,7 +2173,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::operator* </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::operator* </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
@@ -1860,7 +2192,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1942,6 +2274,52 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Matrix-vector multiplication operator. </p>
+
+</div>
+</div>
+<a id="ab9bf29d574df6bdc003bddbb0c39dc0b" name="ab9bf29d574df6bdc003bddbb0c39dc0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9bf29d574df6bdc003bddbb0c39dc0b">&#9670;&#160;</a></span>project_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::project_vector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>onto</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Projects vector v onto the direction of another vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Vector to project. </td></tr>
+    <tr><td class="paramname">onto</td><td>Direction to project onto (should be non-zero). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Projection of v onto onto. Returns float3_zero if onto has near-zero length. </dd></dl>
 
 </div>
 </div>
@@ -2046,8 +2424,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae5aac2bc25b89374fef7a89ab8025274" name="ae5aac2bc25b89374fef7a89ab8025274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5aac2bc25b89374fef7a89ab8025274">&#9670;&#160;</a></span>quat_from_float3x3()</h2>
+<a id="a726a9759356c16bb8d659130656b3259" name="a726a9759356c16bb8d659130656b3259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a726a9759356c16bb8d659130656b3259">&#9670;&#160;</a></span>quat_from_float3x3()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2056,7 +2434,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> chlm::quat_from_float3x3 </td>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> chlm::quat_from_float3x3 </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
@@ -2065,7 +2443,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2111,6 +2489,106 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a97c95cc39d4bc3f7a273002b512cb3f1" name="a97c95cc39d4bc3f7a273002b512cb3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c95cc39d4bc3f7a273002b512cb3f1">&#9670;&#160;</a></span>reflect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::reflect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reflects an incident vector across a surface normal. </p>
+<p>Computes the reflection direction: i - 2 * dot(i, n) * n. The normal is assumed to be normalized for correct results.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Incident direction (typically pointing towards the surface). </td></tr>
+    <tr><td class="paramname">n</td><td>Surface normal (should be normalized). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reflected direction. </dd></dl>
+
+</div>
+</div>
+<a id="aa6a2710f3b89e21747b475b8c0d74488" name="aa6a2710f3b89e21747b475b8c0d74488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a2710f3b89e21747b475b8c0d74488">&#9670;&#160;</a></span>refract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> chlm::refract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>eta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the refraction direction using Snell's law. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Incident direction (pointing towards the surface, typically normalized). </td></tr>
+    <tr><td class="paramname">n</td><td>Surface normal (must be normalized, pointing towards the incident side). </td></tr>
+    <tr><td class="paramname">eta</td><td>Ratio of indices of refraction (n1 / n2), where n1 is the medium the ray is coming from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Refracted direction. Returns float3_zero on total internal reflection. </dd></dl>
+
+</div>
+</div>
 <a id="aa5565b88c57e8accf11f521e9afc73ad" name="aa5565b88c57e8accf11f521e9afc73ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5565b88c57e8accf11f521e9afc73ad">&#9670;&#160;</a></span>right()</h2>
 
@@ -2136,6 +2614,53 @@ Variables</h2></td></tr>
 
 <p>Positive X-axis unit vector (right). </p>
 <dl class="section return"><dt>Returns</dt><dd>{1, 0, 0} </dd></dl>
+
+</div>
+</div>
+<a id="a208a9a2cb21e52f6de86e45945e8fe4f" name="a208a9a2cb21e52f6de86e45945e8fe4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208a9a2cb21e52f6de86e45945e8fe4f">&#9670;&#160;</a></span>rotate_axis_angle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::rotate_axis_angle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rad</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a rotation matrix from an axis and angle. </p>
+<p>Axis must be normalized for correct results.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>Normalized rotation axis. </td></tr>
+    <tr><td class="paramname">rad</td><td>Angle in radians (right-handed). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Rotation matrix. </dd></dl>
 
 </div>
 </div>
@@ -2183,6 +2708,111 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Rotated vector. </dd></dl>
+
+</div>
+</div>
+<a id="abd295af4d76817bbbec5aa932cff71b6" name="abd295af4d76817bbbec5aa932cff71b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd295af4d76817bbbec5aa932cff71b6">&#9670;&#160;</a></span>rotate_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::rotate_x </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a rotation matrix around the X axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>Angle in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Rotation matrix (right-handed, positive angle = counterclockwise). </dd></dl>
+
+</div>
+</div>
+<a id="ad93597a32d316090dee3a06b6326f21c" name="ad93597a32d316090dee3a06b6326f21c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad93597a32d316090dee3a06b6326f21c">&#9670;&#160;</a></span>rotate_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::rotate_y </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a rotation matrix around the Y axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>Angle in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Rotation matrix (right-handed, positive angle = counterclockwise). </dd></dl>
+
+</div>
+</div>
+<a id="ae55e29f9ef230e595f16831934c28f7c" name="ae55e29f9ef230e595f16831934c28f7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae55e29f9ef230e595f16831934c28f7c">&#9670;&#160;</a></span>rotate_z()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::rotate_z </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rad</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a rotation matrix around the Z axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rad</td><td>Angle in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Rotation matrix (right-handed, positive angle = counterclockwise). </dd></dl>
 
 </div>
 </div>
@@ -2240,8 +2870,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1b1be8b1f961bf949b65405b9c3fffb8" name="a1b1be8b1f961bf949b65405b9c3fffb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b1be8b1f961bf949b65405b9c3fffb8">&#9670;&#160;</a></span>to_float3x3()</h2>
+<a id="acd9bed94d0d7702941fd3f10beb0202f" name="acd9bed94d0d7702941fd3f10beb0202f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd9bed94d0d7702941fd3f10beb0202f">&#9670;&#160;</a></span>to_float3x3()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2250,7 +2880,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::to_float3x3 </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::to_float3x3 </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;&#160;</td>
           <td class="paramname"><em>q</em></td><td>)</td>
@@ -2259,7 +2889,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2276,8 +2906,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab39c2af4029a831444b4d2e1e8155d6a" name="ab39c2af4029a831444b4d2e1e8155d6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab39c2af4029a831444b4d2e1e8155d6a">&#9670;&#160;</a></span>to_float4x4()</h2>
+<a id="a75313c71af94fd1bb0b3cec118174ccc" name="a75313c71af94fd1bb0b3cec118174ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75313c71af94fd1bb0b3cec118174ccc">&#9670;&#160;</a></span>to_float4x4()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2286,7 +2916,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a> chlm::to_float4x4 </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> chlm::to_float4x4 </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;&#160;</td>
           <td class="paramname"><em>q</em></td><td>)</td>
@@ -2295,7 +2925,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2312,8 +2942,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad998bc24657845ffd5579a835977859e" name="ad998bc24657845ffd5579a835977859e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad998bc24657845ffd5579a835977859e">&#9670;&#160;</a></span>transpose() <span class="overload">[1/2]</span></h2>
+<a id="a0d7ad97b4e436e5ee9e1b8f4dc926da9" name="a0d7ad97b4e436e5ee9e1b8f4dc926da9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7ad97b4e436e5ee9e1b8f4dc926da9">&#9670;&#160;</a></span>transpose() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2322,7 +2952,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::transpose </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> chlm::transpose </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float3x3.html">float3x3</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
@@ -2331,7 +2961,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -2348,8 +2978,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a8e8849d521c1ac98ff1ea6a391311933" name="a8e8849d521c1ac98ff1ea6a391311933"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e8849d521c1ac98ff1ea6a391311933">&#9670;&#160;</a></span>transpose() <span class="overload">[2/2]</span></h2>
+<a id="a574ae50e5e46570b690f24be8f0606a1" name="a574ae50e5e46570b690f24be8f0606a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a574ae50e5e46570b690f24be8f0606a1">&#9670;&#160;</a></span>transpose() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2358,7 +2988,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a> chlm::transpose </td>
+          <td class="memname">constexpr <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> chlm::transpose </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structchlm_1_1float4x4.html">float4x4</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
@@ -2367,7 +2997,7 @@ Variables</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

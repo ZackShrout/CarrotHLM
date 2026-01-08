@@ -11,7 +11,7 @@ var Core_8h =
     [ "uint4", "Core_8h.html#a805eb17f43225eac73f7961686bf59b0", null ],
     [ "almost_equal", "Core_8h.html#a66cb1fb748f28528233ce044bb763e09", null ],
     [ "back", "Core_8h.html#a074c37780f161774f995987465960f0c", null ],
-    [ "clamp", "Core_8h.html#ada8139128b35a6f4a0da242b56ea5805", null ],
+    [ "clamp", "Core_8h.html#a2288027db990406dde215de0b58e1ee3", null ],
     [ "down", "Core_8h.html#ae294d82617669b1eb2af77c7bf7703ba", null ],
     [ "forward", "Core_8h.html#a96d5269e025ada05113501010e9e2e22", null ],
     [ "left", "Core_8h.html#aeab5d37b04d03bcc94ba162591356d61", null ],

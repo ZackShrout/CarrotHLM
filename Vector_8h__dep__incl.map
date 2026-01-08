@@ -1,5 +1,8 @@
 <map id="include/chlm/Vector.h" name="include/chlm/Vector.h">
 <area shape="rect" id="Node000001" title=" " alt="" coords="20,5,181,31"/>
-<area shape="rect" id="Node000002" href="$CarrotHLM_8h.html" title=" " alt="" coords="5,79,196,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,44,103,79,98,79,98,44"/>
+<area shape="rect" id="Node000002" href="$CarrotHLM_8h.html" title=" " alt="" coords="5,152,196,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,43,67,79,66,99,72,118,92,150,88,153,67,120,61,100,62,78,81,41"/>
+<area shape="rect" id="Node000003" href="$Utilities_8h.html" title=" " alt="" coords="77,79,249,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,39,155,77,151,80,118,43"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="146,116,113,154,109,150,142,113"/>
 </map>
