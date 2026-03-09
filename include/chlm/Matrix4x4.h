@@ -240,8 +240,8 @@ namespace chlm {
 
     inline float4x4 float4x4::rotate_x(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float4x4{
             float4{ 1.f, 0.f, 0.f, 0.f },
@@ -253,8 +253,8 @@ namespace chlm {
 
     inline float4x4 float4x4::rotate_y(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float4x4{
             float4{ c, 0.f, -s, 0.f },
@@ -266,8 +266,8 @@ namespace chlm {
 
     inline float4x4 float4x4::rotate_z(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float4x4{
             float4{ c, s, 0.f, 0.f },
@@ -280,8 +280,8 @@ namespace chlm {
     inline float4x4 float4x4::rotate_axis_angle(float3 axis, const float rad) noexcept
     {
         axis = normalize(axis);
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
         const float t{ 1.0f - c };
 
         const float x{ axis.x };
@@ -327,7 +327,7 @@ namespace chlm {
     inline float4x4 float4x4::perspective_lh(const float fov_y_rad, const float aspect, const float z_near,
                                              const float z_far) noexcept
     {
-        const float h{ 1.f / std::tan(fov_y_rad * .5f) };
+        const float h{ 1.f / tan(fov_y_rad * .5f) };
         const float w{ h / aspect };
         const float d{ z_far / (z_far - z_near) };
 
@@ -342,7 +342,7 @@ namespace chlm {
     inline float4x4 float4x4::perspective_rh(const float fov_y_rad, const float aspect, const float z_near,
                                              const float z_far) noexcept
     {
-        const float h{ 1.f / std::tan(fov_y_rad * .5f) };
+        const float h{ 1.f / tan(fov_y_rad * .5f) };
         const float w{ h / aspect };
         const float d{ z_far / (z_near - z_far) }; // note sign flip
 

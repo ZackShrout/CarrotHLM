@@ -37,7 +37,7 @@ namespace chlm {
         float k{ 1.f - eta * eta * (1.f - ndoti * ndoti) };
         if (k < 0.f)
             return float3_zero; // total internal reflection
-        return eta * i - (eta * dot(i, n) + std::sqrt(k)) * n;
+        return eta * i - (eta * dot(i, n) + sqrt(k)) * n;
     }
 
     /**
@@ -70,7 +70,7 @@ namespace chlm {
         const float d{ dot(a, b) };
         const float len2{ length_squared(a) * length_squared(b) };
         if (len2 <= 0.f) return 0.f; // or handle gracefully
-        return std::acos(clamp(d / std::sqrt(len2), -1.f, 1.f));
+        return acos(clamp(d / sqrt(len2), -1.f, 1.f));
     }
 
     /**
@@ -85,7 +85,7 @@ namespace chlm {
      */
     constexpr float angle_between_normalized(const float3 a, const float3 b) noexcept
     {
-        return std::acos(clamp(dot(a, b), -1.f, 1.f));
+        return acos(clamp(dot(a, b), -1.f, 1.f));
     }
 
     /**

@@ -85,7 +85,7 @@ namespace chlm {
 
         if (const float trace{ m[0].x + m[1].y + m[2].z }; trace > 0.0f)
         {
-            const float s{ std::sqrt(trace + 1.0f) * 2.0f };
+            const float s{ sqrt(trace + 1.0f) * 2.0f };
             q.w = .25f * s;
             q.x = (m[2].y - m[1].z) / s;
             q.y = (m[0].z - m[2].x) / s;
@@ -93,7 +93,7 @@ namespace chlm {
         }
         else if (m[0].x > m[1].y && m[0].x > m[2].z)
         {
-            const float s{ std::sqrt(1.f + m[0].x - m[1].y - m[2].z) * 2.f };
+            const float s{ sqrt(1.f + m[0].x - m[1].y - m[2].z) * 2.f };
             q.w = (m[2].y - m[1].z) / s;
             q.x = .25f * s;
             q.y = (m[0].y + m[1].x) / s;
@@ -101,7 +101,7 @@ namespace chlm {
         }
         else if (m[1].y > m[2].z)
         {
-            const float s{ std::sqrt(1.f + m[1].y - m[0].x - m[2].z) * 2.f };
+            const float s{ sqrt(1.f + m[1].y - m[0].x - m[2].z) * 2.f };
             q.w = (m[0].z - m[2].x) / s;
             q.x = (m[0].y + m[1].x) / s;
             q.y = .25f * s;
@@ -109,7 +109,7 @@ namespace chlm {
         }
         else
         {
-            const float s{ std::sqrt(1.f + m[2].z - m[0].x - m[1].y) * 2.f };
+            const float s{ sqrt(1.f + m[2].z - m[0].x - m[1].y) * 2.f };
             q.w = (m[1].x - m[0].y) / s;
             q.x = (m[0].z + m[2].x) / s;
             q.y = (m[1].z + m[2].y) / s;
@@ -224,10 +224,10 @@ namespace chlm {
         {
             // Partial pivoting
             int pivot{ i };
-            float max_val{ std::abs(a[i][i]) };
+            float max_val{ abs(a[i][i]) };
             for (int j = i + 1; j < 4; ++j)
             {
-                if (const float val{ std::abs(a[j][i]) }; val > max_val)
+                if (const float val{ abs(a[j][i]) }; val > max_val)
                 {
                     max_val = val;
                     pivot = j;

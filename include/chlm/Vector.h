@@ -78,7 +78,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float2 v) noexcept { return std::sqrt(length_squared(v)); }
+    constexpr float length(const float2 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * Computes the length (magnitude) of a vector.
@@ -86,7 +86,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float3 v) noexcept { return std::sqrt(length_squared(v)); }
+    constexpr float length(const float3 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * Computes the length (magnitude) of a vector.
@@ -94,7 +94,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float4 v) noexcept { return std::sqrt(length_squared(v)); }
+    constexpr float length(const float4 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * @brief Normalizes a vector to unit length.

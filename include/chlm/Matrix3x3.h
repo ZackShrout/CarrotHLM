@@ -152,8 +152,8 @@ namespace chlm {
      */
     constexpr float3x3 rotate_x(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float3x3{
             float3{ 1.f, 0.f, 0.f },
@@ -170,8 +170,8 @@ namespace chlm {
      */
     constexpr float3x3 rotate_y(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float3x3{
             float3{ c, 0.f, -s },
@@ -188,8 +188,8 @@ namespace chlm {
      */
     constexpr float3x3 rotate_z(const float rad) noexcept
     {
-        const float c{ std::cos(rad) };
-        const float s{ std::sin(rad) };
+        const float c{ cos(rad) };
+        const float s{ sin(rad) };
 
         return float3x3{
             float3{ c, s, 0.f },

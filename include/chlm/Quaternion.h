@@ -35,9 +35,9 @@ namespace chlm {
     inline quat quat_from_axis_angle(float3 axis, const float rad) noexcept
     {
         const float half{ rad * .5f };
-        const float s{ std::sin(half) };
+        const float s{ sin(half) };
 
-        return quat{ axis.x * s, axis.y * s, axis.z * s, std::cos(half) };
+        return quat{ axis.x * s, axis.y * s, axis.z * s, cos(half) };
     }
 
     /**
@@ -53,12 +53,12 @@ namespace chlm {
      */
     inline quat quat_from_euler(const float yaw_z, const float pitch_x, const float roll_y) noexcept
     {
-        const float cy{ std::cos(yaw_z * .5f) };
-        const float sy{ std::sin(yaw_z * .5f) };
-        const float cp{ std::cos(pitch_x * .5f) };
-        const float sp{ std::sin(pitch_x * .5f) };
-        const float cr{ std::cos(roll_y * .5f) };
-        const float sr{ std::sin(roll_y * .5f) };
+        const float cy{ cos(yaw_z * .5f) };
+        const float sy{ sin(yaw_z * .5f) };
+        const float cp{ cos(pitch_x * .5f) };
+        const float sp{ sin(pitch_x * .5f) };
+        const float cr{ cos(roll_y * .5f) };
+        const float sr{ sin(roll_y * .5f) };
 
         return quat{
             sr * cp * cy - cr * sp * sy, // x
@@ -163,11 +163,11 @@ namespace chlm {
             return nlerp(a, b_adj, t);
         }
 
-        const float theta{ std::acos(clamp(d, -1.f, 1.f)) };
-        const float sine{ std::sin(theta) };
+        const float theta{ acos(clamp(d, -1.f, 1.f)) };
+        const float sine{ sin(theta) };
 
-        const float wa{ std::sin((1.f - t) * theta) / sine };
-        const float wb{ std::sin(t * theta) / sine };
+        const float wa{ sin((1.f - t) * theta) / sine };
+        const float wb{ sin(t * theta) / sine };
 
         return a * wa + b_adj * wb;
     }
