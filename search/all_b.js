@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['perspective_5flh_0',['perspective_lh',['../structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286',1,'chlm::float4x4']]],
-  ['perspective_5frh_1',['perspective_rh',['../structchlm_1_1float4x4.html#a3b43aa459ea189dd6409c3d67db46399',1,'chlm::float4x4']]],
-  ['pi_2',['pi',['../namespacechlm.html#aad4babb8b9406e57113f3199580728fc',1,'chlm']]],
-  ['pi_5f2_3',['pi_2',['../namespacechlm.html#aa9115561f01799531ccfc5407c491d5a',1,'chlm']]],
-  ['pi_5fhalf_4',['pi_half',['../namespacechlm.html#aa534c4f1f7f7d0759b76c004963aafb8',1,'chlm']]],
-  ['project_5fvector_5',['project_vector',['../namespacechlm.html#ab9bf29d574df6bdc003bddbb0c39dc0b',1,'chlm']]]
+  ['operator_2a_0',['operator*',['../namespacechlm.html#a3f31bcf02b726092670ce8a0ee74d9c1',1,'chlm::operator*(const float3x3 &amp;m, const float3 &amp;v) noexcept'],['../namespacechlm.html#ad9a01f3225ccf989bdaaf64003b9f715',1,'chlm::operator*(const float3x3 &amp;a, const float3x3 &amp;b) noexcept'],['../namespacechlm.html#a5921a604f0de69504853efb08f3b1661',1,'chlm::operator*(const float4x4 &amp;m, const float4 &amp;v) noexcept'],['../namespacechlm.html#aef23ad23c20447816228d7c23b593e43',1,'chlm::operator*(const float4x4 &amp;a, const float4x4 &amp;b) noexcept']]],
+  ['operator_5b_5d_1',['operator[]',['../structchlm_1_1float3x3.html#ae864ab2c38639ad658764fcd069e6036',1,'chlm::float3x3::operator[](const int i)'],['../structchlm_1_1float3x3.html#a1a49977cfec5652d8941093634cb0431',1,'chlm::float3x3::operator[](const int i) const'],['../structchlm_1_1float4x4.html#a0768337b139f0b4805f9424de1ab30fe',1,'chlm::float4x4::operator[](const int i)'],['../structchlm_1_1float4x4.html#a42c9efbb3b458dcc9c6fe34b76addfdb',1,'chlm::float4x4::operator[](const int i) const']]],
+  ['ortho_5flh_2',['ortho_lh',['../structchlm_1_1float4x4.html#aaf8e1c0431f3c0ef149903eb767cf784',1,'chlm::float4x4']]],
+  ['ortho_5frh_3',['ortho_rh',['../structchlm_1_1float4x4.html#aaa81fa7b6df03b27061aa83c6d45d11b',1,'chlm::float4x4']]]
 ];

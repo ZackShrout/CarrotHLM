@@ -52,7 +52,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"CarrotHLM_8h.html"
+"CarrotHLM_8h.html",
+"structchlm_1_1float4x4.html#a5d9033b7f8130eb3a6453ee396f9e8d1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

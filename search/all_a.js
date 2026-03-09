@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['operator_2a_0',['operator*',['../namespacechlm.html#a3f31bcf02b726092670ce8a0ee74d9c1',1,'chlm::operator*(const float3x3 &amp;m, const float3 &amp;v) noexcept'],['../namespacechlm.html#ad9a01f3225ccf989bdaaf64003b9f715',1,'chlm::operator*(const float3x3 &amp;a, const float3x3 &amp;b) noexcept'],['../namespacechlm.html#a5921a604f0de69504853efb08f3b1661',1,'chlm::operator*(const float4x4 &amp;m, const float4 &amp;v) noexcept'],['../namespacechlm.html#aef23ad23c20447816228d7c23b593e43',1,'chlm::operator*(const float4x4 &amp;a, const float4x4 &amp;b) noexcept']]],
-  ['operator_5b_5d_1',['operator[]',['../structchlm_1_1float3x3.html#ae864ab2c38639ad658764fcd069e6036',1,'chlm::float3x3::operator[](const int i)'],['../structchlm_1_1float3x3.html#a1a49977cfec5652d8941093634cb0431',1,'chlm::float3x3::operator[](const int i) const'],['../structchlm_1_1float4x4.html#a0768337b139f0b4805f9424de1ab30fe',1,'chlm::float4x4::operator[](const int i)'],['../structchlm_1_1float4x4.html#a42c9efbb3b458dcc9c6fe34b76addfdb',1,'chlm::float4x4::operator[](const int i) const']]],
-  ['ortho_5flh_2',['ortho_lh',['../structchlm_1_1float4x4.html#aaf8e1c0431f3c0ef149903eb767cf784',1,'chlm::float4x4']]],
-  ['ortho_5frh_3',['ortho_rh',['../structchlm_1_1float4x4.html#aaa81fa7b6df03b27061aa83c6d45d11b',1,'chlm::float4x4']]]
+  ['nlerp_0',['nlerp',['../namespacechlm.html#a336cfc2677f88b56f71e1e8cd6d6ace9',1,'chlm']]],
+  ['normal_5fmatrix_1',['normal_matrix',['../namespacechlm.html#ae8d2fda808df2d7f551c87a1d8d5f060',1,'chlm']]],
+  ['normalize_2',['normalize',['../namespacechlm.html#a24d0f8648d7dacacb62200ef89942f5c',1,'chlm::normalize(const float2 v) noexcept'],['../namespacechlm.html#a2379f910dd98a13328aaa273d10a2acb',1,'chlm::normalize(const float3 v) noexcept'],['../namespacechlm.html#a4cbeff24f46060062ba94dbedd33fd0f',1,'chlm::normalize(const float4 v) noexcept']]]
 ];
