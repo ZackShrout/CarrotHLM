@@ -12,7 +12,8 @@ if(NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # Header-only library interface
-add_library(CarrotHLM INTERFACE)
+add_library(CarrotHLM INTERFACE
+        include/chlm/Rect.h)
 target_include_directories(CarrotHLM INTERFACE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
