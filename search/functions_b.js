@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['quat_5ffrom_5faxis_5fangle_0',['quat_from_axis_angle',['../namespacechlm.html#aac3dc6c114d0c435524308aca46146d0',1,'chlm']]],
-  ['quat_5ffrom_5feuler_1',['quat_from_euler',['../namespacechlm.html#acbb47a4110ce6adf016bf49502fcfd09',1,'chlm']]],
-  ['quat_5ffrom_5ffloat3x3_2',['quat_from_float3x3',['../namespacechlm.html#a726a9759356c16bb8d659130656b3259',1,'chlm']]],
-  ['quat_5fidentity_3',['quat_identity',['../namespacechlm.html#a9bdd5bd89e153f07b99ee5d45ca35ec7',1,'chlm']]]
+  ['perspective_5flh_0',['perspective_lh',['../structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286',1,'chlm::float4x4']]],
+  ['perspective_5frh_1',['perspective_rh',['../structchlm_1_1float4x4.html#a3b43aa459ea189dd6409c3d67db46399',1,'chlm::float4x4']]],
+  ['project_5fvector_2',['project_vector',['../namespacechlm.html#ab9bf29d574df6bdc003bddbb0c39dc0b',1,'chlm']]]
 ];

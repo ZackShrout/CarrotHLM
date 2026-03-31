@@ -105,6 +105,12 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchlm_1_1float4x4.html">float4x4</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchlm_1_1float__rect.html">float_rect</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating-point axis-aligned rectangle.  <a href="structchlm_1_1float__rect.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unsigned integer axis-aligned rectangle.  <a href="structchlm_1_1uint__rect.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -285,6 +291,30 @@ Functions</h2></td></tr>
 <tr class="memitem:a7cecff3920928cc0d2784a66e1835385" id="r_a7cecff3920928cc0d2784a66e1835385"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a7cecff3920928cc0d2784a66e1835385">rotate_vector</a> (const <a class="el" href="namespacechlm.html#a513a57f1accd73027686bc12133285e8">quat</a> &amp;q, <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> v) noexcept</td></tr>
 <tr class="memdesc:a7cecff3920928cc0d2784a66e1835385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates a 3D vector by a quaternion.  <br /></td></tr>
 <tr class="separator:a7cecff3920928cc0d2784a66e1835385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a62a20866dae8101445b4be3ea6b87b" id="r_a8a62a20866dae8101445b4be3ea6b87b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8a62a20866dae8101445b4be3ea6b87b">rect_min</a> (const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:a8a62a20866dae8101445b4be3ea6b87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum corner of an unsigned integer rectangle.  <br /></td></tr>
+<tr class="separator:a8a62a20866dae8101445b4be3ea6b87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e0ccfdf369235e67419f8f0ab4ce865" id="r_a1e0ccfdf369235e67419f8f0ab4ce865"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a1e0ccfdf369235e67419f8f0ab4ce865">rect_max</a> (const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:a1e0ccfdf369235e67419f8f0ab4ce865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exclusive maximum corner of an unsigned integer rectangle.  <br /></td></tr>
+<tr class="separator:a1e0ccfdf369235e67419f8f0ab4ce865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45d2bc73383a340a005dda920c754cc1" id="r_a45d2bc73383a340a005dda920c754cc1"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a45d2bc73383a340a005dda920c754cc1">contains</a> (const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;rect, const <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a> point) noexcept</td></tr>
+<tr class="memdesc:a45d2bc73383a340a005dda920c754cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether an unsigned integer point lies inside a rectangle.  <br /></td></tr>
+<tr class="separator:a45d2bc73383a340a005dda920c754cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8609f33ce5d5344b6c27a3b25c5f1c5e" id="r_a8609f33ce5d5344b6c27a3b25c5f1c5e"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8609f33ce5d5344b6c27a3b25c5f1c5e">empty</a> (const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:a8609f33ce5d5344b6c27a3b25c5f1c5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether an unsigned integer rectangle has zero area.  <br /></td></tr>
+<tr class="separator:a8609f33ce5d5344b6c27a3b25c5f1c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcff3bfea4202e77bff863b17396c60d" id="r_adcff3bfea4202e77bff863b17396c60d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#adcff3bfea4202e77bff863b17396c60d">rect_min</a> (const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:adcff3bfea4202e77bff863b17396c60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum corner of a floating-point rectangle.  <br /></td></tr>
+<tr class="separator:adcff3bfea4202e77bff863b17396c60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3267fbb87a999b99fb28fc5bb05e6cae" id="r_a3267fbb87a999b99fb28fc5bb05e6cae"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a3267fbb87a999b99fb28fc5bb05e6cae">rect_max</a> (const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:a3267fbb87a999b99fb28fc5bb05e6cae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the exclusive maximum corner of a floating-point rectangle.  <br /></td></tr>
+<tr class="separator:a3267fbb87a999b99fb28fc5bb05e6cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d57b7339e9292f99879a6a3309e4b54" id="r_a1d57b7339e9292f99879a6a3309e4b54"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a1d57b7339e9292f99879a6a3309e4b54">contains</a> (const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;rect, const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> point) noexcept</td></tr>
+<tr class="memdesc:a1d57b7339e9292f99879a6a3309e4b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether a floating-point point lies inside a rectangle.  <br /></td></tr>
+<tr class="separator:a1d57b7339e9292f99879a6a3309e4b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3e32e136c2bbb700d43e2bae8e532a" id="r_a8a3e32e136c2bbb700d43e2bae8e532a"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8a3e32e136c2bbb700d43e2bae8e532a">empty</a> (const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;rect) noexcept</td></tr>
+<tr class="memdesc:a8a3e32e136c2bbb700d43e2bae8e532a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether a floating-point rectangle has zero or negative area.  <br /></td></tr>
+<tr class="separator:a8a3e32e136c2bbb700d43e2bae8e532a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97c95cc39d4bc3f7a273002b512cb3f1" id="r_a97c95cc39d4bc3f7a273002b512cb3f1"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a97c95cc39d4bc3f7a273002b512cb3f1">reflect</a> (const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> i, const <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a> n) noexcept</td></tr>
 <tr class="memdesc:a97c95cc39d4bc3f7a273002b512cb3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reflects an incident vector across a surface normal.  <br /></td></tr>
 <tr class="separator:a97c95cc39d4bc3f7a273002b512cb3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -908,6 +938,110 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a1d57b7339e9292f99879a6a3309e4b54" name="a1d57b7339e9292f99879a6a3309e4b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d57b7339e9292f99879a6a3309e4b54">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool chlm::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a>&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether a floating-point point lies inside a rectangle. </p>
+<p>Uses the rectangle's inclusive minimum corner and exclusive maximum corner:</p>
+<ul>
+<li><code>point &gt;= rect_min(rect)</code></li>
+<li><code>point &lt; rect_max(rect)</code></li>
+</ul>
+<p>This is useful for normalized UV bounds, layout rectangles, and general 2D continuous-space containment tests.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to test against. </td></tr>
+    <tr><td class="paramname">point</td><td>Point to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the point lies inside the rectangle, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a45d2bc73383a340a005dda920c754cc1" name="a45d2bc73383a340a005dda920c754cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d2bc73383a340a005dda920c754cc1">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool chlm::contains </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a>&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether an unsigned integer point lies inside a rectangle. </p>
+<p>Uses the rectangle's inclusive minimum corner and exclusive maximum corner:</p>
+<ul>
+<li><code>point &gt;= rect_min(rect)</code></li>
+<li><code>point &lt; rect_max(rect)</code></li>
+</ul>
+<p>This convention is especially useful for pixel-space bounds and subrect iteration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to test against. </td></tr>
+    <tr><td class="paramname">point</td><td>Point to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the point lies inside the rectangle, otherwise false. </dd></dl>
+
+</div>
+</div>
 <a id="aa607bc34742d9527833f4ef8fa790fee" name="aa607bc34742d9527833f4ef8fa790fee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa607bc34742d9527833f4ef8fa790fee">&#9670;&#160;</a></span>cos()</h2>
 
@@ -1262,6 +1396,78 @@ template&lt;typename T &gt; </div>
 
 <p>Negative Y-axis unit vector (down). </p>
 <dl class="section return"><dt>Returns</dt><dd>{0, -1, 0} </dd></dl>
+
+</div>
+</div>
+<a id="a8a3e32e136c2bbb700d43e2bae8e532a" name="a8a3e32e136c2bbb700d43e2bae8e532a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3e32e136c2bbb700d43e2bae8e532a">&#9670;&#160;</a></span>empty() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool chlm::empty </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether a floating-point rectangle has zero or negative area. </p>
+<p>A rectangle is considered empty if its width or height is less than or equal to zero.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the rectangle has non-positive width or height, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="a8609f33ce5d5344b6c27a3b25c5f1c5e" name="a8609f33ce5d5344b6c27a3b25c5f1c5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8609f33ce5d5344b6c27a3b25c5f1c5e">&#9670;&#160;</a></span>empty() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool chlm::empty </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns whether an unsigned integer rectangle has zero area. </p>
+<p>A rectangle is considered empty if either dimension is zero.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the rectangle has zero width or zero height, otherwise false. </dd></dl>
 
 </div>
 </div>
@@ -2811,6 +3017,154 @@ template&lt;typename T &gt; </div>
 <p>Returns the identity quaternion. </p>
 <p>Represents no rotation (equivalent to a zero angle around any axis).</p>
 <dl class="section return"><dt>Returns</dt><dd>Quaternion {0, 0, 0, 1}. </dd></dl>
+
+</div>
+</div>
+<a id="a3267fbb87a999b99fb28fc5bb05e6cae" name="a3267fbb87a999b99fb28fc5bb05e6cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3267fbb87a999b99fb28fc5bb05e6cae">&#9670;&#160;</a></span>rect_max() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::rect_max </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the exclusive maximum corner of a floating-point rectangle. </p>
+<p>The maximum corner is computed as:</p>
+<p><code>position + size</code></p>
+<p>This value is exclusive, meaning points exactly equal to this corner are considered outside the rectangle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The exclusive maximum corner of the rectangle. </dd></dl>
+
+</div>
+</div>
+<a id="a1e0ccfdf369235e67419f8f0ab4ce865" name="a1e0ccfdf369235e67419f8f0ab4ce865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e0ccfdf369235e67419f8f0ab4ce865">&#9670;&#160;</a></span>rect_max() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a> chlm::rect_max </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the exclusive maximum corner of an unsigned integer rectangle. </p>
+<p>The maximum corner is computed as:</p>
+<p><code>position + size</code></p>
+<p>This value is exclusive, meaning points exactly equal to this corner are considered outside the rectangle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The exclusive maximum corner of the rectangle. </dd></dl>
+
+</div>
+</div>
+<a id="adcff3bfea4202e77bff863b17396c60d" name="adcff3bfea4202e77bff863b17396c60d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcff3bfea4202e77bff863b17396c60d">&#9670;&#160;</a></span>rect_min() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">float2</a> chlm::rect_min </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1float__rect.html">float_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the minimum corner of a floating-point rectangle. </p>
+<p>The minimum corner is the rectangle's origin / minimum bound.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The inclusive minimum corner of the rectangle. </dd></dl>
+
+</div>
+</div>
+<a id="a8a62a20866dae8101445b4be3ea6b87b" name="a8a62a20866dae8101445b4be3ea6b87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a62a20866dae8101445b4be3ea6b87b">&#9670;&#160;</a></span>rect_min() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">uint2</a> chlm::rect_min </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structchlm_1_1uint__rect.html">uint_rect</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the minimum corner of an unsigned integer rectangle. </p>
+<p>The minimum corner is the rectangle's origin / top-left-like position, depending on the coordinate system in use.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>Rectangle to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The inclusive minimum corner of the rectangle. </dd></dl>
 
 </div>
 </div>
