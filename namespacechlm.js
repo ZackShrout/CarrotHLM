@@ -67,7 +67,6 @@ var namespacechlm =
     [ "operator*", "namespacechlm.html#a3f31bcf02b726092670ce8a0ee74d9c1", null ],
     [ "operator*", "namespacechlm.html#aef23ad23c20447816228d7c23b593e43", null ],
     [ "operator*", "namespacechlm.html#a5921a604f0de69504853efb08f3b1661", null ],
-    [ "ortho_off_center_lh_top_left", "namespacechlm.html#a1adf0031d71bf462d38433fee18b630b", null ],
     [ "project_vector", "namespacechlm.html#ab9bf29d574df6bdc003bddbb0c39dc0b", null ],
     [ "quat_from_axis_angle", "namespacechlm.html#aac3dc6c114d0c435524308aca46146d0", null ],
     [ "quat_from_euler", "namespacechlm.html#acbb47a4110ce6adf016bf49502fcfd09", null ],
