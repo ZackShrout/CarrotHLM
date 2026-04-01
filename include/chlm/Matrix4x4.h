@@ -432,8 +432,9 @@ namespace chlm {
         };
     }
 
-    inline float4x4 ortho_off_center_lh_top_left(const float left, const float right, const float top,
-                                                 const float bottom, const float z_near, const float z_far) noexcept
+    inline float4x4 float4x4::ortho_off_center_lh_top_left(const float left, const float right, const float top,
+                                                           const float bottom, const float z_near,
+                                                           const float z_far) noexcept
     {
         const float width{ right - left };
         const float height{ bottom - top };
