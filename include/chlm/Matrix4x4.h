@@ -11,7 +11,7 @@ namespace chlm {
     // ========================================
     // float4x4 - Column-major, 4 float4 columns
     // ========================================
-    
+
     struct float4x4
     {
         float4 columns[4]{
@@ -166,6 +166,56 @@ namespace chlm {
          * @return Orthographic matrix centered at origin.
          */
         static float4x4 ortho_rh(float width, float height, float z_near, float z_far) noexcept;
+
+        /**
+         * @brief Creates a left-handed orthographic projection matrix using explicit bounds.
+         *
+         * @param left   Left view bound.
+         * @param right  Right view bound.
+         * @param top    Top view bound.
+         * @param bottom Bottom view bound.
+         * @param z_near Near clip plane.
+         * @param z_far  Far clip plane.
+         * @return Orthographic matrix with top-left 2D friendly orientation.
+         */
+        static float4x4 ortho_off_center_lh_top_left(float left, float right, float top, float bottom, float z_near,
+                                                     float z_far) noexcept;
+
+        /**
+         * @brief Creates a left-handed orthographic projection matrix with a top-left origin.
+         *
+         * @param width  View width.
+         * @param height View height.
+         * @param z_near Near clip plane.
+         * @param z_far  Far clip plane.
+         * @return Orthographic matrix mapping (0,0) to top-left and (width,height) to bottom-right.
+         */
+        static float4x4 ortho_lh_top_left(float width, float height, float z_near, float z_far) noexcept;
+
+        /**
+         * @brief Creates a right-handed orthographic projection matrix using explicit bounds.
+         *
+         * @param left   Left view bound.
+         * @param right  Right view bound.
+         * @param top    Top view bound.
+         * @param bottom Bottom view bound.
+         * @param z_near Near clip plane.
+         * @param z_far  Far clip plane.
+         * @return Orthographic matrix with top-left 2D friendly orientation.
+         */
+        static float4x4 ortho_off_center_rh_top_left(float left, float right, float top, float bottom, float z_near,
+                                                     float z_far) noexcept;
+
+        /**
+         * @brief Creates a right-handed orthographic projection matrix with a top-left origin.
+         *
+         * @param width  View width.
+         * @param height View height.
+         * @param z_near Near clip plane.
+         * @param z_far  Far clip plane.
+         * @return Orthographic matrix mapping (0,0) to top-left and (width,height) to bottom-right.
+         */
+        static float4x4 ortho_rh_top_left(float width, float height, float z_near, float z_far) noexcept;
     };
 
     // ========================================
@@ -380,5 +430,48 @@ namespace chlm {
             float4{ 0.f, 0.f, -2.f / (z_far - z_near), 0.f },
             float4{ 0.f, 0.f, (z_far + z_near) / (z_near - z_far), 1.f }
         };
+    }
+
+    inline float4x4 ortho_off_center_lh_top_left(const float left, const float right, const float top,
+                                                 const float bottom, const float z_near, const float z_far) noexcept
+    {
+        const float width{ right - left };
+        const float height{ bottom - top };
+        const float depth{ z_far - z_near };
+
+        return float4x4{
+            float4{ 2.f / width, 0.f, 0.f, 0.f },
+            float4{ 0.f, -2.f / height, 0.f, 0.f },
+            float4{ 0.f, 0.f, 1.f / depth, 0.f },
+            float4{ -(right + left) / width, (bottom + top) / height, -z_near / depth, 1.f }
+        };
+    }
+
+    inline float4x4 float4x4::ortho_lh_top_left(const float width, const float height, const float z_near,
+                                                const float z_far) noexcept
+    {
+        return ortho_off_center_lh_top_left(0.f, width, 0.f, height, z_near, z_far);
+    }
+
+    inline float4x4 float4x4::ortho_off_center_rh_top_left(const float left, const float right, const float top,
+                                                           const float bottom, const float z_near,
+                                                           const float z_far) noexcept
+    {
+        const float width{ right - left };
+        const float height{ bottom - top };
+        const float depth{ z_far - z_near };
+
+        return float4x4{
+            float4{ 2.f / width, 0.f, 0.f, 0.f },
+            float4{ 0.f, -2.f / height, 0.f, 0.f },
+            float4{ 0.f, 0.f, -1.f / depth, 0.f },
+            float4{ -(right + left) / width, (bottom + top) / height, -z_near / depth, 1.f }
+        };
+    }
+
+    inline float4x4 float4x4::ortho_rh_top_left(const float width, const float height, const float z_near,
+                                                const float z_far) noexcept
+    {
+        return ortho_off_center_rh_top_left(0.f, width, 0.f, height, z_near, z_far);
     }
 } // namespace chlm
