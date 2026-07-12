@@ -13,7 +13,8 @@
 //   3D graphics, games, and real-time applications.
 //
 // FEATURES:
-//   - float2, float3, float4 using Clang/GCC extended vector types
+//   - Portable float2/float3/float4, int2/int3/int4, and uint2/uint3/uint4 value types
+//   - Generated HLSL-style swizzle families with read/write support where lanes are unique
 //   - Quaternion (float4-based), float3x3 and float4x4 matrices (column-major)
 //   - Core operations: dot, cross, normalize, lerp/slerp/nlerp
 //   - Matrix builders: translate, scale, rotate, look_at, perspective, ortho
@@ -27,17 +28,19 @@
 //   - Right-handed rotation by default
 //   - Angles in radians
 //   - All functions marked noexcept where possible
+//   - float3 is publicly packed to 12 bytes while float math still uses a 4-lane backend internally
 //   - Assumes normalized inputs for performance-critical paths (e.g. quat → matrix)
 //
 // REQUIREMENTS:
-//   - Clang or GCC with support for __attribute__((ext_vector_type(...)))
-//   - C++17 or later recommended
+//   - C++23 or later recommended
+//   - Header-only consumption for users
+//   - Internal backend selection supports scalar fallback, SSE2, and ARM64 NEON
 //
 
 #pragma once
 
 //
-// All functionality is brought in via the following headers (in dependency order):
+// All functionality is brought in via the following headers:
 #include "Core.h"
 #include "Vector.h"
 #include "Quaternion.h"

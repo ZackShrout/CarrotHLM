@@ -148,14 +148,14 @@ namespace chlm {
     inline float4x4 affine_inverse(const float4x4& m) noexcept
     {
         const float3x3 rot{
-            m.columns[0].xyz,
-            m.columns[1].xyz,
-            m.columns[2].xyz
+            float3{ m.columns[0].x, m.columns[0].y, m.columns[0].z },
+            float3{ m.columns[1].x, m.columns[1].y, m.columns[1].z },
+            float3{ m.columns[2].x, m.columns[2].y, m.columns[2].z }
         };
 
         float3x3 rot_inv{ inverse_orthonormal(rot) };
 
-        const float3 trans{ m.columns[3].xyz };
+        const float3 trans{ m.columns[3].x, m.columns[3].y, m.columns[3].z };
         float3 inv_trans{ -mul(rot_inv, trans) };
 
         return float4x4{
@@ -178,9 +178,9 @@ namespace chlm {
     constexpr float3x3 normal_matrix(const float4x4& m) noexcept
     {
         const float3x3 upper{
-            m.columns[0].xyz,
-            m.columns[1].xyz,
-            m.columns[2].xyz
+            float3{ m.columns[0].x, m.columns[0].y, m.columns[0].z },
+            float3{ m.columns[1].x, m.columns[1].y, m.columns[1].z },
+            float3{ m.columns[2].x, m.columns[2].y, m.columns[2].z }
         };
 
         return inverse_orthonormal(upper);

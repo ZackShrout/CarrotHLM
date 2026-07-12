@@ -5,26 +5,16 @@
 
 #pragma once
 
+#include "detail/PublicFloatVectors.h"
+#include "detail/PublicIntVectors.h"
+#include "detail/PublicUintVectors.h"
+#include "detail/simd/SimdSelect.h"
+
 #include <cstdint>
 #include <cmath>
 #include <cassert>
 
 namespace chlm {
-    // ========================================
-    // Vector types using Clang's ext_vector_type
-    // ========================================
-    using float2 = float __attribute__((ext_vector_type(2)));
-    using float3 = float __attribute__((ext_vector_type(3)));
-    using float4 = float __attribute__((ext_vector_type(4)));
-
-    using int2 = int __attribute__((ext_vector_type(2)));
-    using int3 = int __attribute__((ext_vector_type(3)));
-    using int4 = int __attribute__((ext_vector_type(4)));
-
-    using uint2 = unsigned int __attribute__((ext_vector_type(2)));
-    using uint3 = unsigned int __attribute__((ext_vector_type(3)));
-    using uint4 = unsigned int __attribute__((ext_vector_type(4)));
-
     // ========================================
     // Unit vectors
     // ========================================
@@ -71,16 +61,54 @@ namespace chlm {
     // ========================================
     // Constants
     // ========================================
+    /**
+     * @brief Ratio of a circle's circumference to its diameter.
+     */
     constexpr float pi{ 3.1415926535897932384626433832795f };
+
+    /**
+     * @brief One half of pi, commonly used for quarter turns.
+     */
     constexpr float half_pi{ pi * .5f };
+
+    /**
+     * @brief Two times pi, commonly used for full rotations.
+     */
     constexpr float two_pi{ pi * 2.f };
+
+    /**
+     * @brief Conversion factor from degrees to radians.
+     */
     constexpr float deg_to_rad{ pi / 180.f };
+
+    /**
+     * @brief Conversion factor from radians to degrees.
+     */
     constexpr float rad_to_deg{ 180.f / pi };
+
+    /**
+     * @brief Default epsilon used for approximate floating-point comparisons.
+     */
     constexpr float epsilon{ 1e-6f };
 
-    constexpr float4 float4_zero{ 0.f, 0.f, 0.f, 0.f };
-    constexpr float4 float4_one{ 1.f, 1.f, 1.f, 1.f };
+    /**
+     * @brief All-zero 4D float vector.
+     */
+    inline const float4 float4_zero{ 0.f, 0.f, 0.f, 0.f };
+
+    /**
+     * @brief All-one 4D float vector.
+     */
+    inline const float4 float4_one{ 1.f, 1.f, 1.f, 1.f };
+
+    /**
+     * @brief All-zero 3D float vector.
+     */
     constexpr float3 float3_zero{ 0.f, 0.f, 0.f };
+
+    /**
+     * @brief All-one 3D float vector.
+     */
     constexpr float3 float3_one{ 1.f, 1.f, 1.f };
 
     // ========================================

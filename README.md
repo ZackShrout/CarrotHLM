@@ -2,7 +2,7 @@
 
 A fast, header-only, dependency-free math library for game engines and graphics, designed to feel like writing HLSL on the CPU.
 
-Built from the ground up with modern Clang **vector extensions**, CarrotHLM delivers **native 128-bit SIMD acceleration** (NEON on ARM64/Apple Silicon, SSE on x86_64) while providing the exact swizzle syntax and semantics you know from HLSL:
+Built around a portable SIMD backend, CarrotHLM delivers **native 128-bit SIMD acceleration** where available (NEON on ARM64/Apple Silicon, SSE2 on x86/x64) with a scalar fallback everywhere else, while providing the exact swizzle syntax and semantics you know from HLSL:
 
 ```c++
 float4 pos{ 10.f, 20.f, 30.f, 40.f };
@@ -20,16 +20,18 @@ float2 uv  = pos.st;              // texture coords
 - **`float3x3`** - pure rotation matrices, fast inverse (transpose).
 - **Quaternions** - `using quat = float4`, axis-angle, slerp/nlerp, matrix conversion.
 - **Integer vectors**: `int2/3/4`, `uint2/3/4` - perfect for pixel coords, grids, bitmasks.
+- **Portable SIMD backends**: scalar fallback, SSE2 on x86/x64, NEON on ARM64.
 - Utilities: affine inverse, normal matrix, conversions.
 - Header-only · No external dependencies · C++23.
 
-Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows (via clang-cl).
+Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows.
 
 [![API Documentation](https://img.shields.io/badge/docs-Doxygen-blue.svg)](https://zackshrout.github.io/CarrotHLM/)
 
 ### Requirements
-- **Compiler**: Clang 15 or newer is highly recomended (required for full `ext_vector_type` swizzle support and consistent behavior across platforms).
-- GCC 11+ may have partial support; MSVC is not supported (no equivalent vector extensions).
+- **Compiler**: A modern C++23 compiler.
+- Clang, GCC, and MSVC are all intended targets for the portable SIMD implementation.
+- SIMD backends are selected per platform: SSE2 on x86/x64, NEON on ARM64, scalar fallback otherwise.
 
 ### Integration (Git Submodule Recommended)
 ```bash
@@ -50,10 +52,9 @@ using namespace chlm;
 
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.
-- Maximum performance - direct use of compiler vector extensions, no wrapper overhead.
+- Maximum performance with a small portable SIMD layer under the hood.
 - Battle-tested on Apple Silicon - no aliasing bugs, full NEON.
 - Minimal, readable, engine-focused - no bloat.
 
 Perfect for anyone building a custom game engine who wants fast, expressive, and portable math without the bloat of GLM or the complexity of Eigen.
 ### CarrotHLM: Because your CPU deserves to speak HLSL too. 🥕
-

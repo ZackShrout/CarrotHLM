@@ -19,7 +19,7 @@ namespace chlm {
      * @param b Second vector.
      * @return The dot product a · b.
      */
-    constexpr float dot(const float2 a, const float2 b) noexcept { return (a * b).x + (a * b).y; }
+    inline float dot(const float2 a, const float2 b) noexcept { return (a * b).x + (a * b).y; }
 
     /**
      * @brief Computes the dot (scalar) product of two vectors.
@@ -28,7 +28,7 @@ namespace chlm {
      * @param b Second vector.
      * @return The dot product a · b.
      */
-    constexpr float dot(const float3 a, const float3 b) noexcept { return (a * b).x + (a * b).y + (a * b).z; }
+    inline float dot(const float3 a, const float3 b) noexcept { return (a * b).x + (a * b).y + (a * b).z; }
 
     /**
      * @brief Computes the dot (scalar) product of two vectors.
@@ -37,7 +37,7 @@ namespace chlm {
      * @param b Second vector.
      * @return The dot product a · b.
      */
-    constexpr float dot(const float4 a, const float4 b) noexcept { return (a * b).x + (a * b).y + (a * b).z + (a * b).w; }
+    inline float dot(const float4 a, const float4 b) noexcept { return (a * b).x + (a * b).y + (a * b).z + (a * b).w; }
 
     /**
      * @brief Computes the squared length (magnitude) of a vector.
@@ -48,7 +48,7 @@ namespace chlm {
      * @param v The vector.
      * @return The squared length ||v||².
      */
-    constexpr float length_squared(const float2 v) noexcept { return dot(v, v); }
+    inline float length_squared(const float2 v) noexcept { return dot(v, v); }
 
     /**
      * @brief Computes the squared length (magnitude) of a vector.
@@ -59,7 +59,7 @@ namespace chlm {
      * @param v The vector.
      * @return The squared length ||v||².
      */
-    constexpr float length_squared(const float3 v) noexcept { return dot(v, v); }
+    inline float length_squared(const float3 v) noexcept { return dot(v, v); }
 
     /**
      * @brief Computes the squared length (magnitude) of a vector.
@@ -70,7 +70,7 @@ namespace chlm {
      * @param v The vector.
      * @return The squared length ||v||².
      */
-    constexpr float length_squared(const float4 v) noexcept { return dot(v, v); }
+    inline float length_squared(const float4 v) noexcept { return dot(v, v); }
 
     /**
      * Computes the length (magnitude) of a vector.
@@ -78,7 +78,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float2 v) noexcept { return sqrt(length_squared(v)); }
+    inline float length(const float2 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * Computes the length (magnitude) of a vector.
@@ -86,7 +86,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float3 v) noexcept { return sqrt(length_squared(v)); }
+    inline float length(const float3 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * Computes the length (magnitude) of a vector.
@@ -94,7 +94,7 @@ namespace chlm {
      * @param v The vector.
      * @return The length ||v||.
      */
-    constexpr float length(const float4 v) noexcept { return sqrt(length_squared(v)); }
+    inline float length(const float4 v) noexcept { return sqrt(length_squared(v)); }
 
     /**
      * @brief Normalizes a vector to unit length.
@@ -104,7 +104,7 @@ namespace chlm {
      * @param v The vector to normalize.
      * @return The normalized vector (length 1) or zero vector if input was zero.
      */
-    constexpr float2 normalize(const float2 v) noexcept
+    inline float2 normalize(const float2 v) noexcept
     {
         const float len{ length(v) };
         return !almost_equal(len, .0f) ? v * (1.f / len) : float2{ .0f, .0f };
@@ -118,7 +118,7 @@ namespace chlm {
      * @param v The vector to normalize.
      * @return The normalized vector (length 1) or zero vector if input was zero.
      */
-    constexpr float3 normalize(const float3 v) noexcept
+    inline float3 normalize(const float3 v) noexcept
     {
         const float len{ length(v) };
         return !almost_equal(len, .0f) ? v * (1.f / len) : float3{ .0f, .0f, .0f };
@@ -132,7 +132,7 @@ namespace chlm {
      * @param v The vector to normalize.
      * @return The normalized vector (length 1) or zero vector if input was zero.
      */
-    constexpr float4 normalize(const float4 v) noexcept
+    inline float4 normalize(const float4 v) noexcept
     {
         const float len{ length(v) };
         return !almost_equal(len, .0f) ? v * (1.f / len) : float4{ .0f, .0f, .0f, .0f };
@@ -148,9 +148,13 @@ namespace chlm {
      * @param b Second vector.
      * @return The cross product a × b.
      */
-    constexpr float3 cross(float3 a, float3 b) noexcept
+    inline float3 cross(const float3 a, const float3 b) noexcept
     {
-        return a.yzx * b.zxy - a.zxy * b.yzx;
+        return float3{
+            a.y * b.z - a.z * b.y,
+            a.z * b.x - a.x * b.z,
+            a.x * b.y - a.y * b.x
+        };
     }
 
     /**
@@ -164,7 +168,7 @@ namespace chlm {
      * @param t Interpolation factor.
      * @return Interpolated value: a + t*(b - a).
      */
-    constexpr float2 lerp(const float2 a, const float2 b, const float t) noexcept { return a + (b - a) * t; }
+    inline float2 lerp(const float2 a, const float2 b, const float t) noexcept { return a + (b - a) * t; }
 
     /**
      * @brief Linearly interpolates between two values.
@@ -177,7 +181,7 @@ namespace chlm {
      * @param t Interpolation factor.
      * @return Interpolated value: a + t*(b - a).
      */
-    constexpr float3 lerp(const float3 a, const float3 b, const float t) noexcept { return a + (b - a) * t; }
+    inline float3 lerp(const float3 a, const float3 b, const float t) noexcept { return a + (b - a) * t; }
 
     /**
      * @brief Linearly interpolates between two values.
@@ -190,5 +194,5 @@ namespace chlm {
      * @param t Interpolation factor.
      * @return Interpolated value: a + t*(b - a).
      */
-    constexpr float4 lerp(const float4 a, const float4 b, const float t) noexcept { return a + (b - a) * t; }
+    inline float4 lerp(const float4 a, const float4 b, const float t) noexcept { return a + (b - a) * t; }
 } // namespace chlm

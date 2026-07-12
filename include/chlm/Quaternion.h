@@ -188,6 +188,6 @@ namespace chlm {
         const quat q_inv{ conjugate(q) }; // assumes q is normalized
         quat result{ mul(mul(q, vq), q_inv) };
 
-        return result.xyz;
+        return float3{ result.x, result.y, result.z };
     }
 } // namespace chlm
