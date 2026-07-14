@@ -101,4 +101,26 @@ void run_vector_tests(test_context& ctx)
         test_almost_equal(normal, float3{ 4.f, 5.f, 6.f }),
         "Portable float2/float3 arithmetic and swizzle test"
     );
+
+    const float3 source{ 2.f, -3.f, 6.f };
+    const float source_length{ length(source) };
+    const float3 unit{ normalize(source) };
+
+    ctx.expect(
+        test_almost_equal(source_length, 7.f, 4e-6f) &&
+        test_almost_equal(length(unit), 1.f, 4e-6f),
+        "Owned sqrt vector length and normalization integration test"
+    );
+
+    ctx.expect(
+        test_almost_equal(angle_between(right(), up()), half_pi, 7.5e-5f) &&
+        test_almost_equal(angle_between_normalized(right(), left()), pi, 7.5e-5f),
+        "Owned acos vector angle integration test"
+    );
+
+    const float3 refracted{ refract(float3{ 0.f, -1.f, 0.f }, up(), .5f) };
+    ctx.expect(
+        test_almost_equal(refracted, float3{ 0.f, -1.f, 0.f }, 4e-6f),
+        "Owned sqrt refraction integration test"
+    );
 }

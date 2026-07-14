@@ -20,6 +20,9 @@ int main()
     run_quaternion_tests(ctx);
     run_matrix_tests(ctx);
     run_backend_selection_tests(ctx);
+    run_scalar_math_tests(ctx);
+    run_scalar_math_edge_case_tests(ctx);
+    run_scalar_math_exhaustive_tests(ctx);
 
     if (ctx.failures == 0)
     {

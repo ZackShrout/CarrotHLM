@@ -68,6 +68,14 @@ target_sources(CarrotHLM
             include/chlm/detail/GeneratedUint2Swizzles.h
             include/chlm/detail/GeneratedUint3Swizzles.h
             include/chlm/detail/GeneratedUint4Swizzles.h
+            include/chlm/detail/math/FloatBits.h
+            include/chlm/detail/math/InverseTrig.h
+            include/chlm/detail/math/MathCommon.h
+            include/chlm/detail/math/Polynomial.h
+            include/chlm/detail/math/RangeReduction.h
+            include/chlm/detail/math/ScalarMath.h
+            include/chlm/detail/math/Sqrt.h
+            include/chlm/detail/math/Trig.h
             include/chlm/detail/PlatformConfig.h
             include/chlm/detail/PublicFloatVectors.h
             include/chlm/detail/PublicIntVectors.h

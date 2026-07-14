@@ -34,4 +34,16 @@ void run_quaternion_tests(test_context& ctx)
     (void)mat3_from_q;
 
     ctx.expect(true, "Axis-angle to matrix conversion smoke test");
+
+    const quat identity{ quat_identity() };
+    const quat quarter_turn{ quat_from_axis_angle(up(), half_pi) };
+    const quat halfway{ slerp(identity, quarter_turn, .5f) };
+    const float3 halfway_rotated{ rotate_vector(halfway, right()) };
+    constexpr float sqrt_half{ .7071067811865475f };
+
+    ctx.expect(
+        test_almost_equal(length(halfway), 1.f, 2e-4f) &&
+        test_almost_equal(halfway_rotated, float3{ sqrt_half, 0.f, -sqrt_half }, 2e-4f),
+        "Owned trig quaternion slerp integration test"
+    );
 }

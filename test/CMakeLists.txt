@@ -5,6 +5,9 @@ add_executable(CarrotHLM_test
     main.cpp
     MatrixTests.cpp
     QuaternionTests.cpp
+    ScalarMathEdgeCaseTests.cpp
+    ScalarMathExhaustiveTests.cpp
+    ScalarMathTests.cpp
     SwizzleScaffoldingTests.cpp
     UintVectorTests.cpp
     VectorTests.cpp

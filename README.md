@@ -21,6 +21,7 @@ float2 uv  = pos.st;              // texture coords
 - **Quaternions** - `using quat = float4`, axis-angle, slerp/nlerp, matrix conversion.
 - **Integer vectors**: `int2/3/4`, `uint2/3/4` - perfect for pixel coords, grids, bitmasks.
 - **Portable SIMD backends**: scalar fallback, SSE2 on x86/x64, NEON on ARM64.
+- **Owned scalar math**: fast-by-default `sqrt`, `sin`, `cos`, `tan`, and `acos`, plus higher-accuracy `_precise` variants.
 - Utilities: affine inverse, normal matrix, conversions.
 - Header-only · No external dependencies · C++23.
 
@@ -50,10 +51,24 @@ using namespace chlm;
 // ... use float4, quat, float4x4, etc.
 ```
 
+### Scalar Math
+
+CarrotHLM owns the runtime implementations behind its core scalar math API instead of forwarding to a platform C math library. The default functions target high-quality real-time game math, while matching `_precise` functions provide tighter bounds when accuracy matters more than throughput:
+
+```c++
+float fast_length = sqrt(length_squared(direction));
+float precise_length = sqrt_precise(length_squared(direction));
+
+float fast_angle = acos(dot(normal_a, normal_b));
+float precise_angle = acos_precise(dot(normal_a, normal_b));
+```
+
+The public API documents each function's finite-input error target. Special values, signed zero, domains, and exact endpoints are covered by the conformance test suite.
+
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.
 - Maximum performance with a small portable SIMD layer under the hood.
-- Battle-tested on Apple Silicon - no aliasing bugs, full NEON.
+- Native NEON on Apple Silicon and ARM64, SSE2 on x86/x64, and a portable scalar fallback.
 - Minimal, readable, engine-focused - no bloat.
 
 Perfect for anyone building a custom game engine who wants fast, expressive, and portable math without the bloat of GLM or the complexity of Eigen.

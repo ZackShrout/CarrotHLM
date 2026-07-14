@@ -84,4 +84,22 @@ void run_matrix_tests(test_context& ctx)
     const float3x3 norm_mat{ normal_matrix(model) };
     (void)norm_mat;
     ctx.expect(true, "Normal matrix smoke test");
+
+    const float4x4 perspective_lh{ float4x4::perspective_lh(half_pi, 2.f, 1.f, 100.f) };
+    const float4x4 perspective_rh{ float4x4::perspective_rh(half_pi, 2.f, 1.f, 100.f) };
+    constexpr float depth{ 100.f / 99.f };
+
+    ctx.expect(
+        test_almost_equal(perspective_lh[0].x, .5f, 6e-6f) &&
+        test_almost_equal(perspective_lh[1].y, 1.f, 6e-6f) &&
+        test_almost_equal(perspective_lh[2].z, depth) &&
+        test_almost_equal(perspective_lh[2].w, 1.f) &&
+        test_almost_equal(perspective_lh[3].z, -depth) &&
+        test_almost_equal(perspective_rh[0].x, .5f, 6e-6f) &&
+        test_almost_equal(perspective_rh[1].y, 1.f, 6e-6f) &&
+        test_almost_equal(perspective_rh[2].z, -depth) &&
+        test_almost_equal(perspective_rh[2].w, -1.f) &&
+        test_almost_equal(perspective_rh[3].z, -depth),
+        "Owned tangent perspective integration test"
+    );
 }

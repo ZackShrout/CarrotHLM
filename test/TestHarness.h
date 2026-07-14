@@ -145,3 +145,6 @@ void run_swizzle_scaffolding_tests(test_context& ctx);
 void run_quaternion_tests(test_context& ctx);
 void run_matrix_tests(test_context& ctx);
 void run_backend_selection_tests(test_context& ctx);
+void run_scalar_math_tests(test_context& ctx);
+void run_scalar_math_edge_case_tests(test_context& ctx);
+void run_scalar_math_exhaustive_tests(test_context& ctx);

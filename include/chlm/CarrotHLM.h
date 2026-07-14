@@ -20,6 +20,7 @@
 //   - Matrix builders: translate, scale, rotate, look_at, perspective, ortho
 //   - Conversions: quat ↔ matrix, affine inverse, normal matrix
 //   - Left- and right-handed variants for view/projection
+//   - Owned scalar sqrt/trigonometry with fast defaults and `_precise` variants
 //   - Constants: pi, unit vectors (right/up/forward), epsilon, etc.
 //
 // CONVENTIONS:

@@ -97,6 +97,7 @@ Examples:
 - Examples: `cpng`, `cjpg`, `chlm`
 - Sub-namespaces are preferred over excessively deep type names.
 - Anonymous namespaces are encouraged in `.cpp` files for file-local symbols.
+- Do not use anonymous namespaces in headers. Header-only implementation helpers use named `detail` sub-namespaces with `inline` or `constexpr` definitions so every translation unit shares one ODR-safe identity.
 - Never use `using namespace` in headers.
 - `using` declarations in `.cpp` files are allowed when they clearly improve readability and do not create ambiguity.
 
