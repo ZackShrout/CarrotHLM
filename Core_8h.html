@@ -92,13 +92,16 @@ $(document).ready(function(){initNavTree('Core_8h.html',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Core.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="PublicFloatVectors_8h_source.html">detail/PublicFloatVectors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PublicIntVectors_8h_source.html">detail/PublicIntVectors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="PublicUintVectors_8h_source.html">detail/PublicUintVectors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="SimdSelect_8h_source.html">detail/simd/SimdSelect.h</a>&quot;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -106,13 +109,63 @@ Include dependency graph for Core.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="Core_8h__incl.png" border="0" usemap="#ainclude_2chlm_2Core_8h" alt=""/></div>
 <map name="ainclude_2chlm_2Core_8h" id="ainclude_2chlm_2Core_8h">
-<area shape="rect" title=" " alt="" coords="53,5,203,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,72,104"/>
-<area shape="poly" title=" " alt="" coords="115,33,66,72,62,68,112,29"/>
-<area shape="rect" title=" " alt="" coords="97,79,159,104"/>
-<area shape="poly" title=" " alt="" coords="131,31,131,65,125,65,125,31"/>
-<area shape="rect" title=" " alt="" coords="184,79,253,104"/>
-<area shape="poly" title=" " alt="" coords="144,29,195,68,191,72,141,33"/>
+<area shape="rect" title=" " alt="" coords="1451,5,1601,31"/>
+<area shape="rect" href="PublicFloatVectors_8h.html" title=" " alt="" coords="1563,79,1758,104"/>
+<area shape="poly" title=" " alt="" coords="1549,28,1628,70,1625,74,1546,33"/>
+<area shape="rect" href="SimdSelect_8h.html" title=" " alt="" coords="1455,225,1597,251"/>
+<area shape="poly" title=" " alt="" coords="1529,31,1529,211,1523,211,1523,31"/>
+<area shape="rect" title=" " alt="" coords="743,372,810,397"/>
+<area shape="poly" title=" " alt="" coords="1451,26,1233,42,965,70,840,89,737,111,697,124,667,137,648,150,642,164,642,239,645,260,652,279,677,314,709,342,742,363,739,368,706,347,673,318,647,282,639,261,637,240,637,163,644,147,664,132,695,119,735,106,839,84,964,65,1233,37,1450,21"/>
+<area shape="rect" href="PublicIntVectors_8h.html" title=" " alt="" coords="421,79,599,104"/>
+<area shape="poly" title=" " alt="" coords="1450,26,1092,47,621,81,613,82,613,77,620,76,1092,42,1450,21"/>
+<area shape="rect" href="PublicUintVectors_8h.html" title=" " alt="" coords="1079,79,1269,104"/>
+<area shape="poly" title=" " alt="" coords="1470,33,1245,79,1244,73,1469,28"/>
+<area shape="rect" title=" " alt="" coords="1783,79,1845,104"/>
+<area shape="poly" title=" " alt="" coords="1574,28,1770,76,1768,81,1573,33"/>
+<area shape="rect" title=" " alt="" coords="1870,79,1939,104"/>
+<area shape="poly" title=" " alt="" coords="1597,28,1857,76,1856,81,1596,33"/>
+<area shape="rect" href="PublicSwizzleTypes_8h.html" title=" " alt="" coords="677,152,836,177"/>
+<area shape="poly" title=" " alt="" coords="1563,101,1250,121,850,154,849,149,1249,116,1563,96"/>
+<area shape="rect" href="GeneratedFloat2Swizzles_8h.html" title=" " alt="" coords="1936,152,2135,177"/>
+<area shape="poly" title=" " alt="" coords="1721,101,1962,147,1961,152,1720,107"/>
+<area shape="rect" href="GeneratedFloat3Swizzles_8h.html" title=" " alt="" coords="2159,152,2357,177"/>
+<area shape="poly" title=" " alt="" coords="1757,101,2149,148,2148,153,1756,107"/>
+<area shape="rect" href="GeneratedFloat4Swizzles_8h.html" title=" " alt="" coords="1563,152,1761,177"/>
+<area shape="poly" title=" " alt="" coords="1664,104,1664,138,1659,139,1658,104"/>
+<area shape="rect" href="VectorStorage_8h.html" title=" " alt="" coords="1786,152,1911,177"/>
+<area shape="poly" title=" " alt="" coords="1692,102,1806,144,1804,149,1690,107"/>
+<area shape="rect" href="SwizzleCommon_8h.html" title=" " alt="" coords="889,225,1032,251"/>
+<area shape="poly" title=" " alt="" coords="790,175,916,218,914,223,789,180"/>
+<area shape="rect" title=" " alt="" coords="1197,372,1253,397"/>
+<area shape="poly" title=" " alt="" coords="1033,240,1071,246,1112,257,1152,273,1188,297,1210,326,1222,358,1217,359,1205,328,1184,301,1149,278,1110,262,1070,251,1032,245"/>
+<area shape="poly" title=" " alt="" coords="1841,179,1815,210,1774,251,1723,293,1666,326,1632,338,1587,348,1475,364,1267,383,1267,378,1475,359,1586,343,1630,333,1664,322,1720,288,1771,247,1811,206,1837,176"/>
+<area shape="poly" title=" " alt="" coords="1797,180,1592,225,1591,220,1796,175"/>
+<area shape="rect" href="CompilerConfig_8h.html" title=" " alt="" coords="1506,299,1653,324"/>
+<area shape="poly" title=" " alt="" coords="1537,249,1565,286,1560,289,1533,253"/>
+<area shape="rect" href="PlatformConfig_8h.html" title=" " alt="" coords="1339,299,1481,324"/>
+<area shape="poly" title=" " alt="" coords="1509,253,1442,294,1439,289,1506,248"/>
+<area shape="rect" href="SimdScalar_8h.html" title=" " alt="" coords="1067,299,1174,324"/>
+<area shape="poly" title=" " alt="" coords="1461,253,1189,301,1188,296,1460,248"/>
+<area shape="poly" title=" " alt="" coords="1139,322,1198,362,1195,366,1136,326"/>
+<area shape="rect" href="SimdTraits_8h.html" title=" " alt="" coords="1069,372,1172,397"/>
+<area shape="poly" title=" " alt="" coords="1123,324,1123,358,1118,358,1118,324"/>
+<area shape="rect" title=" " alt="" coords="1007,372,1045,397"/>
+<area shape="poly" title=" " alt="" coords="1107,326,1054,366,1051,361,1104,322"/>
+<area shape="poly" title=" " alt="" coords="1068,326,824,376,823,371,1067,321"/>
+<area shape="poly" title=" " alt="" coords="550,101,704,146,703,151,549,107"/>
+<area shape="rect" href="GeneratedInt2Swizzles_8h.html" title=" " alt="" coords="419,152,601,177"/>
+<area shape="poly" title=" " alt="" coords="513,104,513,138,507,138,507,104"/>
+<area shape="rect" href="GeneratedInt3Swizzles_8h.html" title=" " alt="" coords="5,152,188,177"/>
+<area shape="poly" title=" " alt="" coords="444,107,177,152,176,147,443,101"/>
+<area shape="rect" href="GeneratedInt4Swizzles_8h.html" title=" " alt="" coords="212,152,395,177"/>
+<area shape="poly" title=" " alt="" coords="478,107,351,150,349,145,476,101"/>
+<area shape="poly" title=" " alt="" coords="1107,107,838,152,837,147,1107,101"/>
+<area shape="rect" href="GeneratedUint2Swizzles_8h.html" title=" " alt="" coords="860,152,1053,177"/>
+<area shape="poly" title=" " alt="" coords="1140,107,1006,150,1004,145,1138,101"/>
+<area shape="rect" href="GeneratedUint3Swizzles_8h.html" title=" " alt="" coords="1077,152,1271,177"/>
+<area shape="poly" title=" " alt="" coords="1177,104,1177,138,1171,138,1171,104"/>
+<area shape="rect" href="GeneratedUint4Swizzles_8h.html" title=" " alt="" coords="1295,152,1488,177"/>
+<area shape="poly" title=" " alt="" coords="1210,101,1344,145,1342,150,1208,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -158,45 +211,24 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacechlm" id="r_namespacechlm"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html">chlm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:addefbca24456c71561dd1d3a0a30a4c9" id="r_addefbca24456c71561dd1d3a0a30a4c9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#addefbca24456c71561dd1d3a0a30a4c9">chlm::float2</a> = float __attribute__((ext_vector_type(2)))</td></tr>
-<tr class="separator:addefbca24456c71561dd1d3a0a30a4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4" id="r_a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">chlm::float3</a> = float __attribute__((ext_vector_type(3)))</td></tr>
-<tr class="separator:a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25db41fc5768c893f1f02d85270b7e3e" id="r_a25db41fc5768c893f1f02d85270b7e3e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">chlm::float4</a> = float __attribute__((ext_vector_type(4)))</td></tr>
-<tr class="separator:a25db41fc5768c893f1f02d85270b7e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35fd87802047754c7423e4b323ec2bce" id="r_a35fd87802047754c7423e4b323ec2bce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a35fd87802047754c7423e4b323ec2bce">chlm::int2</a> = int __attribute__((ext_vector_type(2)))</td></tr>
-<tr class="separator:a35fd87802047754c7423e4b323ec2bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee9e95513783c36c536223a2f8825438" id="r_aee9e95513783c36c536223a2f8825438"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aee9e95513783c36c536223a2f8825438">chlm::int3</a> = int __attribute__((ext_vector_type(3)))</td></tr>
-<tr class="separator:aee9e95513783c36c536223a2f8825438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae550af641b2a8325988cfbb986527c0a" id="r_ae550af641b2a8325988cfbb986527c0a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae550af641b2a8325988cfbb986527c0a">chlm::int4</a> = int __attribute__((ext_vector_type(4)))</td></tr>
-<tr class="separator:ae550af641b2a8325988cfbb986527c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd8e05d7f710f1f08eccda9ec2c5cc02" id="r_acd8e05d7f710f1f08eccda9ec2c5cc02"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#acd8e05d7f710f1f08eccda9ec2c5cc02">chlm::uint2</a> = unsigned int __attribute__((ext_vector_type(2)))</td></tr>
-<tr class="separator:acd8e05d7f710f1f08eccda9ec2c5cc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6fa182dbfe3929706ee10c9a5e9fd3f" id="r_ac6fa182dbfe3929706ee10c9a5e9fd3f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ac6fa182dbfe3929706ee10c9a5e9fd3f">chlm::uint3</a> = unsigned int __attribute__((ext_vector_type(3)))</td></tr>
-<tr class="separator:ac6fa182dbfe3929706ee10c9a5e9fd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a805eb17f43225eac73f7961686bf59b0" id="r_a805eb17f43225eac73f7961686bf59b0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a805eb17f43225eac73f7961686bf59b0">chlm::uint4</a> = unsigned int __attribute__((ext_vector_type(4)))</td></tr>
-<tr class="separator:a805eb17f43225eac73f7961686bf59b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa5565b88c57e8accf11f521e9afc73ad" id="r_aa5565b88c57e8accf11f521e9afc73ad"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa5565b88c57e8accf11f521e9afc73ad">chlm::right</a> ()</td></tr>
+<tr class="memitem:aa5565b88c57e8accf11f521e9afc73ad" id="r_aa5565b88c57e8accf11f521e9afc73ad"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa5565b88c57e8accf11f521e9afc73ad">chlm::right</a> ()</td></tr>
 <tr class="memdesc:aa5565b88c57e8accf11f521e9afc73ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive X-axis unit vector (right).  <br /></td></tr>
 <tr class="separator:aa5565b88c57e8accf11f521e9afc73ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeab5d37b04d03bcc94ba162591356d61" id="r_aeab5d37b04d03bcc94ba162591356d61"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aeab5d37b04d03bcc94ba162591356d61">chlm::left</a> ()</td></tr>
+<tr class="memitem:aeab5d37b04d03bcc94ba162591356d61" id="r_aeab5d37b04d03bcc94ba162591356d61"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aeab5d37b04d03bcc94ba162591356d61">chlm::left</a> ()</td></tr>
 <tr class="memdesc:aeab5d37b04d03bcc94ba162591356d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative X-axis unit vector (left).  <br /></td></tr>
 <tr class="separator:aeab5d37b04d03bcc94ba162591356d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd79c46c34ddea26cade1a4fd0804333" id="r_abd79c46c34ddea26cade1a4fd0804333"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#abd79c46c34ddea26cade1a4fd0804333">chlm::up</a> ()</td></tr>
+<tr class="memitem:abd79c46c34ddea26cade1a4fd0804333" id="r_abd79c46c34ddea26cade1a4fd0804333"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#abd79c46c34ddea26cade1a4fd0804333">chlm::up</a> ()</td></tr>
 <tr class="memdesc:abd79c46c34ddea26cade1a4fd0804333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive Y-axis unit vector (up).  <br /></td></tr>
 <tr class="separator:abd79c46c34ddea26cade1a4fd0804333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae294d82617669b1eb2af77c7bf7703ba" id="r_ae294d82617669b1eb2af77c7bf7703ba"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae294d82617669b1eb2af77c7bf7703ba">chlm::down</a> ()</td></tr>
+<tr class="memitem:ae294d82617669b1eb2af77c7bf7703ba" id="r_ae294d82617669b1eb2af77c7bf7703ba"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae294d82617669b1eb2af77c7bf7703ba">chlm::down</a> ()</td></tr>
 <tr class="memdesc:ae294d82617669b1eb2af77c7bf7703ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative Y-axis unit vector (down).  <br /></td></tr>
 <tr class="separator:ae294d82617669b1eb2af77c7bf7703ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d5269e025ada05113501010e9e2e22" id="r_a96d5269e025ada05113501010e9e2e22"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a96d5269e025ada05113501010e9e2e22">chlm::forward</a> ()</td></tr>
+<tr class="memitem:a96d5269e025ada05113501010e9e2e22" id="r_a96d5269e025ada05113501010e9e2e22"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a96d5269e025ada05113501010e9e2e22">chlm::forward</a> ()</td></tr>
 <tr class="memdesc:a96d5269e025ada05113501010e9e2e22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive Z-axis unit vector (forward).  <br /></td></tr>
 <tr class="separator:a96d5269e025ada05113501010e9e2e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a074c37780f161774f995987465960f0c" id="r_a074c37780f161774f995987465960f0c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a074c37780f161774f995987465960f0c">chlm::back</a> ()</td></tr>
+<tr class="memitem:a074c37780f161774f995987465960f0c" id="r_a074c37780f161774f995987465960f0c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a074c37780f161774f995987465960f0c">chlm::back</a> ()</td></tr>
 <tr class="memdesc:a074c37780f161774f995987465960f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative Z-axis unit vector (back).  <br /></td></tr>
 <tr class="separator:a074c37780f161774f995987465960f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6912bedc5dfb85df0ece4efb502e11af" id="r_a6912bedc5dfb85df0ece4efb502e11af"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -249,24 +281,34 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aad4babb8b9406e57113f3199580728fc" id="r_aad4babb8b9406e57113f3199580728fc"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aad4babb8b9406e57113f3199580728fc">chlm::pi</a> { 3.1415926535897932384626433832795f }</td></tr>
+<tr class="memdesc:aad4babb8b9406e57113f3199580728fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ratio of a circle's circumference to its diameter.  <br /></td></tr>
 <tr class="separator:aad4babb8b9406e57113f3199580728fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37a2a11e02104513cd1e20bab5e43844" id="r_a37a2a11e02104513cd1e20bab5e43844"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a37a2a11e02104513cd1e20bab5e43844">chlm::half_pi</a> { <a class="el" href="namespacechlm.html#aad4babb8b9406e57113f3199580728fc">pi</a> * .5f }</td></tr>
+<tr class="memdesc:a37a2a11e02104513cd1e20bab5e43844"><td class="mdescLeft">&#160;</td><td class="mdescRight">One half of pi, commonly used for quarter turns.  <br /></td></tr>
 <tr class="separator:a37a2a11e02104513cd1e20bab5e43844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf32792e63dea1bf1abdbbfa2c07b813" id="r_acf32792e63dea1bf1abdbbfa2c07b813"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#acf32792e63dea1bf1abdbbfa2c07b813">chlm::two_pi</a> { <a class="el" href="namespacechlm.html#aad4babb8b9406e57113f3199580728fc">pi</a> * 2.f }</td></tr>
+<tr class="memdesc:acf32792e63dea1bf1abdbbfa2c07b813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Two times pi, commonly used for full rotations.  <br /></td></tr>
 <tr class="separator:acf32792e63dea1bf1abdbbfa2c07b813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa42c796bcb6582d347fdcbb02806f951" id="r_aa42c796bcb6582d347fdcbb02806f951"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#aa42c796bcb6582d347fdcbb02806f951">chlm::deg_to_rad</a> { <a class="el" href="namespacechlm.html#aad4babb8b9406e57113f3199580728fc">pi</a> / 180.f }</td></tr>
+<tr class="memdesc:aa42c796bcb6582d347fdcbb02806f951"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion factor from degrees to radians.  <br /></td></tr>
 <tr class="separator:aa42c796bcb6582d347fdcbb02806f951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad90d0d438ee426d33f525109745d9e64" id="r_ad90d0d438ee426d33f525109745d9e64"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ad90d0d438ee426d33f525109745d9e64">chlm::rad_to_deg</a> { 180.f / <a class="el" href="namespacechlm.html#aad4babb8b9406e57113f3199580728fc">pi</a> }</td></tr>
+<tr class="memdesc:ad90d0d438ee426d33f525109745d9e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion factor from radians to degrees.  <br /></td></tr>
 <tr class="separator:ad90d0d438ee426d33f525109745d9e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6d8ca05720a6287fab733817c52e4af" id="r_ae6d8ca05720a6287fab733817c52e4af"><td class="memItemLeft" align="right" valign="top">constexpr float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ae6d8ca05720a6287fab733817c52e4af">chlm::epsilon</a> { 1e-6f }</td></tr>
+<tr class="memdesc:ae6d8ca05720a6287fab733817c52e4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default epsilon used for approximate floating-point comparisons.  <br /></td></tr>
 <tr class="separator:ae6d8ca05720a6287fab733817c52e4af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ee1ecaa97597c47bbf8c07fb930c4b4" id="r_a7ee1ecaa97597c47bbf8c07fb930c4b4"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a7ee1ecaa97597c47bbf8c07fb930c4b4">chlm::float4_zero</a> { 0.f, 0.f, 0.f, 0.f }</td></tr>
-<tr class="separator:a7ee1ecaa97597c47bbf8c07fb930c4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7d1ca9441a421bb1945cffd7eb42ba" id="r_a2d7d1ca9441a421bb1945cffd7eb42ba"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a25db41fc5768c893f1f02d85270b7e3e">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a2d7d1ca9441a421bb1945cffd7eb42ba">chlm::float4_one</a> { 1.f, 1.f, 1.f, 1.f }</td></tr>
-<tr class="separator:a2d7d1ca9441a421bb1945cffd7eb42ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd44089beb99198bdb820720af8787e" id="r_acbd44089beb99198bdb820720af8787e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#acbd44089beb99198bdb820720af8787e">chlm::float3_zero</a> { 0.f, 0.f, 0.f }</td></tr>
+<tr class="memitem:ac3315eb198bcbc54a31ef8859bf3aa7e" id="r_ac3315eb198bcbc54a31ef8859bf3aa7e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structchlm_1_1float4.html">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#ac3315eb198bcbc54a31ef8859bf3aa7e">chlm::float4_zero</a> { 0.f, 0.f, 0.f, 0.f }</td></tr>
+<tr class="memdesc:ac3315eb198bcbc54a31ef8859bf3aa7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">All-zero 4D float vector.  <br /></td></tr>
+<tr class="separator:ac3315eb198bcbc54a31ef8859bf3aa7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5659535aa25a68dfe9f0909b7a17e5bf" id="r_a5659535aa25a68dfe9f0909b7a17e5bf"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structchlm_1_1float4.html">float4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a5659535aa25a68dfe9f0909b7a17e5bf">chlm::float4_one</a> { 1.f, 1.f, 1.f, 1.f }</td></tr>
+<tr class="memdesc:a5659535aa25a68dfe9f0909b7a17e5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">All-one 4D float vector.  <br /></td></tr>
+<tr class="separator:a5659535aa25a68dfe9f0909b7a17e5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbd44089beb99198bdb820720af8787e" id="r_acbd44089beb99198bdb820720af8787e"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#acbd44089beb99198bdb820720af8787e">chlm::float3_zero</a> { 0.f, 0.f, 0.f }</td></tr>
+<tr class="memdesc:acbd44089beb99198bdb820720af8787e"><td class="mdescLeft">&#160;</td><td class="mdescRight">All-zero 3D float vector.  <br /></td></tr>
 <tr class="separator:acbd44089beb99198bdb820720af8787e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ce3ddff1085c0acfc687db9ed5cfbfc" id="r_a8ce3ddff1085c0acfc687db9ed5cfbfc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacechlm.html#a8dd6a29e9c3f1bf6fa2cc82c9a2bb5a4">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8ce3ddff1085c0acfc687db9ed5cfbfc">chlm::float3_one</a> { 1.f, 1.f, 1.f }</td></tr>
+<tr class="memitem:a8ce3ddff1085c0acfc687db9ed5cfbfc" id="r_a8ce3ddff1085c0acfc687db9ed5cfbfc"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structchlm_1_1float3.html">float3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacechlm.html#a8ce3ddff1085c0acfc687db9ed5cfbfc">chlm::float3_one</a> { 1.f, 1.f, 1.f }</td></tr>
+<tr class="memdesc:a8ce3ddff1085c0acfc687db9ed5cfbfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">All-one 3D float vector.  <br /></td></tr>
 <tr class="separator:a8ce3ddff1085c0acfc687db9ed5cfbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['perspective_5flh_0',['perspective_lh',['../structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286',1,'chlm::float4x4']]],
-  ['perspective_5frh_1',['perspective_rh',['../structchlm_1_1float4x4.html#a3b43aa459ea189dd6409c3d67db46399',1,'chlm::float4x4']]],
-  ['pi_2',['pi',['../namespacechlm.html#aad4babb8b9406e57113f3199580728fc',1,'chlm']]],
-  ['position_3',['position',['../structchlm_1_1uint__rect.html#acec0dbd2dd09f56fc9182a7c8a5cf3a9',1,'chlm::uint_rect::position'],['../structchlm_1_1float__rect.html#ab3cd4a69397418727ecfd1300bb2441a',1,'chlm::float_rect::position']]],
-  ['project_5fvector_4',['project_vector',['../namespacechlm.html#ab9bf29d574df6bdc003bddbb0c39dc0b',1,'chlm']]]
+  ['neon_0',['neon',['../namespacechlm_1_1detail.html#a6469844738cd33b0af0b58d0c228adc3aa63728c09cda459c3caaa158f4adff49',1,'chlm::detail']]],
+  ['nlerp_1',['nlerp',['../namespacechlm.html#a336cfc2677f88b56f71e1e8cd6d6ace9',1,'chlm']]],
+  ['normal_5fmatrix_2',['normal_matrix',['../namespacechlm.html#ad2eacb1c24cdb60465804467ef41596e',1,'chlm']]],
+  ['normalize_3',['normalize',['../namespacechlm.html#a85bac571ba384b11c8495e4c321a6b7d',1,'chlm::normalize(const float2 v) noexcept'],['../namespacechlm.html#ad79cbcd66314076ca02949c5b6389b45',1,'chlm::normalize(const float3 v) noexcept'],['../namespacechlm.html#a9cf7e4ee16cbe9282214f75b44df8abc',1,'chlm::normalize(const float4 v) noexcept']]]
 ];

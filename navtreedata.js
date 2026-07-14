@@ -32,20 +32,27 @@ var NAVTREE =
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
@@ -53,7 +60,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CarrotHLM_8h.html",
-"structchlm_1_1float3x3.html#ae864ab2c38639ad658764fcd069e6036"
+"index.html#features",
+"structchlm_1_1detail_1_1simd__neon.html#a395a4043f5a44a74f756a368883e4a77",
+"structchlm_1_1float2.html#a6e0a797a2cc6d26efe02728e08d90baf",
+"structchlm_1_1int2.html#adeabe64f3acd9d16244e94419767b09d",
+"structchlm_1_1uint4.html#aaf113a429bdb3b5624ae6005f791c9db"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

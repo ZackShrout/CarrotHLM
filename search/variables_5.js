@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['pi_0',['pi',['../namespacechlm.html#aad4babb8b9406e57113f3199580728fc',1,'chlm']]],
-  ['position_1',['position',['../structchlm_1_1uint__rect.html#acec0dbd2dd09f56fc9182a7c8a5cf3a9',1,'chlm::uint_rect::position'],['../structchlm_1_1float__rect.html#ab3cd4a69397418727ecfd1300bb2441a',1,'chlm::float_rect::position']]]
+  ['float3_5fone_0',['float3_one',['../namespacechlm.html#a8ce3ddff1085c0acfc687db9ed5cfbfc',1,'chlm']]],
+  ['float3_5fzero_1',['float3_zero',['../namespacechlm.html#acbd44089beb99198bdb820720af8787e',1,'chlm']]],
+  ['float4_5fone_2',['float4_one',['../namespacechlm.html#a5659535aa25a68dfe9f0909b7a17e5bf',1,'chlm']]],
+  ['float4_5fzero_3',['float4_zero',['../namespacechlm.html#ac3315eb198bcbc54a31ef8859bf3aa7e',1,'chlm']]]
 ];

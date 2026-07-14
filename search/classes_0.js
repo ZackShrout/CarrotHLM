@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['float3x3_0',['float3x3',['../structchlm_1_1float3x3.html',1,'chlm']]],
-  ['float4x4_1',['float4x4',['../structchlm_1_1float4x4.html',1,'chlm']]],
-  ['float_5frect_2',['float_rect',['../structchlm_1_1float__rect.html',1,'chlm']]]
+  ['basic_5ffloat_5fstorage_0',['basic_float_storage',['../structchlm_1_1detail_1_1basic__float__storage.html',1,'chlm::detail']]]
 ];

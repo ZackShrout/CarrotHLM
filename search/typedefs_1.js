@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['int2_0',['int2',['../namespacechlm.html#a35fd87802047754c7423e4b323ec2bce',1,'chlm']]],
-  ['int3_1',['int3',['../namespacechlm.html#aee9e95513783c36c536223a2f8825438',1,'chlm']]],
-  ['int4_2',['int4',['../namespacechlm.html#ae550af641b2a8325988cfbb986527c0a',1,'chlm']]]
+  ['backend_5ftype_0',['backend_type',['../structchlm_1_1detail_1_1basic__float__storage.html#a8403101565fc76ca646f27cb72546a42',1,'chlm::detail::basic_float_storage']]]
 ];

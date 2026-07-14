@@ -1,5 +1,6 @@
 var dir_737ceee482297be3066c67b32aa0b26a =
 [
+    [ "detail", "dir_601d8f304e4e9cbad95b30bec1fb5489.html", "dir_601d8f304e4e9cbad95b30bec1fb5489" ],
     [ "CarrotHLM.h", "CarrotHLM_8h.html", null ],
     [ "Core.h", "Core_8h.html", "Core_8h" ],
     [ "MathConversions.h", "MathConversions_8h.html", "MathConversions_8h" ],

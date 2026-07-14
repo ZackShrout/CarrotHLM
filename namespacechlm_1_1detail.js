@@ -1,0 +1,35 @@
+var namespacechlm_1_1detail =
+[
+    [ "basic_float_storage", "structchlm_1_1detail_1_1basic__float__storage.html", "structchlm_1_1detail_1_1basic__float__storage" ],
+    [ "float_vector_base", "structchlm_1_1detail_1_1float__vector__base.html", "structchlm_1_1detail_1_1float__vector__base" ],
+    [ "ivector_swizzle2", "structchlm_1_1detail_1_1ivector__swizzle2.html", "structchlm_1_1detail_1_1ivector__swizzle2" ],
+    [ "ivector_swizzle3", "structchlm_1_1detail_1_1ivector__swizzle3.html", "structchlm_1_1detail_1_1ivector__swizzle3" ],
+    [ "ivector_swizzle4", "structchlm_1_1detail_1_1ivector__swizzle4.html", "structchlm_1_1detail_1_1ivector__swizzle4" ],
+    [ "simd_neon", "structchlm_1_1detail_1_1simd__neon.html", "structchlm_1_1detail_1_1simd__neon" ],
+    [ "simd_scalar", "structchlm_1_1detail_1_1simd__scalar.html", "structchlm_1_1detail_1_1simd__scalar" ],
+    [ "simd_sse2", "structchlm_1_1detail_1_1simd__sse2.html", "structchlm_1_1detail_1_1simd__sse2" ],
+    [ "swizzle_proxy", "structchlm_1_1detail_1_1swizzle__proxy.html", "structchlm_1_1detail_1_1swizzle__proxy" ],
+    [ "uvector_swizzle2", "structchlm_1_1detail_1_1uvector__swizzle2.html", "structchlm_1_1detail_1_1uvector__swizzle2" ],
+    [ "uvector_swizzle3", "structchlm_1_1detail_1_1uvector__swizzle3.html", "structchlm_1_1detail_1_1uvector__swizzle3" ],
+    [ "uvector_swizzle4", "structchlm_1_1detail_1_1uvector__swizzle4.html", "structchlm_1_1detail_1_1uvector__swizzle4" ],
+    [ "vector_swizzle2", "structchlm_1_1detail_1_1vector__swizzle2.html", "structchlm_1_1detail_1_1vector__swizzle2" ],
+    [ "vector_swizzle3", "structchlm_1_1detail_1_1vector__swizzle3.html", "structchlm_1_1detail_1_1vector__swizzle3" ],
+    [ "vector_swizzle4", "structchlm_1_1detail_1_1vector__swizzle4.html", "structchlm_1_1detail_1_1vector__swizzle4" ],
+    [ "active_simd", "namespacechlm_1_1detail.html#a2682752b9de9e3cd3fdf09fee63cff7a", null ],
+    [ "float2_base", "namespacechlm_1_1detail.html#a019986379bdaf3a6fc41d75f3d70451f", null ],
+    [ "float3_base", "namespacechlm_1_1detail.html#a149d12019463ce4b4dca236e76ac6102", null ],
+    [ "float4_base", "namespacechlm_1_1detail.html#a327a939a26c287919578817d74c83008", null ],
+    [ "float_storage", "namespacechlm_1_1detail.html#a093b698ed2d0791a9bdfb63cf2b0735d", null ],
+    [ "scalar_float_storage", "namespacechlm_1_1detail.html#a4d41143d3da3406ad2c1cdaa2c4389e6", null ],
+    [ "scalar_simd", "namespacechlm_1_1detail.html#afbd98be70196f33dcfcfc9b5fad26c9e", null ],
+    [ "simd_backend_kind", "namespacechlm_1_1detail.html#a6469844738cd33b0af0b58d0c228adc3", [
+      [ "scalar", "namespacechlm_1_1detail.html#a6469844738cd33b0af0b58d0c228adc3aa27a6549ade38cc036f7b8c58a840510", null ],
+      [ "sse2", "namespacechlm_1_1detail.html#a6469844738cd33b0af0b58d0c228adc3a0303bb014717eba9fdeae96c3629fe5f", null ],
+      [ "neon", "namespacechlm_1_1detail.html#a6469844738cd33b0af0b58d0c228adc3aa63728c09cda459c3caaa158f4adff49", null ]
+    ] ],
+    [ "make_swizzle", "namespacechlm_1_1detail.html#a471eef1addd2f141a59d267d0fc09bf5", null ],
+    [ "swizzle_indices_unique", "namespacechlm_1_1detail.html#a8800c2fd9b6ca960f5cf19f2b23ee351", null ],
+    [ "to_string", "namespacechlm_1_1detail.html#a8b49f7eb2685d44af98718f5acdc799c", null ],
+    [ "active_simd_backend", "namespacechlm_1_1detail.html#ad20f953429d25dd7bbbd81b0a511476f", null ],
+    [ "swizzle_indices_unique_v", "namespacechlm_1_1detail.html#ab395208b43700334f4f8d358e777afbc", null ]
+];

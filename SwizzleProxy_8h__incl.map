@@ -1,0 +1,28 @@
+<map id="include/chlm/detail/SwizzleProxy.h" name="include/chlm/detail/SwizzleProxy.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="113,5,259,45"/>
+<area shape="rect" id="Node000002" href="$SwizzleCommon_8h.html" title=" " alt="" coords="5,167,148,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,47,95,157,91,154,170,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="183,387,239,412"/>
+<area shape="poly" id="edge14_Node000001_Node000003" title=" " alt="" coords="189,46,189,178,189,254,195,319,207,373,202,374,190,320,183,254,183,178,183,46"/>
+<area shape="rect" id="Node000004" href="$VectorBase_8h.html" title=" " alt="" coords="227,93,334,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,43,257,82,254,86,207,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,191,119,254,170,337,196,374,192,377,165,340,115,257,80,193"/>
+<area shape="rect" id="Node000005" href="$VectorStorage_8h.html" title=" " alt="" coords="223,167,349,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="284,119,287,153,281,153,279,119"/>
+<area shape="poly" id="edge13_Node000005_Node000003" title=" " alt="" coords="285,193,222,374,217,373,279,191"/>
+<area shape="rect" id="Node000006" href="$SimdSelect_8h.html" title=" " alt="" coords="360,240,503,265"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="311,190,397,232,394,236,308,194"/>
+<area shape="rect" id="Node000007" href="$CompilerConfig_8h.html" title=" " alt="" coords="274,313,421,339"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="420,267,373,306,370,302,416,263"/>
+<area shape="rect" id="Node000008" href="$PlatformConfig_8h.html" title=" " alt="" coords="445,313,588,339"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="447,263,494,302,491,307,443,267"/>
+<area shape="rect" id="Node000009" href="$SimdScalar_8h.html" title=" " alt="" coords="613,313,719,339"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="470,263,616,307,614,312,468,268"/>
+<area shape="poly" id="edge10_Node000009_Node000003" title=" " alt="" coords="613,339,601,341,254,395,253,389,600,336,612,334"/>
+<area shape="rect" id="Node000010" href="$SimdTraits_8h.html" title=" " alt="" coords="520,387,623,412"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="652,341,599,380,596,376,649,337"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="647,387,685,412"/>
+<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="669,339,669,373,663,373,663,339"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="710,387,777,412"/>
+<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="680,337,722,375,719,379,677,341"/>
+</map>

@@ -1,0 +1,33 @@
+<map id="include/chlm/detail/PublicFloatVectors.h" name="include/chlm/detail/PublicFloatVectors.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="431,5,589,45"/>
+<area shape="rect" id="Node000002" href="$PublicSwizzleTypes_8h.html" title=" " alt="" coords="5,93,164,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="431,44,160,94,159,88,430,39"/>
+<area shape="rect" id="Node000005" href="$GeneratedFloat2Swizzles_8h.html" title=" " alt="" coords="188,93,387,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="458,48,334,91,332,86,456,43"/>
+<area shape="rect" id="Node000006" href="$GeneratedFloat3Swizzles_8h.html" title=" " alt="" coords="411,93,609,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="513,46,513,79,507,79,507,46"/>
+<area shape="rect" id="Node000007" href="$GeneratedFloat4Swizzles_8h.html" title=" " alt="" coords="633,93,832,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="564,43,688,86,686,91,562,48"/>
+<area shape="rect" id="Node000008" href="$VectorStorage_8h.html" title=" " alt="" coords="857,93,982,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="590,39,846,88,845,93,589,44"/>
+<area shape="rect" id="Node000003" href="$SwizzleCommon_8h.html" title=" " alt="" coords="236,167,379,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,116,259,160,258,165,120,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="611,313,667,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="335,190,602,306,600,310,333,195"/>
+<area shape="poly" id="edge16_Node000008_Node000004" title=" " alt="" coords="876,121,827,138,771,163,714,197,689,218,667,242,652,270,644,300,639,299,647,268,663,238,685,214,711,193,768,158,825,133,874,116"/>
+<area shape="rect" id="Node000009" href="$SimdSelect_8h.html" title=" " alt="" coords="848,167,991,192"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="922,119,922,153,917,153,917,119"/>
+<area shape="rect" id="Node000010" href="$CompilerConfig_8h.html" title=" " alt="" coords="677,240,823,265"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="893,194,791,237,789,232,891,190"/>
+<area shape="rect" id="Node000011" href="$PlatformConfig_8h.html" title=" " alt="" coords="848,240,991,265"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="922,192,922,226,917,226,917,192"/>
+<area shape="rect" id="Node000012" href="$SimdScalar_8h.html" title=" " alt="" coords="1015,240,1122,265"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="944,190,1033,232,1031,236,942,194"/>
+<area shape="poly" id="edge13_Node000012_Node000004" title=" " alt="" coords="1016,266,1002,268,681,321,680,315,1002,263,1015,260"/>
+<area shape="rect" id="Node000013" href="$SimdTraits_8h.html" title=" " alt="" coords="923,313,1025,339"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1055,267,1002,307,999,303,1052,263"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1049,313,1088,339"/>
+<area shape="poly" id="edge14_Node000012_Node000014" title=" " alt="" coords="1071,266,1071,300,1066,300,1066,266"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1113,313,1179,339"/>
+<area shape="poly" id="edge15_Node000012_Node000015" title=" " alt="" coords="1083,263,1125,302,1121,306,1079,267"/>
+</map>

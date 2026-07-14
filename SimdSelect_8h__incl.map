@@ -1,0 +1,17 @@
+<map id="include/chlm/detail/simd/SimdSelect.h" name="include/chlm/detail/simd/SimdSelect.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="175,5,321,45"/>
+<area shape="rect" id="Node000002" href="$CompilerConfig_8h.html" title=" " alt="" coords="5,93,152,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,48,117,90,115,85,206,43"/>
+<area shape="rect" id="Node000003" href="$PlatformConfig_8h.html" title=" " alt="" coords="177,93,319,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="251,46,251,79,245,79,245,46"/>
+<area shape="rect" id="Node000004" href="$SimdScalar_8h.html" title=" " alt="" coords="344,93,451,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="285,43,364,84,362,89,283,48"/>
+<area shape="rect" id="Node000005" href="$SimdTraits_8h.html" title=" " alt="" coords="206,167,309,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="376,121,293,163,291,158,374,116"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="333,167,389,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="394,120,376,156,371,153,389,118"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="414,167,453,192"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="406,118,424,153,419,156,401,120"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="477,167,544,192"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="417,116,482,157,479,162,414,121"/>
+</map>
