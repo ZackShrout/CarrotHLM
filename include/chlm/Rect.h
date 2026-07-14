@@ -150,7 +150,7 @@ namespace chlm {
      * @param rect Rectangle to query.
      * @return The exclusive maximum corner of the rectangle.
      */
-    [[nodiscard]] constexpr float2 rect_max(const float_rect& rect) noexcept
+    [[nodiscard]] inline float2 rect_max(const float_rect& rect) noexcept
     {
         return rect.position + rect.size;
     }
@@ -170,7 +170,7 @@ namespace chlm {
      * @param point Point to test.
      * @return true if the point lies inside the rectangle, otherwise false.
      */
-    [[nodiscard]] constexpr bool contains(const float_rect& rect, const float2 point) noexcept
+    [[nodiscard]] inline bool contains(const float_rect& rect, const float2 point) noexcept
     {
         const float2 min{ rect_min(rect) };
         const float2 max{ rect_max(rect) };

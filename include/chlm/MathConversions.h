@@ -79,7 +79,7 @@ namespace chlm {
      * @param m Orthonormal 3x3 rotation matrix.
      * @return Equivalent unit quaternion.
      */
-    constexpr quat quat_from_float3x3(const float3x3& m) noexcept
+    inline quat quat_from_float3x3(const float3x3& m) noexcept
     {
         quat q;
 
@@ -125,7 +125,7 @@ namespace chlm {
      * @param m Input matrix.
      * @return Transposed matrix (rows become columns).
      */
-    constexpr float4x4 transpose(const float4x4& m) noexcept
+    inline float4x4 transpose(const float4x4& m) noexcept
     {
         return float4x4{
             float4{ m[0].x, m[1].x, m[2].x, m[3].x },
@@ -175,7 +175,7 @@ namespace chlm {
      * @param m Transformation matrix (model matrix).
      * @return 3x3 matrix for transforming normals.
      */
-    constexpr float3x3 normal_matrix(const float4x4& m) noexcept
+    inline float3x3 normal_matrix(const float4x4& m) noexcept
     {
         const float3x3 upper{
             float3{ m.columns[0].x, m.columns[0].y, m.columns[0].z },
@@ -203,7 +203,7 @@ namespace chlm {
      *         If the matrix is singular (determinant ≈ 0), returns the identity
      *         matrix as a safe fallback.
      */
-    constexpr float4x4 inverse(const float4x4& m) noexcept
+    inline float4x4 inverse(const float4x4& m) noexcept
     {
         // Copy matrix into flat scalar array (column-major -> row-major transpose for row ops)
         float a[4][4];

@@ -8,8 +8,41 @@
 #include <chlm/CarrotHLM.h>
 
 #include <cmath>
-#include <print>
 #include <string_view>
+
+#if __has_include(<print>)
+    #include <print>
+    #define test_println(...) std::println(__VA_ARGS__)
+#else
+    #include <iostream>
+    #include <utility>
+
+    inline void test_print(const std::string_view format)
+    {
+        std::cout << format;
+    }
+
+    template<typename T, typename... Args>
+    inline void test_print(const std::string_view format, T&& value, Args&&... args)
+    {
+        const std::size_t placeholder{ format.find(static_cast<char>(123)) };
+        if (placeholder == std::string_view::npos)
+        {
+            std::cout << format;
+            return;
+        }
+
+        std::cout << format.substr(0, placeholder) << std::forward<T>(value);
+        test_print(format.substr(placeholder + 2), std::forward<Args>(args)...);
+    }
+
+    template<typename... Args>
+    inline void test_println(const std::string_view format, Args&&... args)
+    {
+        test_print(format, std::forward<Args>(args)...);
+        std::cout << std::endl;
+    }
+#endif
 
 constexpr float GENERAL_EPS = 1e-4f;
 
@@ -87,18 +120,18 @@ struct test_context
 
     void section(const std::string_view name) const
     {
-        std::println("\n[{}]", name);
+        test_println("\n[{}]", name);
     }
 
     void expect(bool condition, const std::string_view test_name)
     {
         if (condition)
         {
-            std::println("{}: PASSED", test_name);
+            test_println("{}: PASSED", test_name);
             return;
         }
 
-        std::println("{}: FAILED", test_name);
+        test_println("{}: FAILED", test_name);
         ++failures;
     }
 };

@@ -55,7 +55,7 @@ void run_matrix_tests(test_context& ctx)
     const float4 local{ 1.f, 0.f, 0.f, 1.f };
     const float4 world{ model * local };
 
-    std::println("  local (1,0,0,1) -> world ({}, {}, {})",
+    test_println("  local (1,0,0,1) -> world ({}, {}, {})",
                  static_cast<float>(world.x),
                  static_cast<float>(world.y),
                  static_cast<float>(world.z));

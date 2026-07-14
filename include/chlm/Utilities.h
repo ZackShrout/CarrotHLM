@@ -18,7 +18,7 @@ namespace chlm {
      * @param n Surface normal (should be normalized).
      * @return Reflected direction.
      */
-    constexpr float3 reflect(const float3 i, const float3 n) noexcept
+    inline float3 reflect(const float3 i, const float3 n) noexcept
     {
         return i - 2.f * dot(i, n) * n;
     }
@@ -31,7 +31,7 @@ namespace chlm {
      * @param eta Ratio of indices of refraction (n1 / n2), where n1 is the medium the ray is coming from.
      * @return Refracted direction. Returns float3_zero on total internal reflection.
      */
-    constexpr float3 refract(const float3 i, const float3 n, float eta) noexcept
+    inline float3 refract(const float3 i, const float3 n, float eta) noexcept
     {
         const float ndoti{ dot(i, n) };
         float k{ 1.f - eta * eta * (1.f - ndoti * ndoti) };
@@ -51,7 +51,7 @@ namespace chlm {
      * @param nref   Reference normal (usually the geometric or interpolated normal).
      * @return n if dot(nref, i) >= 0, otherwise -n.
      */
-    constexpr float3 faceforward(const float3 n, const float3 i, const float3 nref) noexcept
+    inline float3 faceforward(const float3 n, const float3 i, const float3 nref) noexcept
     {
         return dot(nref, i) < 0.f ? n : -n;
     }
@@ -65,7 +65,7 @@ namespace chlm {
      * @param b Second vector.
      * @return Angle in radians [0, π]. Returns 0 if either vector has zero length.
      */
-    constexpr float angle_between(const float3 a, const float3 b) noexcept
+    inline float angle_between(const float3 a, const float3 b) noexcept
     {
         const float d{ dot(a, b) };
         const float len2{ length_squared(a) * length_squared(b) };
@@ -83,7 +83,7 @@ namespace chlm {
      * @param b Normalized vector.
      * @return Angle in radians [0, π].
      */
-    constexpr float angle_between_normalized(const float3 a, const float3 b) noexcept
+    inline float angle_between_normalized(const float3 a, const float3 b) noexcept
     {
         return acos(clamp(dot(a, b), -1.f, 1.f));
     }
@@ -98,7 +98,7 @@ namespace chlm {
      * @param plane_d     Plane constant (distance offset).
      * @return Signed distance to the plane.
      */
-    constexpr float distance_point_plane(const float3 point, const float3 plane_normal, float plane_d) noexcept
+    inline float distance_point_plane(const float3 point, const float3 plane_normal, float plane_d) noexcept
     {
         return dot(point, plane_normal) + plane_d;
     }
@@ -113,7 +113,7 @@ namespace chlm {
      * @param point_on_plane  Any point lying on the plane.
      * @return Signed distance to the plane.
      */
-    constexpr float distance_point_plane(const float3 point, const float3 plane_normal, const float3 point_on_plane) noexcept
+    inline float distance_point_plane(const float3 point, const float3 plane_normal, const float3 point_on_plane) noexcept
     {
         return dot(point - point_on_plane, plane_normal);
     }
@@ -125,7 +125,7 @@ namespace chlm {
      * @param onto Direction to project onto (should be non-zero).
      * @return Projection of v onto onto. Returns float3_zero if onto has near-zero length.
      */
-    constexpr float3 project_vector(const float3 v, const float3 onto) noexcept
+    inline float3 project_vector(const float3 v, const float3 onto) noexcept
     {
         const float denom{ dot(onto, onto) };
         if (denom <= epsilon) return float3_zero;

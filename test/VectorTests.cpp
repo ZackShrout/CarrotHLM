@@ -45,28 +45,28 @@ void run_vector_tests(test_context& ctx)
         "Vector swizzle test"
     );
 
-    std::println("  pos.xyz = ({}, {}, {})",
+    test_println("  pos.xyz = ({}, {}, {})",
                  static_cast<float>(xyz.x),
                  static_cast<float>(xyz.y),
                  static_cast<float>(xyz.z));
-    std::println("  pos.xy  = ({}, {})",
+    test_println("  pos.xy  = ({}, {})",
                  static_cast<float>(xy.x),
                  static_cast<float>(xy.y));
-    std::println("  pos.yxwz = ({}, {}, {}, {})",
+    test_println("  pos.yxwz = ({}, {}, {}, {})",
                  static_cast<float>(weird.x),
                  static_cast<float>(weird.y),
                  static_cast<float>(weird.z),
                  static_cast<float>(weird.w));
-    std::println("  pos.aaaa = ({}, {}, {}, {})",
+    test_println("  pos.aaaa = ({}, {}, {}, {})",
                  static_cast<float>(repeated.x),
                  static_cast<float>(repeated.y),
                  static_cast<float>(repeated.z),
                  static_cast<float>(repeated.w));
-    std::println("  pos.rgb = ({}, {}, {})",
+    test_println("  pos.rgb = ({}, {}, {})",
                  static_cast<float>(rgb.x),
                  static_cast<float>(rgb.y),
                  static_cast<float>(rgb.z));
-    std::println("  pos.st = ({}, {})",
+    test_println("  pos.st = ({}, {})",
                  static_cast<float>(st.x),
                  static_cast<float>(st.y));
 

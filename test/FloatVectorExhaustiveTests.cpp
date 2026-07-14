@@ -161,7 +161,7 @@ namespace {
         enumerate_swizzle_cases<OwnerComponents, 4>(ok, read_cases, write_cases);
 
         ctx.expect(ok, label);
-        std::println("  {}: {} read cases, {} write cases", label, read_cases, write_cases);
+        test_println("  {}: {} read cases, {} write cases", label, read_cases, write_cases);
     }
 }
 

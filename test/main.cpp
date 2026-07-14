@@ -9,7 +9,7 @@ int main()
 {
     test_context ctx{};
 
-    std::println("=== CarrotHLM Validation Test ===\n");
+    test_println("=== CarrotHLM Validation Test ===\n");
 
     run_vector_tests(ctx);
     run_float_vector_exhaustive_tests(ctx);
@@ -23,10 +23,10 @@ int main()
 
     if (ctx.failures == 0)
     {
-        std::println("\n=== All tests passed! CarrotHLM is ready. ===");
+        test_println("\n=== All tests passed! CarrotHLM is ready. ===");
         return 0;
     }
 
-    std::println("\n=== {} validation test(s) failed. ===", ctx.failures);
+    test_println("\n=== {} validation test(s) failed. ===", ctx.failures);
     return 1;
 }

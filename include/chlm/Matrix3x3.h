@@ -68,7 +68,7 @@ namespace chlm {
      * @param v Vector to transform.
      * @return Transformed vector.
      */
-    constexpr float3 mul(const float3x3& m, const float3& v) noexcept
+    inline float3 mul(const float3x3& m, const float3& v) noexcept
     {
         return v.x * m.columns[0] +
                v.y * m.columns[1] +
@@ -84,7 +84,7 @@ namespace chlm {
      * @param b Second matrix (applied after).
      * @return Composed matrix.
      */
-    constexpr float3x3 mul(const float3x3& a, const float3x3& b) noexcept
+    inline float3x3 mul(const float3x3& a, const float3x3& b) noexcept
     {
         float3x3 result;
         result.columns[0] = mul(a, b.columns[0]);
@@ -96,12 +96,12 @@ namespace chlm {
     /**
      * @brief Matrix-vector multiplication operator.
      */
-    constexpr float3 operator*(const float3x3& m, const float3& v) noexcept { return mul(m, v); }
+    inline float3 operator*(const float3x3& m, const float3& v) noexcept { return mul(m, v); }
 
     /**
      * @brief Matrix-matrix multiplication operator.
      */
-    constexpr float3x3 operator*(const float3x3& a, const float3x3& b) noexcept { return mul(a, b); }
+    inline float3x3 operator*(const float3x3& a, const float3x3& b) noexcept { return mul(a, b); }
 
     // ========================================
     // Inverse (for rotation matrices: transpose = inverse)
@@ -116,7 +116,7 @@ namespace chlm {
      * @param m Input matrix.
      * @return Transposed matrix.
      */
-    constexpr float3x3 transpose(const float3x3& m) noexcept
+    inline float3x3 transpose(const float3x3& m) noexcept
     {
         return {
             float3{ m[0].x, m[1].x, m[2].x },
@@ -133,7 +133,7 @@ namespace chlm {
      * @param m Orthonormal rotation matrix.
      * @return Inverse matrix (equivalent to transpose).
      */
-    constexpr float3x3 inverse_orthonormal(const float3x3& m) noexcept
+    inline float3x3 inverse_orthonormal(const float3x3& m) noexcept
     {
         // Note: for pure rotation matrices, inverse = transpose
         //       (determinant = 1, orthonormal columns)
@@ -150,7 +150,7 @@ namespace chlm {
      * @param rad Angle in radians.
      * @return Rotation matrix (right-handed, positive angle = counterclockwise).
      */
-    constexpr float3x3 rotate_x(const float rad) noexcept
+    inline float3x3 rotate_x(const float rad) noexcept
     {
         const float c{ cos(rad) };
         const float s{ sin(rad) };
@@ -168,7 +168,7 @@ namespace chlm {
      * @param rad Angle in radians.
      * @return Rotation matrix (right-handed, positive angle = counterclockwise).
      */
-    constexpr float3x3 rotate_y(const float rad) noexcept
+    inline float3x3 rotate_y(const float rad) noexcept
     {
         const float c{ cos(rad) };
         const float s{ sin(rad) };
@@ -186,7 +186,7 @@ namespace chlm {
      * @param rad Angle in radians.
      * @return Rotation matrix (right-handed, positive angle = counterclockwise).
      */
-    constexpr float3x3 rotate_z(const float rad) noexcept
+    inline float3x3 rotate_z(const float rad) noexcept
     {
         const float c{ cos(rad) };
         const float s{ sin(rad) };

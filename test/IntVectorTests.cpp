@@ -151,19 +151,19 @@ void run_int_vector_tests(test_context& ctx)
     enumerate_int_swizzle_cases<2, 3>(ok, read_cases, write_cases);
     enumerate_int_swizzle_cases<2, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive int2-owner swizzle semantics");
-    std::println("  int2-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  int2-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 
     ok = true; read_cases = 0; write_cases = 0;
     enumerate_int_swizzle_cases<3, 2>(ok, read_cases, write_cases);
     enumerate_int_swizzle_cases<3, 3>(ok, read_cases, write_cases);
     enumerate_int_swizzle_cases<3, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive int3-owner swizzle semantics");
-    std::println("  int3-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  int3-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 
     ok = true; read_cases = 0; write_cases = 0;
     enumerate_int_swizzle_cases<4, 2>(ok, read_cases, write_cases);
     enumerate_int_swizzle_cases<4, 3>(ok, read_cases, write_cases);
     enumerate_int_swizzle_cases<4, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive int4-owner swizzle semantics");
-    std::println("  int4-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  int4-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 }

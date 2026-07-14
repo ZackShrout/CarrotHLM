@@ -169,21 +169,21 @@ void run_uint_vector_tests(test_context& ctx)
     enumerate_uint_swizzle_cases<2, 3>(ok, read_cases, write_cases);
     enumerate_uint_swizzle_cases<2, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive uint2-owner swizzle semantics");
-    std::println("  uint2-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  uint2-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 
     ok = true; read_cases = 0; write_cases = 0;
     enumerate_uint_swizzle_cases<3, 2>(ok, read_cases, write_cases);
     enumerate_uint_swizzle_cases<3, 3>(ok, read_cases, write_cases);
     enumerate_uint_swizzle_cases<3, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive uint3-owner swizzle semantics");
-    std::println("  uint3-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  uint3-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 
     ok = true; read_cases = 0; write_cases = 0;
     enumerate_uint_swizzle_cases<4, 2>(ok, read_cases, write_cases);
     enumerate_uint_swizzle_cases<4, 3>(ok, read_cases, write_cases);
     enumerate_uint_swizzle_cases<4, 4>(ok, read_cases, write_cases);
     ctx.expect(ok, "Exhaustive uint4-owner swizzle semantics");
-    std::println("  uint4-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
+    test_println("  uint4-owner swizzles: {} read cases, {} write cases", read_cases, write_cases);
 
     constexpr uint_rect rect{ {10u, 20u}, {30u, 40u} };
     static_assert(rect_max(rect).x == 40u && rect_max(rect).y == 60u);

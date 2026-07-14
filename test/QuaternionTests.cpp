@@ -21,7 +21,7 @@ void run_quaternion_tests(test_context& ctx)
         "Quaternion rotation test"
     );
 
-    std::println("  180 degree Y rotation of +X -> ({}, {}, {})",
+    test_println("  180 degree Y rotation of +X -> ({}, {}, {})",
                  static_cast<float>(rotated.x),
                  static_cast<float>(rotated.y),
                  static_cast<float>(rotated.z));

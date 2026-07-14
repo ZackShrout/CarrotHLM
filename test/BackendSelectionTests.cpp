@@ -13,7 +13,7 @@ void run_backend_selection_tests(test_context& ctx)
 
     ctx.section("Backend Selection Tests");
 
-    std::println("  active backend = {}", to_string(active_simd_backend));
+    test_println("  active backend = {}", to_string(active_simd_backend));
 
     ctx.expect(active_simd::lane_count == 4, "Active backend lane-count test");
     ctx.expect(scalar_simd::lane_count == 4, "Scalar backend lane-count test");
