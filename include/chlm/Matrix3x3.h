@@ -7,6 +7,7 @@
 
 #include "Core.h"
 #include "Quaternion.h"
+#include "ScalarMath.h"
 
 namespace chlm {
     // ========================================

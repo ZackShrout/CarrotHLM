@@ -9,6 +9,7 @@
 #include "Quaternion.h"
 #include "Matrix4x4.h"
 #include "Matrix3x3.h"
+#include "ScalarMath.h"
 
 #include <future>
 

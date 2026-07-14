@@ -5,6 +5,7 @@
 
 #pragma once
 
+#include "ScalarMath.h"
 #include "Vector.h"
 
 namespace chlm {
@@ -35,8 +36,9 @@ namespace chlm {
     {
         const float ndoti{ dot(i, n) };
         float k{ 1.f - eta * eta * (1.f - ndoti * ndoti) };
-        if (k < 0.f)
-            return float3_zero; // total internal reflection
+
+        if (k < 0.f) return float3_zero; // total internal reflection
+
         return eta * i - (eta * dot(i, n) + sqrt(k)) * n;
     }
 
@@ -70,6 +72,7 @@ namespace chlm {
         const float d{ dot(a, b) };
         const float len2{ length_squared(a) * length_squared(b) };
         if (len2 <= 0.f) return 0.f; // or handle gracefully
+
         return acos(clamp(d / sqrt(len2), -1.f, 1.f));
     }
 
@@ -129,6 +132,7 @@ namespace chlm {
     {
         const float denom{ dot(onto, onto) };
         if (denom <= epsilon) return float3_zero;
-        return (dot(v, onto) / denom) * onto;
+
+        return dot(v, onto) / denom * onto;
     }
 }

@@ -6,6 +6,7 @@
 #pragma once
 
 #include "Core.h"
+#include "ScalarMath.h"
 
 namespace chlm {
     // ========================================

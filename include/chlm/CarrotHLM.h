@@ -42,6 +42,7 @@
 
 //
 // All functionality is brought in via the following headers:
+#include "ScalarMath.h"
 #include "Core.h"
 #include "Vector.h"
 #include "Quaternion.h"

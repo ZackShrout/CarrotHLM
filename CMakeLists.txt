@@ -56,6 +56,7 @@ target_sources(CarrotHLM
             include/chlm/Matrix4x4.h
             include/chlm/Quaternion.h
             include/chlm/Rect.h
+            include/chlm/ScalarMath.h
             include/chlm/Utilities.h
             include/chlm/Vector.h
             include/chlm/detail/CompilerConfig.h
