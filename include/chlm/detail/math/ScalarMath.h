@@ -52,6 +52,36 @@ namespace chlm::detail::math {
         return acos_precise(value);
     }
 
+    [[nodiscard]] inline float asin(const float value) noexcept
+    {
+        return asin_fast(value);
+    }
+
+    [[nodiscard]] inline float asin_precise_fn(const float value) noexcept
+    {
+        return asin_precise(value);
+    }
+
+    [[nodiscard]] inline float atan(const float value) noexcept
+    {
+        return atan_fast(value);
+    }
+
+    [[nodiscard]] inline float atan_precise_fn(const float value) noexcept
+    {
+        return atan_precise(value);
+    }
+
+    [[nodiscard]] inline float atan2(const float y, const float x) noexcept
+    {
+        return atan2_fast(y, x);
+    }
+
+    [[nodiscard]] inline float atan2_precise_fn(const float y, const float x) noexcept
+    {
+        return atan2_precise(y, x);
+    }
+
     [[nodiscard]] inline float sqrt(const float value) noexcept
     {
         return sqrt_fast(value);
@@ -60,5 +90,15 @@ namespace chlm::detail::math {
     [[nodiscard]] inline float sqrt_precise_fn(const float value) noexcept
     {
         return sqrt_precise(value);
+    }
+
+    [[nodiscard]] inline float rsqrt(const float value) noexcept
+    {
+        return rsqrt_fast(value);
+    }
+
+    [[nodiscard]] inline float rsqrt_precise_fn(const float value) noexcept
+    {
+        return rsqrt_precise(value);
     }
 } // namespace chlm::detail::math

@@ -12,7 +12,8 @@ and swizzles with matrices, quaternions, transforms, and owned scalar math.
 - Quaternion construction, interpolation, rotation, and matrix conversion.
 - Left- and right-handed view, perspective, and orthographic transforms.
 - Portable scalar, SSE2, and ARM64 NEON backends selected at compile time.
-- Owned `sqrt`, `sin`, `cos`, `tan`, and `acos` implementations.
+- Owned root, trigonometric, and inverse-trigonometric implementations, including
+  `sqrt`, `rsqrt`, paired `sin_cos`, and matching higher-accuracy variants.
 - Constexpr `isnan`, `isinf`, `isfinite`, `signbit`, and `copysign` helpers.
 - Constexpr `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac` operations.
 

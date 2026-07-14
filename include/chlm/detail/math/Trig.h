@@ -9,6 +9,12 @@
 #include "RangeReduction.h"
 
 namespace chlm::detail::math {
+    struct sin_cos_t
+    {
+        float sine;
+        float cosine;
+    };
+
     namespace trig_detail {
         /*
          * Polynomial coefficients are adapted from the FreeBSD msun float kernels.
@@ -148,6 +154,36 @@ namespace chlm::detail::math {
 
             return -cosine / sine;
         }
+
+        template<bool Precise>
+        [[nodiscard]] inline sin_cos_t sin_cos_impl(const float value) noexcept
+        {
+            if (isnan(value)) return { value, value };
+
+            if (isinf(value))
+            {
+                const float result{ quiet_nan() };
+
+                return { result, result };
+            }
+
+            const std::uint32_t magnitude_bits{ float_to_bits(value) & 0x7FFFFFFFu };
+
+            if (magnitude_bits < 0x39800000u) // |x| < 2^-12
+                return { value, 1.f };
+
+            const trig_range_t range{ reduce_angle(value) };
+            const float sine{ evaluate_sine<Precise>(range.reduced) };
+            const float cosine{ evaluate_cosine<Precise>(range.reduced) };
+
+            switch (range.quadrant)
+            {
+                case 0: return { sine, cosine };
+                case 1: return { cosine, -sine };
+                case 2: return { -sine, -cosine };
+                default: return { -cosine, sine };
+            }
+        }
     } // namespace trig_detail
 
     [[nodiscard]] inline float sin_fast(const float value) noexcept
@@ -178,5 +214,15 @@ namespace chlm::detail::math {
     [[nodiscard]] inline float tan_precise(const float value) noexcept
     {
         return trig_detail::tangent_impl<true>(value);
+    }
+
+    [[nodiscard]] inline sin_cos_t sin_cos_fast(const float value) noexcept
+    {
+        return trig_detail::sin_cos_impl<false>(value);
+    }
+
+    [[nodiscard]] inline sin_cos_t sin_cos_precise(const float value) noexcept
+    {
+        return trig_detail::sin_cos_impl<true>(value);
     }
 } // namespace chlm::detail::math

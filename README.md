@@ -61,11 +61,17 @@ float precise_length = sqrt_precise(length_squared(direction));
 
 float fast_angle = acos(dot(normal_a, normal_b));
 float precise_angle = acos_precise(dot(normal_a, normal_b));
+
+float heading = atan2(direction.y, direction.x);
+float pitch = asin_precise(direction.z);
+
+float inverse_length = rsqrt(length_squared(direction));
+auto [sine, cosine] = sin_cos(heading);
 ```
 
 The public API documents each function's finite-input error target. Special values, signed zero, domains, and exact endpoints are covered by the conformance test suite.
 
-Float classification, sign, rounding, and fractional operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac`.
+Float classification, sign, rounding, fractional, root, and trigonometric operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, `frac`, `sqrt`, `rsqrt`, `sin`, `cos`, `sin_cos`, `tan`, `acos`, `asin`, `atan`, and `atan2`.
 
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.

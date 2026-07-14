@@ -5,6 +5,7 @@
 
 #include "TestHarness.h"
 
+#include <algorithm>
 #include <bit>
 #include <cstdint>
 #include <cmath>
@@ -341,6 +342,149 @@ namespace {
         }
     }
 
+    void run_rsqrt_oracle_checks(test_context& ctx)
+    {
+        constexpr std::uint32_t sample_stride{ 0x00010101u };
+        constexpr float fast_relative_error_limit{ 5e-6f };
+        constexpr std::uint32_t precise_ulp_limit{ 1u };
+
+        float worst_fast_relative_error{ 0.f };
+        std::uint32_t worst_precise_ulp{ 0u };
+        float worst_fast_input{ 0.f };
+        float worst_precise_input{ 0.f };
+        bool precise_improved_a_sample{ false };
+
+        const auto measure = [&](const float value)
+        {
+            const float oracle{ static_cast<float>(1.0 / std::sqrt(static_cast<double>(value))) };
+            const float fast{ chlm::rsqrt(value) };
+            const float precise{ chlm::rsqrt_precise(value) };
+            const float fast_relative_error{ std::abs(fast - oracle) / oracle };
+            const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+            const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+
+            if (fast_relative_error > worst_fast_relative_error)
+            {
+                worst_fast_relative_error = fast_relative_error;
+                worst_fast_input = value;
+            }
+            if (precise_ulp > worst_precise_ulp)
+            {
+                worst_precise_ulp = precise_ulp;
+                worst_precise_input = value;
+            }
+            if (precise_ulp < fast_ulp)
+                precise_improved_a_sample = true;
+        };
+
+        for (std::uint32_t bits{ 1u }; bits < 0x7F800000u; bits += sample_stride)
+            measure(std::bit_cast<float>(bits));
+
+        for (std::uint32_t bits{ 1u }; bits < 0x00800000u; bits += 257u)
+            measure(std::bit_cast<float>(bits));
+
+        constexpr float edge_values[]{
+            std::numeric_limits<float>::denorm_min(),
+            std::numeric_limits<float>::min(),
+            std::numeric_limits<float>::max()
+        };
+        for (const float value : edge_values)
+            measure(value);
+
+        test_println("  rsqrt worst fast relative error: {} at {} (bits {})",
+                     worst_fast_relative_error, worst_fast_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_input));
+        test_println("  rsqrt worst precise error: {} ULP at {} (bits {})",
+                     worst_precise_ulp, worst_precise_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_input));
+
+        ctx.expect(worst_fast_relative_error <= fast_relative_error_limit,
+                   "rsqrt fast relative-error sweep");
+        ctx.expect(worst_precise_ulp <= precise_ulp_limit, "rsqrt_precise ULP sweep");
+        ctx.expect(precise_improved_a_sample, "rsqrt_precise sample improvement");
+    }
+
+    void run_sin_cos_oracle_checks(test_context& ctx)
+    {
+        constexpr float fast_error_limit{ 5e-6f };
+        constexpr float precise_error_limit{ 1.5e-7f };
+        constexpr std::uint32_t wide_stride{ 0x00010101u };
+
+        float worst_fast_error{ 0.f };
+        float worst_precise_error{ 0.f };
+        float worst_fast_input{ 0.f };
+        float worst_precise_input{ 0.f };
+        bool fast_matches_individual{ true };
+        bool precise_matches_individual{ true };
+
+        const auto measure = [&](const float angle)
+        {
+            const chlm::sin_cos_result fast{ chlm::sin_cos(angle) };
+            const chlm::sin_cos_result precise{ chlm::sin_cos_precise(angle) };
+            const float sine_oracle{ std::sin(angle) };
+            const float cosine_oracle{ std::cos(angle) };
+            const float fast_error{
+                std::max(std::abs(fast.sine - sine_oracle),
+                         std::abs(fast.cosine - cosine_oracle))
+            };
+            const float precise_error{
+                std::max(std::abs(precise.sine - sine_oracle),
+                         std::abs(precise.cosine - cosine_oracle))
+            };
+
+            if (fast_error > worst_fast_error)
+            {
+                worst_fast_error = fast_error;
+                worst_fast_input = angle;
+            }
+            if (precise_error > worst_precise_error)
+            {
+                worst_precise_error = precise_error;
+                worst_precise_input = angle;
+            }
+
+            fast_matches_individual = fast_matches_individual &&
+                std::bit_cast<std::uint32_t>(fast.sine) ==
+                    std::bit_cast<std::uint32_t>(chlm::sin(angle)) &&
+                std::bit_cast<std::uint32_t>(fast.cosine) ==
+                    std::bit_cast<std::uint32_t>(chlm::cos(angle));
+            precise_matches_individual = precise_matches_individual &&
+                std::bit_cast<std::uint32_t>(precise.sine) ==
+                    std::bit_cast<std::uint32_t>(chlm::sin_precise(angle)) &&
+                std::bit_cast<std::uint32_t>(precise.cosine) ==
+                    std::bit_cast<std::uint32_t>(chlm::cos_precise(angle));
+        };
+
+        for (float angle{ -8192.f }; angle <= 8192.f; angle += .0625f)
+            measure(angle);
+        for (std::uint32_t bits{ 1u }; bits < 0x7F800000u; bits += wide_stride)
+        {
+            const float angle{ std::bit_cast<float>(bits) };
+            measure(angle);
+            measure(-angle);
+        }
+        for (int quadrant{ -4096 }; quadrant <= 4096; ++quadrant)
+        {
+            const float boundary{ static_cast<float>(quadrant) * chlm::half_pi };
+            measure(boundary);
+            measure(std::nextafter(boundary, -std::numeric_limits<float>::infinity()));
+            measure(std::nextafter(boundary, std::numeric_limits<float>::infinity()));
+        }
+
+        test_println("  sin_cos worst fast absolute error: {} at {} (bits {})",
+                     worst_fast_error, worst_fast_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_input));
+        test_println("  sin_cos worst precise absolute error: {} at {} (bits {})",
+                     worst_precise_error, worst_precise_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_input));
+
+        ctx.expect(worst_fast_error <= fast_error_limit, "sin_cos fast absolute-error sweep");
+        ctx.expect(worst_precise_error <= precise_error_limit,
+                   "sin_cos_precise absolute-error sweep");
+        ctx.expect(fast_matches_individual, "sin_cos matches individual functions");
+        ctx.expect(precise_matches_individual, "sin_cos_precise matches individual functions");
+    }
+
     void run_tan_oracle_checks(test_context& ctx)
     {
         constexpr float fast_scaled_error_limit{ 6e-6f };
@@ -492,6 +636,204 @@ namespace {
         ctx.expect(fast_monotonic, "acos monotonicity sweep");
         ctx.expect(precise_monotonic, "acos_precise monotonicity sweep");
     }
+
+    void run_inverse_trig_oracle_checks(test_context& ctx)
+    {
+        constexpr float fast_error_limit{ 7.5e-5f };
+        constexpr float fast_atan_error_limit{ 6e-6f };
+        constexpr float precise_error_limit{ 2.5e-7f };
+
+        float worst_fast_asin_error{ 0.f };
+        float worst_precise_asin_error{ 0.f };
+        float worst_fast_atan_error{ 0.f };
+        float worst_precise_atan_error{ 0.f };
+        float worst_fast_atan2_error{ 0.f };
+        float worst_precise_atan2_error{ 0.f };
+        float worst_fast_asin_input{ 0.f };
+        float worst_precise_asin_input{ 0.f };
+        float worst_fast_atan_input{ 0.f };
+        float worst_precise_atan_input{ 0.f };
+        float worst_fast_atan2_y{ 0.f };
+        float worst_fast_atan2_x{ 0.f };
+        float worst_precise_atan2_y{ 0.f };
+        float worst_precise_atan2_x{ 0.f };
+
+        const auto measure_asin = [&](const float value)
+        {
+            const float oracle{ std::asin(value) };
+            const float fast_error{ std::abs(chlm::asin(value) - oracle) };
+            const float precise_error{ std::abs(chlm::asin_precise(value) - oracle) };
+
+            if (fast_error > worst_fast_asin_error)
+            {
+                worst_fast_asin_error = fast_error;
+                worst_fast_asin_input = value;
+            }
+            if (precise_error > worst_precise_asin_error)
+            {
+                worst_precise_asin_error = precise_error;
+                worst_precise_asin_input = value;
+            }
+        };
+
+        float previous_fast_asin{ chlm::asin(-1.f) };
+        float previous_precise_asin{ chlm::asin_precise(-1.f) };
+        bool fast_asin_monotonic{ true };
+        bool precise_asin_monotonic{ true };
+        for (int sample{ -1000000 }; sample <= 1000000; ++sample)
+        {
+            const float value{ static_cast<float>(sample) / 1000000.f };
+            measure_asin(value);
+
+            const float fast{ chlm::asin(value) };
+            const float precise{ chlm::asin_precise(value) };
+            if (fast < previous_fast_asin)
+                fast_asin_monotonic = false;
+            if (precise < previous_precise_asin)
+                precise_asin_monotonic = false;
+            previous_fast_asin = fast;
+            previous_precise_asin = precise;
+        }
+
+        for (std::uint32_t bits{ 0u }; bits < 0x3F800000u; bits += 0x00001001u)
+        {
+            const float value{ std::bit_cast<float>(bits) };
+            measure_asin(value);
+            measure_asin(-value);
+        }
+        for (std::uint32_t offset{ 0u }; offset < 10000u; ++offset)
+        {
+            const float value{ std::bit_cast<float>(0x3F800000u - offset) };
+            measure_asin(value);
+            measure_asin(-value);
+        }
+
+        const auto measure_atan = [&](const float value)
+        {
+            const float oracle{ std::atan(value) };
+            const float fast_error{ std::abs(chlm::atan(value) - oracle) };
+            const float precise_error{ std::abs(chlm::atan_precise(value) - oracle) };
+
+            if (fast_error > worst_fast_atan_error)
+            {
+                worst_fast_atan_error = fast_error;
+                worst_fast_atan_input = value;
+            }
+            if (precise_error > worst_precise_atan_error)
+            {
+                worst_precise_atan_error = precise_error;
+                worst_precise_atan_input = value;
+            }
+        };
+
+        constexpr std::uint32_t wide_stride{ 0x00010101u };
+        for (std::uint32_t bits{ 0u }; bits < 0x7F800000u; bits += wide_stride)
+        {
+            const float value{ std::bit_cast<float>(bits) };
+            measure_atan(value);
+            measure_atan(-value);
+        }
+
+        float previous_fast_atan{ chlm::atan(-1024.f) };
+        float previous_precise_atan{ chlm::atan_precise(-1024.f) };
+        bool fast_atan_monotonic{ true };
+        bool precise_atan_monotonic{ true };
+        for (int sample{ -1048576 }; sample <= 1048576; ++sample)
+        {
+            const float value{ static_cast<float>(sample) / 1024.f };
+            const float fast{ chlm::atan(value) };
+            const float precise{ chlm::atan_precise(value) };
+            if (fast < previous_fast_atan)
+                fast_atan_monotonic = false;
+            if (precise < previous_precise_atan)
+                precise_atan_monotonic = false;
+            previous_fast_atan = fast;
+            previous_precise_atan = precise;
+        }
+
+        const auto measure_atan2 = [&](const float y, const float x)
+        {
+            if (y == 0.f || x == 0.f)
+                return;
+
+            const float oracle{ std::atan2(y, x) };
+            const float fast_error{ std::abs(chlm::atan2(y, x) - oracle) };
+            const float precise_error{ std::abs(chlm::atan2_precise(y, x) - oracle) };
+
+            if (fast_error > worst_fast_atan2_error)
+            {
+                worst_fast_atan2_error = fast_error;
+                worst_fast_atan2_y = y;
+                worst_fast_atan2_x = x;
+            }
+            if (precise_error > worst_precise_atan2_error)
+            {
+                worst_precise_atan2_error = precise_error;
+                worst_precise_atan2_y = y;
+                worst_precise_atan2_x = x;
+            }
+        };
+
+        std::uint32_t y_bits{ 0xA7A21E5Du };
+        std::uint32_t x_bits{ 0x4F1BBCDCu };
+        for (int sample{ 0 }; sample < 500000; ++sample)
+        {
+            y_bits = y_bits * 1664525u + 1013904223u;
+            x_bits = x_bits * 22695477u + 1u;
+            const float y{ std::bit_cast<float>(y_bits) };
+            const float x{ std::bit_cast<float>(x_bits) };
+            if (std::isfinite(y) && std::isfinite(x))
+                measure_atan2(y, x);
+        }
+
+        for (int sample{ -4096 }; sample <= 4096; ++sample)
+        {
+            const float value{ static_cast<float>(sample) / 1024.f };
+            measure_atan2(value, 1.f);
+            measure_atan2(value, -1.f);
+            measure_atan2(1.f, value);
+            measure_atan2(-1.f, value);
+        }
+
+        test_println("  asin worst fast absolute error: {} at {} (bits {})",
+                     worst_fast_asin_error, worst_fast_asin_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_asin_input));
+        test_println("  asin worst precise absolute error: {} at {} (bits {})",
+                     worst_precise_asin_error, worst_precise_asin_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_asin_input));
+        test_println("  atan worst fast absolute error: {} at {} (bits {})",
+                     worst_fast_atan_error, worst_fast_atan_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_atan_input));
+        test_println("  atan worst precise absolute error: {} at {} (bits {})",
+                     worst_precise_atan_error, worst_precise_atan_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_atan_input));
+        test_println("  atan2 worst fast absolute error: {} at ({}, {})",
+                     worst_fast_atan2_error, worst_fast_atan2_y, worst_fast_atan2_x);
+        test_println("  atan2 worst precise absolute error: {} at ({}, {})",
+                     worst_precise_atan2_error, worst_precise_atan2_y, worst_precise_atan2_x);
+
+        ctx.expect(worst_fast_asin_error <= fast_error_limit, "asin fast absolute-error sweep");
+        ctx.expect(worst_precise_asin_error <= precise_error_limit,
+                   "asin_precise absolute-error sweep");
+        ctx.expect(worst_fast_atan_error <= fast_atan_error_limit,
+                   "atan fast absolute-error sweep");
+        ctx.expect(worst_precise_atan_error <= precise_error_limit,
+                   "atan_precise absolute-error sweep");
+        ctx.expect(worst_fast_atan2_error <= fast_atan_error_limit,
+                   "atan2 fast absolute-error sweep");
+        ctx.expect(worst_precise_atan2_error <= precise_error_limit,
+                   "atan2_precise absolute-error sweep");
+        ctx.expect(worst_precise_asin_error < worst_fast_asin_error,
+                   "asin_precise worst-case improvement");
+        ctx.expect(worst_precise_atan_error < worst_fast_atan_error,
+                   "atan_precise worst-case improvement");
+        ctx.expect(worst_precise_atan2_error < worst_fast_atan2_error,
+                   "atan2_precise worst-case improvement");
+        ctx.expect(fast_asin_monotonic, "asin monotonicity sweep");
+        ctx.expect(precise_asin_monotonic, "asin_precise monotonicity sweep");
+        ctx.expect(fast_atan_monotonic, "atan monotonicity sweep");
+        ctx.expect(precise_atan_monotonic, "atan_precise monotonicity sweep");
+    }
 }
 
 void run_scalar_math_exhaustive_tests(test_context& ctx)
@@ -505,5 +847,8 @@ void run_scalar_math_exhaustive_tests(test_context& ctx)
     run_trig_oracle_checks(ctx);
     run_tan_oracle_checks(ctx);
     run_acos_oracle_checks(ctx);
+    run_inverse_trig_oracle_checks(ctx);
     run_sqrt_oracle_checks(ctx);
+    run_rsqrt_oracle_checks(ctx);
+    run_sin_cos_oracle_checks(ctx);
 }

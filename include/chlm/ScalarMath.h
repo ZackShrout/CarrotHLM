@@ -8,6 +8,13 @@
 #include "detail/math/ScalarMath.h"
 
 namespace chlm {
+    /** @brief Paired sine and cosine values returned by `sin_cos`. */
+    struct sin_cos_result
+    {
+        float sine;
+        float cosine;
+    };
+
     // These forward to CarrotHLM's owned, platform-independent math layer.
     // The default functions favor game-runtime throughput; `_precise`
     // variants trade additional work for tighter error bounds.
@@ -227,6 +234,36 @@ namespace chlm {
     }
 
     /**
+     * @brief Computes sine and cosine with one shared angle reduction.
+     *
+     * Each component has a maximum absolute error target of 5e-6. NaN and
+     * infinity produce NaN components; signed zero produces `{x, 1}`.
+     *
+     * @param x Angle in radians.
+     * @return Aggregate containing the sine and cosine of @p x.
+     */
+    [[nodiscard]] inline sin_cos_result sin_cos(const float x) noexcept
+    {
+        const detail::math::sin_cos_t result{ detail::math::sin_cos_fast(x) };
+        return { result.sine, result.cosine };
+    }
+
+    /**
+     * @brief Computes sine and cosine with one shared higher-accuracy reduction.
+     *
+     * Each component has a maximum absolute error target of 1.5e-7. NaN and
+     * infinity produce NaN components; signed zero produces `{x, 1}`.
+     *
+     * @param x Angle in radians.
+     * @return Aggregate containing the sine and cosine of @p x.
+     */
+    [[nodiscard]] inline sin_cos_result sin_cos_precise(const float x) noexcept
+    {
+        const detail::math::sin_cos_t result{ detail::math::sin_cos_precise(x) };
+        return { result.sine, result.cosine };
+    }
+
+    /**
      * @brief Computes the tangent of an angle in radians.
      *
      * Uses CarrotHLM's owned range reduction and lower-degree sine/cosine kernels.
@@ -285,6 +322,100 @@ namespace chlm {
     }
 
     /**
+     * @brief Computes the inverse sine of a value.
+     *
+     * Uses a cubic-times-square-root approximation with a maximum absolute
+     * error target of 7.5e-5. Inputs outside [-1, 1] return NaN.
+     *
+     * @param x Input value.
+     * @return Angle in radians whose sine is @p x.
+     */
+    [[nodiscard]] inline float asin(const float x) noexcept
+    {
+        return detail::math::asin(x);
+    }
+
+    /**
+     * @brief Computes the inverse sine using the higher-accuracy path.
+     *
+     * Uses an endpoint-stable higher-order rational approximation with a
+     * maximum absolute error target of 2.5e-7. Inputs outside [-1, 1] return NaN.
+     *
+     * @param x Input value.
+     * @return Angle in radians whose sine is @p x.
+     */
+    [[nodiscard]] inline float asin_precise(const float x) noexcept
+    {
+        return detail::math::asin_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the inverse tangent of a value.
+     *
+     * Uses a reduced-domain polynomial with a maximum absolute error target
+     * of 6e-6. Signed zero and infinity produce signed exact-limit results.
+     *
+     * @param x Input value.
+     * @return Angle in radians whose tangent is @p x.
+     */
+    [[nodiscard]] inline float atan(const float x) noexcept
+    {
+        return detail::math::atan(x);
+    }
+
+    /**
+     * @brief Computes the inverse tangent using the higher-accuracy path.
+     *
+     * Uses additional range reduction and a higher-degree polynomial evaluated
+     * in double, with a maximum absolute error target of 2.5e-7.
+     *
+     * @param x Input value.
+     * @return Angle in radians whose tangent is @p x.
+     */
+    [[nodiscard]] inline float atan_precise(const float x) noexcept
+    {
+        return detail::math::atan_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the quadrant-aware inverse tangent of @p y / @p x.
+     *
+     * Uses a bounded-ratio polynomial and explicit IEEE 754 handling for signed
+     * zero and infinity. The maximum absolute error target is 6e-6.
+     *
+     * For either sign of zero in @p y, positive @p x produces the same signed
+     * zero and negative @p x produces signed pi. A nonzero @p y with zero @p x
+     * produces signed half-pi. Infinite @p y produces signed half-pi when @p x
+     * is finite; infinite @p x produces signed zero or signed pi according to
+     * its sign. When both arguments are infinite, the result is signed pi/4 or
+     * signed 3pi/4 according to the quadrant. A NaN argument returns NaN.
+     *
+     * @param y Signed vertical component.
+     * @param x Signed horizontal component.
+     * @return Angle in radians in [-pi, pi].
+     */
+    [[nodiscard]] inline float atan2(const float y, const float x) noexcept
+    {
+        return detail::math::atan2(y, x);
+    }
+
+    /**
+     * @brief Computes the quadrant-aware inverse tangent using the higher-accuracy path.
+     *
+     * Uses double-precision range reduction and polynomial evaluation, with a
+     * maximum absolute error target of 2.5e-7. Signed zero and infinity follow
+     * the same explicitly documented quadrant conventions as `atan2`.
+     *
+     * @param y Signed vertical component.
+     * @param x Signed horizontal component.
+     * @return Angle in radians in [-pi, pi].
+     */
+    [[nodiscard]] inline float atan2_precise(const float y, const float x) noexcept
+    {
+        return detail::math::atan2_precise_fn(y, x);
+    }
+
+    /**
      * @brief Computes the square root of a value.
      *
      * Preserves signed zero and positive infinity. Negative values return NaN.
@@ -311,5 +442,38 @@ namespace chlm {
     [[nodiscard]] inline float sqrt_precise(const float x) noexcept
     {
         return detail::math::sqrt_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the reciprocal square root of a value.
+     *
+     * Uses an owned inverse-root estimate and two Newton refinement steps.
+     * Positive finite results have a maximum relative error target of 5e-6.
+     * Positive zero returns positive infinity, negative zero returns negative
+     * infinity, positive infinity returns zero, negative values return NaN, and
+     * NaN is propagated. Positive subnormals are normalized internally and meet
+     * the same error target as normal inputs.
+     *
+     * @param x Input value.
+     * @return Reciprocal square root of @p x.
+     */
+    [[nodiscard]] inline float rsqrt(const float x) noexcept
+    {
+        return detail::math::rsqrt(x);
+    }
+
+    /**
+     * @brief Computes the reciprocal square root using the higher-accuracy path.
+     *
+     * Adds a double-precision refinement to the default implementation. Positive
+     * finite results have a maximum error target of 1 ULP. Special values follow
+     * the same explicitly documented behavior as `rsqrt`.
+     *
+     * @param x Input value.
+     * @return Reciprocal square root of @p x.
+     */
+    [[nodiscard]] inline float rsqrt_precise(const float x) noexcept
+    {
+        return detail::math::rsqrt_precise_fn(x);
     }
 } // namespace chlm

@@ -15,6 +15,9 @@ namespace chlm::detail::math {
         // NOTE: Minimax-tuned for the two-step float Newton kernel below.
         constexpr std::uint32_t k_sqrt_seed_bias{ 0x1FBAB000u };
 
+        // NOTE: Lomont-tuned inverse-square-root seed, followed by two Newton steps.
+        constexpr std::uint32_t k_rsqrt_seed_bias{ 0x5F375A86u };
+
         constexpr float k_subnormal_scale{ 16777216.f }; // 2^24
         constexpr float k_subnormal_result_scale{ 0.000244140625f }; // 2^-12
 
@@ -43,6 +46,27 @@ namespace chlm::detail::math {
             return newton_step(value, estimate);
         }
 
+        [[nodiscard]] inline float rsqrt_newton_step(const float value, const float estimate) noexcept
+        {
+            return estimate * (1.5f - .5f * value * estimate * estimate);
+        }
+
+        [[nodiscard]] inline float rsqrt_finite_positive_fast(const float value) noexcept
+        {
+            float estimate{ bits_to_float(k_rsqrt_seed_bias - (float_to_bits(value) >> 1u)) };
+            estimate = rsqrt_newton_step(value, estimate);
+
+            return rsqrt_newton_step(value, estimate);
+        }
+
+        [[nodiscard]] inline float rsqrt_finite_positive_precise(const float value) noexcept
+        {
+            const double x{ value };
+            const double estimate{ rsqrt_finite_positive_fast(value) };
+
+            return static_cast<float>(estimate * (1.5 - .5 * x * estimate * estimate));
+        }
+
         template<bool Precise>
         [[nodiscard]] inline float sqrt_impl(const float value) noexcept
         {
@@ -67,6 +91,29 @@ namespace chlm::detail::math {
 
             return subnormal ? result * k_subnormal_result_scale : result;
         }
+
+        template<bool Precise>
+        [[nodiscard]] inline float rsqrt_impl(const float value) noexcept
+        {
+            const std::uint32_t bits{ float_to_bits(value) };
+            const std::uint32_t magnitude{ bits & k_magnitude_mask };
+
+            if (isnan(value)) return value;
+            if (magnitude == 0u) return copysign(infinity(), value);
+            if ((bits & k_sign_mask) != 0u) return quiet_nan();
+            if (isinf(value)) return 0.f;
+
+            const bool subnormal{ exponent_bits(value) == 0u };
+            const float scaled_value{ subnormal ? value * k_subnormal_scale : value };
+            float result;
+
+            if constexpr (Precise)
+                result = rsqrt_finite_positive_precise(scaled_value);
+            else
+                result = rsqrt_finite_positive_fast(scaled_value);
+
+            return subnormal ? result / k_subnormal_result_scale : result;
+        }
     } // namespace sqrt_detail
 
     [[nodiscard]] inline float sqrt_fast(const float value) noexcept
@@ -77,5 +124,15 @@ namespace chlm::detail::math {
     [[nodiscard]] inline float sqrt_precise(const float value) noexcept
     {
         return sqrt_detail::sqrt_impl<true>(value);
+    }
+
+    [[nodiscard]] inline float rsqrt_fast(const float value) noexcept
+    {
+        return sqrt_detail::rsqrt_impl<false>(value);
+    }
+
+    [[nodiscard]] inline float rsqrt_precise(const float value) noexcept
+    {
+        return sqrt_detail::rsqrt_impl<true>(value);
     }
 } // namespace chlm::detail::math
