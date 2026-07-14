@@ -66,8 +66,6 @@ namespace chlm::detail::math {
 
     [[nodiscard]] inline float acos_fast(const float value) noexcept
     {
-        using namespace inverse_trig_detail;
-
         if (isnan(value)) return value;
         if (value > 1.f || value < -1.f) return quiet_nan();
         if (value == 1.f) return 0.f;
@@ -77,10 +75,10 @@ namespace chlm::detail::math {
 
         if (magnitude == 0.f) return k_half_pi;
 
-        float polynomial{ k_fast_c0 };
-        polynomial = polynomial * magnitude + k_fast_c1;
-        polynomial = polynomial * magnitude + k_fast_c2;
-        polynomial = polynomial * magnitude + k_fast_c3;
+        float polynomial{ inverse_trig_detail::k_fast_c0 };
+        polynomial = polynomial * magnitude + inverse_trig_detail::k_fast_c1;
+        polynomial = polynomial * magnitude + inverse_trig_detail::k_fast_c2;
+        polynomial = polynomial * magnitude + inverse_trig_detail::k_fast_c3;
 
         const float approximation{ polynomial * sqrt_fast(1.f - magnitude) };
 
@@ -89,8 +87,6 @@ namespace chlm::detail::math {
 
     [[nodiscard]] inline float acos_precise(const float value) noexcept
     {
-        using namespace inverse_trig_detail;
-
         if (isnan(value)) return value;
         if (value > 1.f || value < -1.f) return quiet_nan();
         if (value == 1.f) return 0.f;
@@ -102,18 +98,20 @@ namespace chlm::detail::math {
         if (magnitude_bits < 0x3F000000u)
         {
             if (magnitude_bits <= 0x32800000u) // |x| <= 2^-26
-                return static_cast<float>(k_precise_half_pi_high);
+                return static_cast<float>(inverse_trig_detail::k_precise_half_pi_high);
 
-            return static_cast<float>(k_precise_half_pi_high -
-                                      (x - (k_precise_half_pi_low - x * rational_precise(x * x))));
+            return static_cast<float>(inverse_trig_detail::k_precise_half_pi_high -
+                (x - (inverse_trig_detail::k_precise_half_pi_low -
+                    x * inverse_trig_detail::rational_precise(x * x))));
         }
 
         const double squared{ (1.0 - (signbit(value) ? -x : x)) * 0.5 };
-        const double root{ corrected_sqrt(squared) };
-        const double approximation{ root + root * rational_precise(squared) };
+        const double root{ inverse_trig_detail::corrected_sqrt(squared) };
+        const double approximation{ root + root * inverse_trig_detail::rational_precise(squared) };
 
         if (signbit(value))
-            return static_cast<float>(2.0 * (k_precise_half_pi_high - (approximation - k_precise_half_pi_low)));
+            return static_cast<float>(2.0 * (inverse_trig_detail::k_precise_half_pi_high -
+                (approximation - inverse_trig_detail::k_precise_half_pi_low)));
 
         return static_cast<float>(2.0 * approximation);
     }

@@ -21,7 +21,7 @@ float2 uv  = pos.st;              // texture coords
 - **Quaternions** - `using quat = float4`, axis-angle, slerp/nlerp, matrix conversion.
 - **Integer vectors**: `int2/3/4`, `uint2/3/4` - perfect for pixel coords, grids, bitmasks.
 - **Portable SIMD backends**: scalar fallback, SSE2 on x86/x64, NEON on ARM64.
-- **Owned scalar math**: fast-by-default `sqrt`, `sin`, `cos`, `tan`, and `acos`, plus higher-accuracy `_precise` variants.
+- **Owned scalar math**: fast-by-default roots and trigonometry, precise variants, and constexpr float classification/sign helpers.
 - Utilities: affine inverse, normal matrix, conversions.
 - Header-only · No external dependencies · C++23.
 
@@ -64,6 +64,8 @@ float precise_angle = acos_precise(dot(normal_a, normal_b));
 ```
 
 The public API documents each function's finite-input error target. Special values, signed zero, domains, and exact endpoints are covered by the conformance test suite.
+
+Float classification, sign, rounding, and fractional operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac`.
 
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.

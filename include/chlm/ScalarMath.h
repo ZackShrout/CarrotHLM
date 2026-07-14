@@ -12,6 +12,164 @@ namespace chlm {
     // The default functions favor game-runtime throughput; `_precise`
     // variants trade additional work for tighter error bounds.
 
+    // ========================================
+    // Classification and sign
+    // ========================================
+
+    /**
+     * @brief Determines whether a value is NaN.
+     *
+     * @param x Input value.
+     * @return true when @p x has an IEEE 754 NaN encoding.
+     */
+    [[nodiscard]] constexpr bool isnan(const float x) noexcept
+    {
+        return detail::math::isnan(x);
+    }
+
+    /**
+     * @brief Determines whether a value is positive or negative infinity.
+     *
+     * @param x Input value.
+     * @return true when @p x has an IEEE 754 infinity encoding.
+     */
+    [[nodiscard]] constexpr bool isinf(const float x) noexcept
+    {
+        return detail::math::isinf(x);
+    }
+
+    /**
+     * @brief Determines whether a value is finite.
+     *
+     * Finite values include normal numbers, subnormal numbers, and signed zero.
+     *
+     * @param x Input value.
+     * @return true when @p x is neither infinity nor NaN.
+     */
+    [[nodiscard]] constexpr bool isfinite(const float x) noexcept
+    {
+        return detail::math::isfinite(x);
+    }
+
+    /**
+     * @brief Determines whether the sign bit of a value is set.
+     *
+     * This detects negative zero and signed NaN encodings as well as negative values.
+     *
+     * @param x Input value.
+     * @return true when the sign bit of @p x is set.
+     */
+    [[nodiscard]] constexpr bool signbit(const float x) noexcept
+    {
+        return detail::math::signbit(x);
+    }
+
+    /**
+     * @brief Returns the magnitude of one value with the sign of another.
+     *
+     * The operation changes only the sign bit. All exponent and mantissa bits,
+     * including a NaN payload, are preserved from @p magnitude.
+     *
+     * @param magnitude Value providing the exponent and mantissa bits.
+     * @param sign Value providing the sign bit.
+     * @return @p magnitude with the sign bit of @p sign.
+     */
+    [[nodiscard]] constexpr float copysign(const float magnitude, const float sign) noexcept
+    {
+        return detail::math::copysign(magnitude, sign);
+    }
+
+    // ========================================
+    // Rounding and fractional operations
+    // ========================================
+
+    /**
+     * @brief Rounds a value downward to the nearest integer value.
+     *
+     * NaN, infinity, and signed zero are returned unchanged.
+     *
+     * @param x Input value.
+     * @return Greatest integer value not greater than @p x.
+     */
+    [[nodiscard]] constexpr float floor(const float x) noexcept
+    {
+        return detail::math::floor(x);
+    }
+
+    /**
+     * @brief Rounds a value upward to the nearest integer value.
+     *
+     * NaN, infinity, and signed zero are returned unchanged.
+     *
+     * @param x Input value.
+     * @return Smallest integer value not less than @p x.
+     */
+    [[nodiscard]] constexpr float ceil(const float x) noexcept
+    {
+        return detail::math::ceil(x);
+    }
+
+    /**
+     * @brief Rounds a value toward zero to an integer value.
+     *
+     * NaN, infinity, and signed zero are returned unchanged.
+     *
+     * @param x Input value.
+     * @return Integer portion of @p x with fractional bits discarded.
+     */
+    [[nodiscard]] constexpr float trunc(const float x) noexcept
+    {
+        return detail::math::trunc(x);
+    }
+
+    /**
+     * @brief Rounds a value to the nearest integer value.
+     *
+     * Halfway cases round away from zero. NaN, infinity, and signed zero are
+     * returned unchanged.
+     *
+     * @param x Input value.
+     * @return Nearest integer value to @p x.
+     */
+    [[nodiscard]] constexpr float round(const float x) noexcept
+    {
+        return detail::math::round(x);
+    }
+
+    /**
+     * @brief Computes the floating-point remainder after truncating division.
+     *
+     * A nonzero result has the sign of @p dividend and a magnitude less than
+     * `abs(divisor)`. A zero divisor or infinite dividend returns NaN. A finite
+     * dividend with an infinite divisor is returned unchanged.
+     *
+     * @param dividend Value to divide.
+     * @param divisor Value by which to divide.
+     * @return Remainder of @p dividend / @p divisor.
+     */
+    [[nodiscard]] constexpr float fmod(const float dividend, const float divisor) noexcept
+    {
+        return detail::math::fmod(dividend, divisor);
+    }
+
+    /**
+     * @brief Returns the HLSL-style fractional part of a value.
+     *
+     * Finite results are in [0, 1) and are computed as `x - floor(x)`.
+     * NaN is propagated and infinity returns NaN.
+     *
+     * @param x Input value.
+     * @return Nonnegative fractional component of @p x.
+     */
+    [[nodiscard]] constexpr float frac(const float x) noexcept
+    {
+        return detail::math::frac(x);
+    }
+
+    // ========================================
+    // Transcendental functions
+    // ========================================
+
     /**
      * @brief Computes the sine of an angle in radians.
      *

@@ -74,6 +74,7 @@ target_sources(CarrotHLM
             include/chlm/detail/math/MathCommon.h
             include/chlm/detail/math/Polynomial.h
             include/chlm/detail/math/RangeReduction.h
+            include/chlm/detail/math/Rounding.h
             include/chlm/detail/math/ScalarMath.h
             include/chlm/detail/math/Sqrt.h
             include/chlm/detail/math/Trig.h

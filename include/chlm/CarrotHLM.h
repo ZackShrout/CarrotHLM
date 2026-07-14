@@ -21,6 +21,8 @@
 //   - Conversions: quat ↔ matrix, affine inverse, normal matrix
 //   - Left- and right-handed variants for view/projection
 //   - Owned scalar sqrt/trigonometry with fast defaults and `_precise` variants
+//   - Constexpr float classification and sign helpers
+//   - Constexpr rounding, remainder, and fractional helpers
 //   - Constants: pi, unit vectors (right/up/forward), epsilon, etc.
 //
 // CONVENTIONS:

@@ -43,4 +43,11 @@ namespace chlm::detail::math {
     {
         return exponent_bits(value) == 0x7F800000u && mantissa_bits(value) == 0u;
     }
+
+    [[nodiscard]] constexpr float copysign(const float magnitude, const float sign) noexcept
+    {
+        constexpr std::uint32_t sign_mask{ 0x80000000u };
+
+        return bits_to_float(float_to_bits(magnitude) & ~sign_mask | float_to_bits(sign) & sign_mask);
+    }
 } // namespace chlm::detail::math

@@ -6,6 +6,8 @@
 #pragma once
 
 #include "InverseTrig.h"
+#include "MathCommon.h"
+#include "Rounding.h"
 #include "Sqrt.h"
 #include "Trig.h"
 

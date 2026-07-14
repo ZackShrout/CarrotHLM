@@ -18,6 +18,134 @@ namespace {
         return lhs_bits > rhs_bits ? lhs_bits - rhs_bits : rhs_bits - lhs_bits;
     }
 
+    void run_classification_checks(test_context& ctx)
+    {
+        constexpr std::uint32_t mantissas[]{ 0u, 1u, 0x00400000u, 0x007FFFFFu };
+        bool classifications_match{ true };
+        bool copysign_matches{ true };
+
+        for (std::uint32_t sign{ 0u }; sign <= 1u; ++sign)
+        {
+            for (std::uint32_t exponent{ 0u }; exponent <= 0xFFu; ++exponent)
+            {
+                for (const std::uint32_t mantissa : mantissas)
+                {
+                    const std::uint32_t bits{ sign << 31u | exponent << 23u | mantissa };
+                    const float value{ std::bit_cast<float>(bits) };
+                    const bool expected_nan{ exponent == 0xFFu && mantissa != 0u };
+                    const bool expected_inf{ exponent == 0xFFu && mantissa == 0u };
+                    const bool expected_finite{ exponent != 0xFFu };
+
+                    classifications_match = classifications_match &&
+                        chlm::isnan(value) == expected_nan &&
+                        chlm::isinf(value) == expected_inf &&
+                        chlm::isfinite(value) == expected_finite &&
+                        chlm::signbit(value) == (sign != 0u);
+
+                    const std::uint32_t positive_bits{
+                        std::bit_cast<std::uint32_t>(chlm::copysign(value, 0.f))
+                    };
+                    const std::uint32_t negative_bits{
+                        std::bit_cast<std::uint32_t>(chlm::copysign(value, -0.f))
+                    };
+                    copysign_matches = copysign_matches &&
+                        positive_bits == (bits & 0x7FFFFFFFu) &&
+                        negative_bits == (bits | 0x80000000u);
+                }
+            }
+        }
+
+        ctx.expect(classifications_match, "float classification category sweep");
+        ctx.expect(copysign_matches, "copysign bit-preservation category sweep");
+    }
+
+    void run_rounding_oracle_checks(test_context& ctx)
+    {
+        bool floor_matches{ true };
+        bool ceil_matches{ true };
+        bool trunc_matches{ true };
+        bool round_matches{ true };
+        bool frac_matches{ true };
+        bool fmod_matches{ true };
+
+        const auto measure_rounding = [&](const float value)
+        {
+            if (std::isnan(value)) return;
+
+            floor_matches = floor_matches &&
+                std::bit_cast<std::uint32_t>(chlm::floor(value)) ==
+                std::bit_cast<std::uint32_t>(std::floor(value));
+            ceil_matches = ceil_matches &&
+                std::bit_cast<std::uint32_t>(chlm::ceil(value)) ==
+                std::bit_cast<std::uint32_t>(std::ceil(value));
+            trunc_matches = trunc_matches &&
+                std::bit_cast<std::uint32_t>(chlm::trunc(value)) ==
+                std::bit_cast<std::uint32_t>(std::trunc(value));
+            round_matches = round_matches &&
+                std::bit_cast<std::uint32_t>(chlm::round(value)) ==
+                std::bit_cast<std::uint32_t>(std::round(value));
+
+            if (std::isfinite(value))
+            {
+                const float oracle_frac{ value - std::floor(value) };
+                frac_matches = frac_matches &&
+                    std::bit_cast<std::uint32_t>(chlm::frac(value)) ==
+                    std::bit_cast<std::uint32_t>(oracle_frac);
+            }
+        };
+
+        constexpr std::uint32_t mantissas[]{
+            0u, 1u, 0x003FFFFFu, 0x00400000u, 0x00400001u, 0x007FFFFFu
+        };
+        for (std::uint32_t sign{ 0u }; sign <= 1u; ++sign)
+        {
+            for (std::uint32_t exponent{ 0u }; exponent <= 0xFFu; ++exponent)
+            {
+                for (const std::uint32_t mantissa : mantissas)
+                    measure_rounding(std::bit_cast<float>(sign << 31u | exponent << 23u | mantissa));
+            }
+        }
+
+        std::uint32_t random_bits{ 0x721A9E3Du };
+        for (int sample{ 0 }; sample < 250000; ++sample)
+        {
+            random_bits = random_bits * 1664525u + 1013904223u;
+            measure_rounding(std::bit_cast<float>(random_bits));
+        }
+
+        for (int integer{ -4096 }; integer <= 4096; ++integer)
+        {
+            const float halfway{ static_cast<float>(integer) + .5f };
+            measure_rounding(halfway);
+            measure_rounding(std::nextafter(halfway, -std::numeric_limits<float>::infinity()));
+            measure_rounding(std::nextafter(halfway, std::numeric_limits<float>::infinity()));
+        }
+
+        std::uint32_t dividend_bits{ 0x4D0DCAFEu };
+        std::uint32_t divisor_bits{ 0x3F123456u };
+        for (int sample{ 0 }; sample < 100000; ++sample)
+        {
+            dividend_bits = dividend_bits * 1664525u + 1013904223u;
+            divisor_bits = divisor_bits * 22695477u + 1u;
+            const float dividend{ std::bit_cast<float>(dividend_bits) };
+            const float divisor{ std::bit_cast<float>(divisor_bits) };
+
+            if (!std::isfinite(dividend) || !std::isfinite(divisor) || divisor == 0.f)
+                continue;
+
+            fmod_matches = fmod_matches &&
+                std::bit_cast<std::uint32_t>(chlm::fmod(dividend, divisor)) ==
+                std::bit_cast<std::uint32_t>(std::fmod(dividend, divisor));
+        }
+
+        ctx.expect(floor_matches, "floor exact oracle sweep");
+        ctx.expect(ceil_matches, "ceil exact oracle sweep");
+        ctx.expect(trunc_matches, "trunc exact oracle sweep");
+        ctx.expect(round_matches, "round exact oracle sweep");
+        ctx.expect(frac_matches, "frac exact oracle sweep");
+        ctx.expect(fmod_matches, "fmod exact oracle sweep");
+    }
+
     void run_trig_oracle_checks(test_context& ctx)
     {
         constexpr float fast_error_limit{ 5e-6f };
@@ -372,6 +500,8 @@ void run_scalar_math_exhaustive_tests(test_context& ctx)
 
     ctx.section("Scalar Math Exhaustive Tests");
 
+    run_classification_checks(ctx);
+    run_rounding_oracle_checks(ctx);
     run_trig_oracle_checks(ctx);
     run_tan_oracle_checks(ctx);
     run_acos_oracle_checks(ctx);

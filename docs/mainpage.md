@@ -13,6 +13,8 @@ and swizzles with matrices, quaternions, transforms, and owned scalar math.
 - Left- and right-handed view, perspective, and orthographic transforms.
 - Portable scalar, SSE2, and ARM64 NEON backends selected at compile time.
 - Owned `sqrt`, `sin`, `cos`, `tan`, and `acos` implementations.
+- Constexpr `isnan`, `isinf`, `isfinite`, `signbit`, and `copysign` helpers.
+- Constexpr `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac` operations.
 
 @section scalar_math Scalar Math
 

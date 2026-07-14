@@ -5,6 +5,8 @@
 
 #include "TestHarness.h"
 
+#include <bit>
+#include <cstdint>
 #include <limits>
 
 void run_scalar_math_edge_case_tests(test_context& ctx)
@@ -16,6 +18,46 @@ void run_scalar_math_edge_case_tests(test_context& ctx)
     const float nan{ std::numeric_limits<float>::quiet_NaN() };
     const float inf{ std::numeric_limits<float>::infinity() };
     const float negative_zero{ -0.f };
+
+    ctx.expect(chlm::isnan(nan) && !chlm::isinf(nan) && !chlm::isfinite(nan),
+               "NaN public classification test");
+    ctx.expect(!chlm::isnan(inf) && chlm::isinf(inf) && !chlm::isfinite(inf),
+               "infinity public classification test");
+    ctx.expect(chlm::isfinite(negative_zero) && chlm::signbit(negative_zero),
+               "negative zero public classification test");
+
+    constexpr std::uint32_t nan_payload_bits{ 0x7FC12345u };
+    const float nan_payload{ std::bit_cast<float>(nan_payload_bits) };
+    const float negative_nan{ chlm::copysign(nan_payload, negative_zero) };
+    const float positive_nan{ chlm::copysign(negative_nan, 0.f) };
+    ctx.expect(std::bit_cast<std::uint32_t>(negative_nan) == (nan_payload_bits | 0x80000000u) &&
+               std::bit_cast<std::uint32_t>(positive_nan) == nan_payload_bits,
+               "copysign NaN payload preservation test");
+    ctx.expect(std::bit_cast<std::uint32_t>(chlm::copysign(0.f, negative_zero)) == 0x80000000u &&
+               std::bit_cast<std::uint32_t>(chlm::copysign(negative_zero, 0.f)) == 0u,
+               "copysign signed zero test");
+
+    ctx.expect(std::signbit(chlm::floor(negative_zero)) &&
+               std::signbit(chlm::ceil(negative_zero)) &&
+               std::signbit(chlm::trunc(negative_zero)) &&
+               std::signbit(chlm::round(negative_zero)),
+               "rounding signed zero preservation test");
+    ctx.expect(chlm::floor(inf) == inf && chlm::ceil(inf) == inf &&
+               chlm::trunc(inf) == inf && chlm::round(inf) == inf,
+               "rounding infinity preservation test");
+    ctx.expect(chlm::isnan(chlm::floor(nan)) && chlm::isnan(chlm::ceil(nan)) &&
+               chlm::isnan(chlm::trunc(nan)) && chlm::isnan(chlm::round(nan)),
+               "rounding NaN propagation test");
+    ctx.expect(chlm::isnan(chlm::fmod(1.f, 0.f)) && chlm::isnan(chlm::fmod(inf, 1.f)),
+               "fmod invalid input test");
+    ctx.expect(chlm::fmod(1.f, inf) == 1.f &&
+               std::signbit(chlm::fmod(-4.f, 2.f)),
+               "fmod infinity and signed zero test");
+    ctx.expect(chlm::isnan(chlm::frac(inf)) && chlm::isnan(chlm::frac(nan)),
+               "frac non-finite input test");
+    ctx.expect(chlm::frac(std::numeric_limits<float>::denorm_min()) ==
+               std::numeric_limits<float>::denorm_min(),
+               "frac subnormal preservation test");
 
     ctx.expect(std::isnan(chlm::sqrt(-1.f)), "sqrt negative domain test");
     ctx.expect(std::isnan(sqrt_precise(-1.f)), "sqrt_precise negative domain test");
