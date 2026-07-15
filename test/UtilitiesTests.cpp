@@ -133,7 +133,7 @@ void run_utility_tests(test_context& ctx)
                move_towards(3.f, 10.f, -2.f) == 3.f,
                "move_towards non-positive delta test");
     ctx.expect(move_towards(-0.f, 0.f, 1.f) == 0.f &&
-               signbit(move_towards(-0.f, 0.f, 1.f)),
+               chlm::signbit(move_towards(-0.f, 0.f, 1.f)),
                "move_towards equal value representation test");
 
     ctx.expect(move_towards(-maximum, maximum, maximum) == 0.f &&
@@ -168,7 +168,7 @@ void run_utility_tests(test_context& ctx)
                repeat(-1.f, 5.f) == 4.f && repeat(-6.f, 5.f) == 4.f,
                "repeat positive and negative input test");
     ctx.expect(repeat(0.f, 5.f) == 0.f && repeat(5.f, 5.f) == 0.f &&
-               repeat(-5.f, 5.f) == 0.f && !signbit(repeat(-5.f, 5.f)),
+               repeat(-5.f, 5.f) == 0.f && !chlm::signbit(repeat(-5.f, 5.f)),
                "repeat exact boundary test");
     ctx.expect(repeat(3.f, 0.f) == 0.f && repeat(3.f, -2.f) == 0.f,
                "repeat non-positive length test");
