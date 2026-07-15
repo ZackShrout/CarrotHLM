@@ -18,6 +18,7 @@ int main()
     run_vector_scaffolding_tests(ctx);
     run_swizzle_scaffolding_tests(ctx);
     run_quaternion_tests(ctx);
+    run_random_tests(ctx);
     run_matrix_tests(ctx);
     run_backend_selection_tests(ctx);
     run_scalar_math_tests(ctx);

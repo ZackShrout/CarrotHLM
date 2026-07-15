@@ -5,6 +5,10 @@ project(CarrotHLM LANGUAGES CXX)
 option(CARROTHLM_TEST_FORCE_SCALAR "Force the test target to use the scalar backend." OFF)
 option(CARROTHLM_TEST_FORCE_SSE2 "Force the test target to use the SSE2 backend on x86/x64 builds." OFF)
 option(CARROTHLM_TEST_FORCE_NEON "Force the test target to use the NEON backend on ARM64 builds." OFF)
+option(CARROTHLM_BUILD_RANDOM_VALIDATION_TOOLS
+    "Build the optional PractRand and TestU01 random validation adapters."
+    OFF
+)
 
 set(CARROTHLM_TEST_FORCE_COUNT 0)
 
@@ -55,6 +59,7 @@ target_sources(CarrotHLM
             include/chlm/Matrix3x3.h
             include/chlm/Matrix4x4.h
             include/chlm/Quaternion.h
+            include/chlm/Random.h
             include/chlm/Rect.h
             include/chlm/ScalarMath.h
             include/chlm/Utilities.h
@@ -80,6 +85,10 @@ target_sources(CarrotHLM
             include/chlm/detail/math/ScalarMath.h
             include/chlm/detail/math/Sqrt.h
             include/chlm/detail/math/Trig.h
+            include/chlm/detail/random/Pcg32.h
+            include/chlm/detail/random/RandomBits.h
+            include/chlm/detail/random/RandomDistributions.h
+            include/chlm/detail/random/RandomGeometry.h
             include/chlm/detail/PlatformConfig.h
             include/chlm/detail/PublicFloatVectors.h
             include/chlm/detail/PublicIntVectors.h
@@ -107,5 +116,9 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     include(CTest)
     if(BUILD_TESTING)
         add_subdirectory(test)
+    endif()
+
+    if(CARROTHLM_BUILD_RANDOM_VALIDATION_TOOLS)
+        add_subdirectory(tools/random)
     endif()
 endif()

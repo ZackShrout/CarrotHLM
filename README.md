@@ -23,6 +23,7 @@ float2 uv  = pos.st;              // texture coords
 - **Portable SIMD backends**: scalar fallback, SSE2 on x86/x64, NEON on ARM64.
 - **Owned scalar math**: fast-by-default roots and trigonometry, precise variants, and constexpr float classification/sign helpers.
 - **Game math utilities**: interpolation, remapping, bounded movement, periodic helpers, frame-independent decay, and conversions.
+- **Deterministic random**: PCG32 streams, serializable state, unbiased integer ranges, and half-open float ranges.
 - Header-only · No external dependencies · C++23.
 
 Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows.
@@ -72,6 +73,34 @@ auto [sine, cosine] = sin_cos(heading);
 The public API documents each function's finite-input error target. Special values, signed zero, domains, and exact endpoints are covered by the conformance test suite.
 
 Float classification, sign, rounding, fractional, root, exponential, and trigonometric operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, `frac`, `sqrt`, `rsqrt`, `exp2`, `log2`, `exp`, `log`, `pow`, `sin`, `cos`, `sin_cos`, `tan`, `acos`, `asin`, `atan`, and `atan2`.
+
+### Random
+
+`rng32` is an explicit, deterministic PCG32 generator with independent streams and small serializable state. Integer ranges include both endpoints; floating-point ranges include the lower endpoint and exclude the upper endpoint. Geometry helpers sample vectors, directions, and points uniformly across unit circles and spheres.
+
+```c++
+chlm::rng32 rng{ 123456789u };
+
+std::uint32_t bits = rng.next_u32();
+int enemy_index = rng.next_int(0, 9);
+float spread = rng.next_float(-1.f, 1.f);
+bool critical = rng.chance(.25f);
+chlm::float3 direction = chlm::random_unit_vector3(rng);
+chlm::float2 point = chlm::random_point_in_unit_circle(rng);
+
+chlm::rng32_state checkpoint = rng.state();
+// Draw values, then restore the exact future sequence when needed.
+rng.set_state(checkpoint);
+```
+
+CarrotHLM guarantees reproducible results for raw `rng32` output and its own
+distribution and sampling functions when the generator type, seed or restored
+state, call sequence, and CarrotHLM version are the same. If the bitstream is
+adapted to standard-library distributions or shuffle algorithms, the resulting
+values or ordering may differ between standard-library implementations or
+versions. Do not rely on those operations for portable replay, rollback, save
+compatibility, or network determinism unless the mapping algorithm is owned and
+versioned by the application.
 
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.
