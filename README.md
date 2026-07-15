@@ -22,7 +22,7 @@ float2 uv  = pos.st;              // texture coords
 - **Integer vectors**: `int2/3/4`, `uint2/3/4` - perfect for pixel coords, grids, bitmasks.
 - **Portable SIMD backends**: scalar fallback, SSE2 on x86/x64, NEON on ARM64.
 - **Owned scalar math**: fast-by-default roots and trigonometry, precise variants, and constexpr float classification/sign helpers.
-- Utilities: affine inverse, normal matrix, conversions.
+- **Game math utilities**: interpolation, remapping, bounded movement, periodic helpers, frame-independent decay, and conversions.
 - Header-only · No external dependencies · C++23.
 
 Cross-platform: macOS (Apple Silicon + Intel), Linux, Windows.

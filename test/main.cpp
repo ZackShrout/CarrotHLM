@@ -23,6 +23,7 @@ int main()
     run_scalar_math_tests(ctx);
     run_scalar_math_edge_case_tests(ctx);
     run_scalar_math_exhaustive_tests(ctx);
+    run_utility_tests(ctx);
 
     if (ctx.failures == 0)
     {

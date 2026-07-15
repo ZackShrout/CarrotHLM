@@ -17,6 +17,12 @@ and swizzles with matrices, quaternions, transforms, and owned scalar math.
 - Owned `exp2`, `log2`, `exp`, `log`, and general `pow` with explicit domain handling.
 - Constexpr `isnan`, `isinf`, `isfinite`, `signbit`, and `copysign` helpers.
 - Constexpr `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac` operations.
+- Constexpr `inverse_lerp`, `remap`, `step`, `smoothstep`, and `smootherstep`
+  game-math helpers with explicit clamping and degenerate-range behavior.
+- Constexpr `move_towards` with bidirectional, no-overshoot scalar movement.
+- Constexpr periodic and angular helpers including `repeat`, `wrap`, `delta_angle`,
+  `lerp_angle`, and `ping_pong`.
+- Half-life-based `exp_decay` for frame-rate-independent smoothing toward a target.
 
 @section scalar_math Scalar Math
 

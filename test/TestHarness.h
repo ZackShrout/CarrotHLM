@@ -148,3 +148,4 @@ void run_backend_selection_tests(test_context& ctx);
 void run_scalar_math_tests(test_context& ctx);
 void run_scalar_math_edge_case_tests(test_context& ctx);
 void run_scalar_math_exhaustive_tests(test_context& ctx);
+void run_utility_tests(test_context& ctx);

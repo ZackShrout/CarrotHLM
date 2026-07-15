@@ -10,6 +10,7 @@ add_executable(CarrotHLM_test
     ScalarMathTests.cpp
     SwizzleScaffoldingTests.cpp
     UintVectorTests.cpp
+    UtilitiesTests.cpp
     VectorTests.cpp
     VectorScaffoldingTests.cpp
 )
