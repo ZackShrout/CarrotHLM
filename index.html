@@ -93,17 +93,49 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">CarrotHLM API Documentation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_docs_2mainpage"></a> A fast, header-only, dependency-free math library...</p>
+<div class="textblock"><p><a class="anchor" id="md_docs_2mainpage"></a> CarrotHLM is a fast, header-only, dependency-free C++23 math library for games, graphics, and real-time applications. Its public API combines HLSL-style vectors and swizzles with matrices, quaternions, transforms, and owned scalar math.</p>
 <h1><a class="anchor" id="features"></a>
 Features</h1>
 <ul>
-<li>SIMD-accelerated via Clang vector extensions</li>
-<li>HLSL-style swizzling</li>
-<li>...</li>
+<li>Packed <code>float2</code>, <code>float3</code>, and <code>float4</code> types with HLSL-style swizzles.</li>
+<li><code>int2/3/4</code> and <code>uint2/3/4</code> integer vector families.</li>
+<li>Column-major <code>float3x3</code> and <code>float4x4</code> matrices.</li>
+<li>Quaternion construction, interpolation, rotation, and matrix conversion.</li>
+<li>Left- and right-handed view, perspective, and orthographic transforms.</li>
+<li>Portable scalar, SSE2, and ARM64 NEON backends selected at compile time.</li>
+<li>Owned root, trigonometric, and inverse-trigonometric implementations, including <code>sqrt</code>, <code>rsqrt</code>, paired <code>sin_cos</code>, and matching higher-accuracy variants.</li>
+<li>Owned <code>exp2</code>, <code>log2</code>, <code>exp</code>, <code>log</code>, and general <code>pow</code> with explicit domain handling.</li>
+<li>Constexpr <code>isnan</code>, <code>isinf</code>, <code>isfinite</code>, <code>signbit</code>, and <code>copysign</code> helpers.</li>
+<li>Constexpr <code>floor</code>, <code>ceil</code>, <code>trunc</code>, <code>round</code>, <code>fmod</code>, and <code>frac</code> operations.</li>
+<li>Constexpr <code>inverse_lerp</code>, <code>remap</code>, <code>step</code>, <code>smoothstep</code>, and <code>smootherstep</code> game-math helpers with explicit clamping and degenerate-range behavior.</li>
+<li>Constexpr <code>move_towards</code> with bidirectional, no-overshoot scalar movement.</li>
+<li>Constexpr periodic and angular helpers including <code>repeat</code>, <code>wrap</code>, <code>delta_angle</code>, <code>lerp_angle</code>, and <code>ping_pong</code>.</li>
+<li>Half-life-based <code>exp_decay</code> for frame-rate-independent smoothing toward a target.</li>
 </ul>
+<h1><a class="anchor" id="scalar_math"></a>
+Scalar Math</h1>
+<p>The default scalar functions are tuned for high-quality real-time use. Matching <code>_precise</code> variants use additional work to provide tighter error bounds. Each function's API documentation states its finite-input error target and special value behavior.</p>
+<p>Downstream vector, matrix, quaternion, and utility operations use this same public scalar layer, so backend behavior remains consistent across the library.</p>
+<h1><a class="anchor" id="platforms"></a>
+Platforms And Compilers</h1>
+<p>CarrotHLM supports macOS, Linux, and Windows with Clang, GCC, and MSVC. SSE2 is used on x86/x64, NEON on ARM64, and the scalar backend is available as a portable fallback and explicit test configuration.</p>
 <h1><a class="anchor" id="usage"></a>
 Usage</h1>
-<p>See README for integration examples. </p>
+<p>Add the <code>CarrotHLM::CarrotHLM</code> CMake target and include the umbrella header:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="CarrotHLM_8h.html">chlm/CarrotHLM.h</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_struct" href="structchlm_1_1float3.html">chlm::float3</a> direction{ 3.f, 4.f, 0.f };</div>
+<div class="line"><a class="code hl_struct" href="structchlm_1_1float3.html">chlm::float3</a> unit_direction{ <a class="code hl_function" href="namespacechlm.html#a85bac571ba384b11c8495e4c321a6b7d">chlm::normalize</a>(direction) };</div>
+<div class="line"><a class="code hl_struct" href="structchlm_1_1float4x4.html">chlm::float4x4</a> projection{</div>
+<div class="line">    <a class="code hl_function" href="structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286">chlm::float4x4::perspective_lh</a>(<a class="code hl_variable" href="namespacechlm.html#a37a2a11e02104513cd1e20bab5e43844">chlm::half_pi</a>, 16.f / 9.f, .1f, 1000.f)</div>
+<div class="line">};</div>
+<div class="ttc" id="aCarrotHLM_8h_html"><div class="ttname"><a href="CarrotHLM_8h.html">CarrotHLM.h</a></div></div>
+<div class="ttc" id="anamespacechlm_html_a37a2a11e02104513cd1e20bab5e43844"><div class="ttname"><a href="namespacechlm.html#a37a2a11e02104513cd1e20bab5e43844">chlm::half_pi</a></div><div class="ttdeci">constexpr float half_pi</div><div class="ttdoc">One half of pi, commonly used for quarter turns.</div><div class="ttdef"><b>Definition</b> Core.h:71</div></div>
+<div class="ttc" id="anamespacechlm_html_a85bac571ba384b11c8495e4c321a6b7d"><div class="ttname"><a href="namespacechlm.html#a85bac571ba384b11c8495e4c321a6b7d">chlm::normalize</a></div><div class="ttdeci">float2 normalize(const float2 v) noexcept</div><div class="ttdoc">Normalizes a vector to unit length.</div><div class="ttdef"><b>Definition</b> Vector.h:108</div></div>
+<div class="ttc" id="astructchlm_1_1float3_html"><div class="ttname"><a href="structchlm_1_1float3.html">chlm::float3</a></div><div class="ttdef"><b>Definition</b> PublicFloatVectors.h:138</div></div>
+<div class="ttc" id="astructchlm_1_1float4x4_html"><div class="ttname"><a href="structchlm_1_1float4x4.html">chlm::float4x4</a></div><div class="ttdef"><b>Definition</b> Matrix4x4.h:18</div></div>
+<div class="ttc" id="astructchlm_1_1float4x4_html_a8b8bb8f4d9b0f0c41a1de3400ea10286"><div class="ttname"><a href="structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286">chlm::float4x4::perspective_lh</a></div><div class="ttdeci">static float4x4 perspective_lh(float fov_y_rad, float aspect, float z_near, float z_far) noexcept</div><div class="ttdoc">Creates a left-handed perspective projection matrix.</div><div class="ttdef"><b>Definition</b> Matrix4x4.h:379</div></div>
+</div><!-- fragment --><p>Angles are expressed in radians. Matrices are column-major and use column vectors. The library's default spatial convention is left-handed with +Z forward. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

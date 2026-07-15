@@ -2,6 +2,16 @@ var annotated_dup =
 [
     [ "chlm", "namespacechlm.html", [
       [ "detail", "namespacechlm_1_1detail.html", [
+        [ "math", "namespacechlm_1_1detail_1_1math.html", [
+          [ "exponential_detail", "namespacechlm_1_1detail_1_1math_1_1exponential__detail.html", [
+            [ "log_range_t", "structchlm_1_1detail_1_1math_1_1exponential__detail_1_1log__range__t.html", "structchlm_1_1detail_1_1math_1_1exponential__detail_1_1log__range__t" ]
+          ] ],
+          [ "power_detail", "namespacechlm_1_1detail_1_1math_1_1power__detail.html", [
+            [ "exponent_class_t", "structchlm_1_1detail_1_1math_1_1power__detail_1_1exponent__class__t.html", "structchlm_1_1detail_1_1math_1_1power__detail_1_1exponent__class__t" ]
+          ] ],
+          [ "sin_cos_t", "structchlm_1_1detail_1_1math_1_1sin__cos__t.html", "structchlm_1_1detail_1_1math_1_1sin__cos__t" ],
+          [ "trig_range_t", "structchlm_1_1detail_1_1math_1_1trig__range__t.html", "structchlm_1_1detail_1_1math_1_1trig__range__t" ]
+        ] ],
         [ "basic_float_storage", "structchlm_1_1detail_1_1basic__float__storage.html", "structchlm_1_1detail_1_1basic__float__storage" ],
         [ "float_vector_base", "structchlm_1_1detail_1_1float__vector__base.html", "structchlm_1_1detail_1_1float__vector__base" ],
         [ "ivector_swizzle2", "structchlm_1_1detail_1_1ivector__swizzle2.html", "structchlm_1_1detail_1_1ivector__swizzle2" ],
@@ -27,6 +37,7 @@ var annotated_dup =
       [ "int2", "structchlm_1_1int2.html", "structchlm_1_1int2" ],
       [ "int3", "structchlm_1_1int3.html", "structchlm_1_1int3" ],
       [ "int4", "structchlm_1_1int4.html", "structchlm_1_1int4" ],
+      [ "sin_cos_result", "structchlm_1_1sin__cos__result.html", "structchlm_1_1sin__cos__result" ],
       [ "uint2", "structchlm_1_1uint2.html", "structchlm_1_1uint2" ],
       [ "uint3", "structchlm_1_1uint3.html", "structchlm_1_1uint3" ],
       [ "uint4", "structchlm_1_1uint4.html", "structchlm_1_1uint4" ],

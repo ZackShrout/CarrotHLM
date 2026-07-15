@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['w_0',['w',['../structchlm_1_1float4.html#a42bc2f573dfe2d6b837c3e81721ce523',1,'chlm::float4::w'],['../structchlm_1_1int4.html#a848396a46f5ba2ab30765d15d3725d78',1,'chlm::int4::w'],['../structchlm_1_1uint4.html#a807dabbf723929a616ee2ba809057ba8',1,'chlm::uint4::w']]],
-  ['writable_1',['writable',['../structchlm_1_1detail_1_1swizzle__proxy.html#acb7f08e6f30d6051952b057501068068',1,'chlm::detail::swizzle_proxy']]]
+  ['u_0',['u',['../structchlm_1_1float2.html#a402a3e36853ff4d7ee4865d0a8fa8e17',1,'chlm::float2::u'],['../structchlm_1_1int2.html#a2cf43bfc187518b08da2b1cbdc4b0783',1,'chlm::int2::u'],['../structchlm_1_1uint2.html#afb6e8c04d69c86fa6b6369b91cf8a632',1,'chlm::uint2::u']]]
 ];

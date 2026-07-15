@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['int2_0',['int2',['../structchlm_1_1int2.html',1,'chlm']]],
-  ['int3_1',['int3',['../structchlm_1_1int3.html',1,'chlm']]],
-  ['int4_2',['int4',['../structchlm_1_1int4.html',1,'chlm']]],
-  ['ivector_5fswizzle2_3',['ivector_swizzle2',['../structchlm_1_1detail_1_1ivector__swizzle2.html',1,'chlm::detail']]],
-  ['ivector_5fswizzle3_4',['ivector_swizzle3',['../structchlm_1_1detail_1_1ivector__swizzle3.html',1,'chlm::detail']]],
-  ['ivector_5fswizzle4_5',['ivector_swizzle4',['../structchlm_1_1detail_1_1ivector__swizzle4.html',1,'chlm::detail']]]
+  ['float2_0',['float2',['../structchlm_1_1float2.html',1,'chlm']]],
+  ['float3_1',['float3',['../structchlm_1_1float3.html',1,'chlm']]],
+  ['float3x3_2',['float3x3',['../structchlm_1_1float3x3.html',1,'chlm']]],
+  ['float4_3',['float4',['../structchlm_1_1float4.html',1,'chlm']]],
+  ['float4x4_4',['float4x4',['../structchlm_1_1float4x4.html',1,'chlm']]],
+  ['float_5frect_5',['float_rect',['../structchlm_1_1float__rect.html',1,'chlm']]],
+  ['float_5fvector_5fbase_6',['float_vector_base',['../structchlm_1_1detail_1_1float__vector__base.html',1,'chlm::detail']]]
 ];

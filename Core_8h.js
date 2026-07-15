@@ -1,11 +1,9 @@
 var Core_8h =
 [
     [ "abs", "Core_8h.html#a6912bedc5dfb85df0ece4efb502e11af", null ],
-    [ "acos", "Core_8h.html#a4d79fb95b4cb73f8c312ece2c3dd8d13", null ],
     [ "almost_equal", "Core_8h.html#a66cb1fb748f28528233ce044bb763e09", null ],
     [ "back", "Core_8h.html#a074c37780f161774f995987465960f0c", null ],
     [ "clamp", "Core_8h.html#ad2de4f7a9e777d429edc68bf780e1af1", null ],
-    [ "cos", "Core_8h.html#aa607bc34742d9527833f4ef8fa790fee", null ],
     [ "down", "Core_8h.html#ae294d82617669b1eb2af77c7bf7703ba", null ],
     [ "forward", "Core_8h.html#a96d5269e025ada05113501010e9e2e22", null ],
     [ "left", "Core_8h.html#aeab5d37b04d03bcc94ba162591356d61", null ],
@@ -14,9 +12,6 @@ var Core_8h =
     [ "min", "Core_8h.html#a030e951d2d428dd1a9d5ca25985b8f80", null ],
     [ "right", "Core_8h.html#aa5565b88c57e8accf11f521e9afc73ad", null ],
     [ "saturate", "Core_8h.html#a11cdc57804275677910867750c475379", null ],
-    [ "sin", "Core_8h.html#a3987426f347f48083abe4485742b90e4", null ],
-    [ "sqrt", "Core_8h.html#ad908e80b39e6eb754bbb2a382fd220e8", null ],
-    [ "tan", "Core_8h.html#ac54a66a4e5722f4f674476eeaf2b13c6", null ],
     [ "to_degrees", "Core_8h.html#a69ea785abe5de01a5937e7df5f28534a", null ],
     [ "to_radians", "Core_8h.html#a77288b1b7ede83a149e8f98a9a3591ad", null ],
     [ "up", "Core_8h.html#abd79c46c34ddea26cade1a4fd0804333", null ],

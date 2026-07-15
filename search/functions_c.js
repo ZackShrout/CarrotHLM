@@ -1,7 +1,14 @@
 var searchData=
 [
-  ['quat_5ffrom_5faxis_5fangle_0',['quat_from_axis_angle',['../namespacechlm.html#aac3dc6c114d0c435524308aca46146d0',1,'chlm']]],
-  ['quat_5ffrom_5feuler_1',['quat_from_euler',['../namespacechlm.html#acbb47a4110ce6adf016bf49502fcfd09',1,'chlm']]],
-  ['quat_5ffrom_5ffloat3x3_2',['quat_from_float3x3',['../namespacechlm.html#ae5aac2bc25b89374fef7a89ab8025274',1,'chlm']]],
-  ['quat_5fidentity_3',['quat_identity',['../namespacechlm.html#a9bdd5bd89e153f07b99ee5d45ca35ec7',1,'chlm']]]
+  ['perspective_5flh_0',['perspective_lh',['../structchlm_1_1float4x4.html#a8b8bb8f4d9b0f0c41a1de3400ea10286',1,'chlm::float4x4']]],
+  ['perspective_5frh_1',['perspective_rh',['../structchlm_1_1float4x4.html#a3b43aa459ea189dd6409c3d67db46399',1,'chlm::float4x4']]],
+  ['ping_5fpong_2',['ping_pong',['../namespacechlm.html#a702e982917a036097d44f26efa001cd2',1,'chlm']]],
+  ['pow_3',['pow',['../namespacechlm_1_1detail_1_1math.html#a851b84712315d1c84da22aa44bec8152',1,'chlm::detail::math::pow()'],['../namespacechlm.html#aa0c9b9dac865990577728255084d4f1f',1,'chlm::pow()']]],
+  ['pow_5ffast_4',['pow_fast',['../namespacechlm_1_1detail_1_1math.html#a2286e0ee4667bc5c60f06c1f6244deb2',1,'chlm::detail::math']]],
+  ['pow_5fimpl_5',['pow_impl',['../namespacechlm_1_1detail_1_1math_1_1power__detail.html#ac6a6f92a8ddea364b03bbda0ce1dad80',1,'chlm::detail::math::power_detail']]],
+  ['pow_5fprecise_6',['pow_precise',['../namespacechlm_1_1detail_1_1math.html#a4995dd8644758fcfae8fa18dcfb4a81c',1,'chlm::detail::math::pow_precise()'],['../namespacechlm.html#aa3d453d1e164c0071551c24b8ad606d5',1,'chlm::pow_precise()']]],
+  ['pow_5fprecise_5ffn_7',['pow_precise_fn',['../namespacechlm_1_1detail_1_1math.html#a6da2210a59e300f518061e4f0bef87a2',1,'chlm::detail::math']]],
+  ['power_5fof_5ftwo_8',['power_of_two',['../namespacechlm_1_1detail_1_1math_1_1exponential__detail.html#a69469ac33c6c20fb420fb6f8fb397868',1,'chlm::detail::math::exponential_detail']]],
+  ['product_5fbit_9',['product_bit',['../namespacechlm_1_1detail_1_1math_1_1range__reduction__detail.html#a4602a8a8aed0d0dd1e3ff6218f658002',1,'chlm::detail::math::range_reduction_detail']]],
+  ['project_5fvector_10',['project_vector',['../namespacechlm.html#a31aef85e252d95ee9686adc86f09f3e1',1,'chlm']]]
 ];

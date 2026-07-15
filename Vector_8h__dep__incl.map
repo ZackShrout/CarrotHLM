@@ -1,8 +1,22 @@
 <map id="include/chlm/Vector.h" name="include/chlm/Vector.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,181,31"/>
-<area shape="rect" id="Node000002" href="$CarrotHLM_8h.html" title=" " alt="" coords="5,152,196,177"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,43,67,79,66,99,72,118,92,150,88,153,67,120,61,100,62,78,81,41"/>
-<area shape="rect" id="Node000003" href="$Utilities_8h.html" title=" " alt="" coords="77,79,249,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,39,155,77,151,80,118,43"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="146,116,113,154,109,150,142,113"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="136,5,297,31"/>
+<area shape="rect" id="Node000002" href="$CarrotHLM_8h.html" title=" " alt="" coords="243,299,433,324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,37,103,59,47,90,26,109,13,129,8,152,15,176,33,204,57,228,84,248,115,265,180,288,243,301,242,306,178,293,112,269,81,253,53,232,29,208,10,178,3,152,8,127,22,105,44,86,101,54,160,32"/>
+<area shape="rect" id="Node000003" href="$Matrix4x4_8h.html" title=" " alt="" coords="25,152,211,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,44,128,153,124,150,199,41"/>
+<area shape="rect" id="Node000005" href="$Quaternion_8h.html" title=" " alt="" coords="251,79,444,104"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="251,35,327,76,325,81,249,40"/>
+<area shape="rect" id="Node000007" href="$Utilities_8h.html" title=" " alt="" coords="548,225,720,251"/>
+<area shape="poly" id="edge12_Node000001_Node000007" title=" " alt="" coords="311,29,384,47,456,76,511,112,561,154,626,223,622,227,557,158,508,116,454,81,382,52,310,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="118,191,120,221,125,236,133,249,156,269,183,284,213,295,243,302,241,307,211,300,181,289,153,274,129,252,120,238,115,222,113,191"/>
+<area shape="rect" id="Node000004" href="$MathConversions_8h.html" title=" " alt="" coords="143,225,378,251"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="154,181,238,223,236,227,152,186"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="285,258,327,296,323,300,281,262"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="420,105,450,117,474,132,489,152,490,165,487,178,462,220,428,255,392,282,361,301,358,296,389,278,424,251,458,217,482,176,485,165,484,154,471,136,447,122,418,110"/>
+<area shape="poly" id="edge8_Node000005_Node000004" title=" " alt="" coords="316,113,294,131,276,153,269,172,264,191,263,225,257,225,259,190,263,170,272,151,290,127,313,109"/>
+<area shape="rect" id="Node000006" href="$Matrix3x3_8h.html" title=" " alt="" coords="286,152,473,177"/>
+<area shape="poly" id="edge9_Node000005_Node000006" title=" " alt="" coords="361,116,376,151,372,153,356,118"/>
+<area shape="poly" id="edge10_Node000006_Node000002" title=" " alt="" coords="391,190,396,220,392,252,375,280,354,301,351,297,371,276,387,250,391,220,386,191"/>
+<area shape="poly" id="edge11_Node000006_Node000004" title=" " alt="" coords="350,187,281,227,279,223,347,182"/>
+<area shape="poly" id="edge13_Node000007_Node000002" title=" " alt="" coords="574,256,386,301,385,296,573,251"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quaternion_2eh_0',['Quaternion.h',['../Quaternion_8h.html',1,'']]]
+  ['inversetrig_2eh_0',['InverseTrig.h',['../InverseTrig_8h.html',1,'']]]
 ];

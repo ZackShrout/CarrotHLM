@@ -29,8 +29,8 @@ var NAVTREE =
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ]
@@ -60,11 +60,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "CarrotHLM_8h.html",
-"index.html#features",
-"structchlm_1_1detail_1_1simd__neon.html#a395a4043f5a44a74f756a368883e4a77",
-"structchlm_1_1float2.html#a6e0a797a2cc6d26efe02728e08d90baf",
-"structchlm_1_1int2.html#adeabe64f3acd9d16244e94419767b09d",
-"structchlm_1_1uint4.html#aaf113a429bdb3b5624ae6005f791c9db"
+"Rounding_8h.html#aa0dadc15b08ce86a7c0822e423622221",
+"functions_r.html",
+"namespacechlm_1_1detail_1_1math.html#adcee678619c4330cac0c207938fd8a52",
+"structchlm_1_1detail_1_1float__vector__base.html#abfdda88a892ed32c740ef630d2a93266",
+"structchlm_1_1detail_1_1uvector__swizzle2.html",
+"structchlm_1_1float4x4.html#a3b43aa459ea189dd6409c3d67db46399",
+"structchlm_1_1uint3.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

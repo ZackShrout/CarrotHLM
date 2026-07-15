@@ -1,5 +1,6 @@
 var namespacechlm_1_1detail =
 [
+    [ "math", "namespacechlm_1_1detail_1_1math.html", "namespacechlm_1_1detail_1_1math" ],
     [ "basic_float_storage", "structchlm_1_1detail_1_1basic__float__storage.html", "structchlm_1_1detail_1_1basic__float__storage" ],
     [ "float_vector_base", "structchlm_1_1detail_1_1float__vector__base.html", "structchlm_1_1detail_1_1float__vector__base" ],
     [ "ivector_swizzle2", "structchlm_1_1detail_1_1ivector__swizzle2.html", "structchlm_1_1detail_1_1ivector__swizzle2" ],

@@ -1,5 +1,6 @@
 var dir_601d8f304e4e9cbad95b30bec1fb5489 =
 [
+    [ "math", "dir_648608cbb56c559321ba424165515261.html", "dir_648608cbb56c559321ba424165515261" ],
     [ "simd", "dir_177779943ad00b7bff5491bc85eabcb3.html", "dir_177779943ad00b7bff5491bc85eabcb3" ],
     [ "CompilerConfig.h", "CompilerConfig_8h.html", "CompilerConfig_8h" ],
     [ "GeneratedFloat2Swizzles.h", "GeneratedFloat2Swizzles_8h.html", "GeneratedFloat2Swizzles_8h" ],

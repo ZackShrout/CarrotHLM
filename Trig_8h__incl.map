@@ -1,0 +1,17 @@
+<map id="include/chlm/detail/math/Trig.h" name="include/chlm/detail/math/Trig.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="90,5,237,45"/>
+<area shape="rect" id="Node000002" href="$MathCommon_8h.html" title=" " alt="" coords="49,167,176,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,47,139,94,122,154,116,152,134,92,153,45"/>
+<area shape="rect" id="Node000007" href="$RangeReduction_8h.html" title=" " alt="" coords="148,93,288,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="179,44,204,80,200,84,174,47"/>
+<area shape="rect" id="Node000003" href="$FloatBits_8h.html" title=" " alt="" coords="5,240,97,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,194,72,231,68,228,101,191"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="122,240,181,265"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="121,191,141,227,136,229,117,194"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="32,313,71,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="54,266,54,300,49,300,49,266"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="139,313,206,339"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="72,263,143,304,140,309,69,268"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="203,121,142,161,140,157,200,116"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="219,119,211,182,195,266,184,301,179,300,190,265,206,181,214,119"/>
+</map>
