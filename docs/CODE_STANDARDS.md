@@ -324,12 +324,15 @@ The general studio rule says `detail/` is the one intentional lowercase exceptio
 CarrotHLM additionally allows:
 
 - `include/chlm/detail/simd/`
+- `include/chlm/detail/math/`
+- `include/chlm/detail/random/`
 
 Reason:
 
 - `simd` is a well-known technical acronym and reads more naturally in lowercase as a submodule name
 - `detail/simd/` expresses the backend implementation layer clearly
 - renaming it to `SIMD/` or `Simd/` would not improve clarity for this project
+- `math` and `random` would look out of place if they were in CamelCase
 
 ### POD-Style Public Struct Layout
 
