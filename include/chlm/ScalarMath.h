@@ -178,6 +178,169 @@ namespace chlm {
     // ========================================
 
     /**
+     * @brief Computes two raised to a power.
+     *
+     * Uses explicit binary range reduction and reconstruction. Positive finite
+     * normal results have a maximum relative error target of 5e-7, while all
+     * finite results have a maximum error target of 4 ULP. Integer inputs in
+     * [-149, 127] produce exact powers of two, including subnormals. Results
+     * overflow to infinity and underflow to zero according to float range.
+     * Either sign of zero returns one, positive infinity returns infinity,
+     * negative infinity returns zero, and NaN is propagated.
+     *
+     * @param x Exponent value.
+     * @return Two raised to @p x.
+     */
+    [[nodiscard]] inline float exp2(const float x) noexcept
+    {
+        return detail::math::exp2(x);
+    }
+
+    /**
+     * @brief Computes two raised to a power using the higher-accuracy path.
+     *
+     * Uses a higher-degree polynomial evaluated in double with a maximum error
+     * target of 1 ULP. Special values and range limits match `exp2`.
+     *
+     * @param x Exponent value.
+     * @return Two raised to @p x.
+     */
+    [[nodiscard]] inline float exp2_precise(const float x) noexcept
+    {
+        return detail::math::exp2_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the base-two logarithm of a value.
+     *
+     * Uses explicit exponent and mantissa decomposition with a maximum error
+     * target of 4 ULP. Exact powers of two, including subnormals, return their
+     * exact integer exponents. Zero returns negative infinity, negative inputs
+     * return NaN, positive infinity returns infinity, and NaN is propagated.
+     *
+     * @param x Positive input value.
+     * @return Base-two logarithm of @p x.
+     */
+    [[nodiscard]] inline float log2(const float x) noexcept
+    {
+        return detail::math::log2(x);
+    }
+
+    /**
+     * @brief Computes the base-two logarithm using the higher-accuracy path.
+     *
+     * Evaluates the reduced series in double with a maximum error target of
+     * 1 ULP. Special values and exact powers match `log2`.
+     *
+     * @param x Positive input value.
+     * @return Base-two logarithm of @p x.
+     */
+    [[nodiscard]] inline float log2_precise(const float x) noexcept
+    {
+        return detail::math::log2_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the natural exponential of a value.
+     *
+     * Uses natural-base range reduction with the owned exponential kernel.
+     * Normal results have a maximum relative error target of 5e-7, while all
+     * finite results have a maximum error target of 4 ULP. Either sign of zero
+     * returns one, positive infinity returns infinity, negative infinity returns
+     * zero, and NaN is propagated.
+     *
+     * @param x Exponent value.
+     * @return Euler's number raised to @p x.
+     */
+    [[nodiscard]] inline float exp(const float x) noexcept
+    {
+        return detail::math::exp(x);
+    }
+
+    /**
+     * @brief Computes the natural exponential using the higher-accuracy path.
+     *
+     * Uses double-precision reduction and polynomial evaluation with a maximum
+     * error target of 1 ULP. Special values and range limits match `exp`.
+     *
+     * @param x Exponent value.
+     * @return Euler's number raised to @p x.
+     */
+    [[nodiscard]] inline float exp_precise(const float x) noexcept
+    {
+        return detail::math::exp_precise_fn(x);
+    }
+
+    /**
+     * @brief Computes the natural logarithm of a value.
+     *
+     * Uses explicit exponent and mantissa decomposition with a maximum error
+     * target of 4 ULP. Zero returns negative infinity, negative inputs return
+     * NaN, positive infinity returns infinity, and NaN is propagated.
+     *
+     * @param x Positive input value.
+     * @return Natural logarithm of @p x.
+     */
+    [[nodiscard]] inline float log(const float x) noexcept
+    {
+        return detail::math::log(x);
+    }
+
+    /**
+     * @brief Computes the natural logarithm using the higher-accuracy path.
+     *
+     * Evaluates exponent reconstruction and the reduced series in double with
+     * a maximum error target of 1 ULP. Special values match `log`.
+     *
+     * @param x Positive input value.
+     * @return Natural logarithm of @p x.
+     */
+    [[nodiscard]] inline float log_precise(const float x) noexcept
+    {
+        return detail::math::log_precise_fn(x);
+    }
+
+    /**
+     * @brief Raises a base to an exponent.
+     *
+     * Integral exponents use a specialized squaring path when practical;
+     * general magnitudes use the owned logarithm and exponential kernels.
+     * Normal finite results have a maximum relative error target of 1.5e-6;
+     * subnormal results have a maximum error target of 4 ULP. Negative finite
+     * bases require an integral exponent. Signed zero and infinity preserve
+     * their sign only for odd integral exponents.
+     *
+     * An exponent of zero or a base of one returns one even when the other
+     * argument is NaN. `pow(-1, +/-infinity)` also returns one. Other NaN
+     * arguments propagate, and infinite exponents are resolved from `abs(base)`
+     * relative to one.
+     *
+     * @param base Base value.
+     * @param exponent Exponent value.
+     * @return @p base raised to @p exponent.
+     */
+    [[nodiscard]] inline float pow(const float base, const float exponent) noexcept
+    {
+        return detail::math::pow(base, exponent);
+    }
+
+    /**
+     * @brief Raises a base to an exponent using the higher-accuracy path.
+     *
+     * Uses double-precision intermediate evaluation with a maximum relative
+     * error target of 5e-7 for normal finite results and a maximum subnormal
+     * error target of 1 ULP. Domain and special-value behavior match `pow`.
+     *
+     * @param base Base value.
+     * @param exponent Exponent value.
+     * @return @p base raised to @p exponent.
+     */
+    [[nodiscard]] inline float pow_precise(const float base, const float exponent) noexcept
+    {
+        return detail::math::pow_precise_fn(base, exponent);
+    }
+
+    /**
      * @brief Computes the sine of an angle in radians.
      *
      * Uses CarrotHLM's owned range reduction and lower-degree polynomial path.

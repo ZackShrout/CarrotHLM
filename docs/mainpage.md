@@ -14,6 +14,7 @@ and swizzles with matrices, quaternions, transforms, and owned scalar math.
 - Portable scalar, SSE2, and ARM64 NEON backends selected at compile time.
 - Owned root, trigonometric, and inverse-trigonometric implementations, including
   `sqrt`, `rsqrt`, paired `sin_cos`, and matching higher-accuracy variants.
+- Owned `exp2`, `log2`, `exp`, `log`, and general `pow` with explicit domain handling.
 - Constexpr `isnan`, `isinf`, `isfinite`, `signbit`, and `copysign` helpers.
 - Constexpr `floor`, `ceil`, `trunc`, `round`, `fmod`, and `frac` operations.
 

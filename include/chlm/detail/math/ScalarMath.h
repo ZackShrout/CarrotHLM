@@ -5,13 +5,65 @@
 
 #pragma once
 
+#include "Exponential.h"
 #include "InverseTrig.h"
 #include "MathCommon.h"
+#include "Power.h"
 #include "Rounding.h"
 #include "Sqrt.h"
 #include "Trig.h"
 
 namespace chlm::detail::math {
+    [[nodiscard]] inline float exp2(const float value) noexcept
+    {
+        return exp2_fast(value);
+    }
+
+    [[nodiscard]] inline float exp2_precise_fn(const float value) noexcept
+    {
+        return exp2_precise(value);
+    }
+
+    [[nodiscard]] inline float log2(const float value) noexcept
+    {
+        return log2_fast(value);
+    }
+
+    [[nodiscard]] inline float log2_precise_fn(const float value) noexcept
+    {
+        return log2_precise(value);
+    }
+
+    [[nodiscard]] inline float exp(const float value) noexcept
+    {
+        return exp_fast(value);
+    }
+
+    [[nodiscard]] inline float exp_precise_fn(const float value) noexcept
+    {
+        return exp_precise(value);
+    }
+
+    [[nodiscard]] inline float log(const float value) noexcept
+    {
+        return log_fast(value);
+    }
+
+    [[nodiscard]] inline float log_precise_fn(const float value) noexcept
+    {
+        return log_precise(value);
+    }
+
+    [[nodiscard]] inline float pow(const float base, const float exponent) noexcept
+    {
+        return pow_fast(base, exponent);
+    }
+
+    [[nodiscard]] inline float pow_precise_fn(const float base, const float exponent) noexcept
+    {
+        return pow_precise(base, exponent);
+    }
+
     [[nodiscard]] inline float sin(const float value) noexcept
     {
         return sin_fast(value);

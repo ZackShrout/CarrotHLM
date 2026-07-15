@@ -70,9 +70,11 @@ target_sources(CarrotHLM
             include/chlm/detail/GeneratedUint3Swizzles.h
             include/chlm/detail/GeneratedUint4Swizzles.h
             include/chlm/detail/math/FloatBits.h
+            include/chlm/detail/math/Exponential.h
             include/chlm/detail/math/InverseTrig.h
             include/chlm/detail/math/MathCommon.h
             include/chlm/detail/math/Polynomial.h
+            include/chlm/detail/math/Power.h
             include/chlm/detail/math/RangeReduction.h
             include/chlm/detail/math/Rounding.h
             include/chlm/detail/math/ScalarMath.h

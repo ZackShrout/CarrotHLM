@@ -46,6 +46,20 @@ void run_scalar_math_tests(test_context& ctx)
     ctx.expect(chlm::frac(1.25f) == .25f && chlm::frac(-1.25f) == .75f,
                "frac basic test");
 
+    ctx.expect(chlm::exp2(5.f) == 32.f && exp2_precise(-3.f) == .125f,
+               "exp2 exact power test");
+    ctx.expect(chlm::log2(32.f) == 5.f && log2_precise(.125f) == -3.f,
+               "log2 exact power test");
+    ctx.expect(chlm::exp(0.f) == 1.f && exp_precise(0.f) == 1.f,
+               "exp identity test");
+    ctx.expect(chlm::log(1.f) == 0.f && log_precise(1.f) == 0.f,
+               "log identity test");
+    ctx.expect(chlm::pow(2.f, 10.f) == 1024.f && chlm::pow(-2.f, 3.f) == -8.f,
+               "pow integral exponent test");
+    ctx.expect(test_almost_equal(chlm::pow(9.f, .5f), 3.f, 1e-5f) &&
+               test_almost_equal(pow_precise(9.f, .5f), 3.f, 5e-7f),
+               "pow fractional exponent test");
+
     ctx.expect(test_almost_equal(chlm::sqrt(25.f), 5.f), "sqrt basic value test");
     ctx.expect(test_almost_equal(sqrt_precise(25.f), 5.f), "sqrt_precise basic value test");
     ctx.expect(test_almost_equal(chlm::rsqrt(25.f), .2f, 5e-6f), "rsqrt basic value test");

@@ -71,7 +71,7 @@ auto [sine, cosine] = sin_cos(heading);
 
 The public API documents each function's finite-input error target. Special values, signed zero, domains, and exact endpoints are covered by the conformance test suite.
 
-Float classification, sign, rounding, fractional, root, and trigonometric operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, `frac`, `sqrt`, `rsqrt`, `sin`, `cos`, `sin_cos`, `tan`, `acos`, `asin`, `atan`, and `atan2`.
+Float classification, sign, rounding, fractional, root, exponential, and trigonometric operations are also available without `<cmath>` through `isnan`, `isinf`, `isfinite`, `signbit`, `copysign`, `floor`, `ceil`, `trunc`, `round`, `fmod`, `frac`, `sqrt`, `rsqrt`, `exp2`, `log2`, `exp`, `log`, `pow`, `sin`, `cos`, `sin_cos`, `tan`, `acos`, `asin`, `atan`, and `atan2`.
 
 ## Why CarrotHLM?
 - Feels like writing HLSL on the CPU.

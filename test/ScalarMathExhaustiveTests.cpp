@@ -16,7 +16,17 @@ namespace {
     {
         const std::uint32_t lhs_bits{ std::bit_cast<std::uint32_t>(lhs) };
         const std::uint32_t rhs_bits{ std::bit_cast<std::uint32_t>(rhs) };
-        return lhs_bits > rhs_bits ? lhs_bits - rhs_bits : rhs_bits - lhs_bits;
+        const auto ordered = [](const std::uint32_t bits)
+        {
+            return (bits & 0x80000000u) != 0u
+                ? 0x80000000u - (bits & 0x7FFFFFFFu)
+                : 0x80000000u + bits;
+        };
+        const std::uint32_t lhs_ordered{ ordered(lhs_bits) };
+        const std::uint32_t rhs_ordered{ ordered(rhs_bits) };
+        return lhs_ordered > rhs_ordered
+            ? lhs_ordered - rhs_ordered
+            : rhs_ordered - lhs_ordered;
     }
 
     void run_classification_checks(test_context& ctx)
@@ -145,6 +155,474 @@ namespace {
         ctx.expect(round_matches, "round exact oracle sweep");
         ctx.expect(frac_matches, "frac exact oracle sweep");
         ctx.expect(fmod_matches, "fmod exact oracle sweep");
+    }
+
+    void run_base2_oracle_checks(test_context& ctx)
+    {
+        constexpr float fast_exp2_relative_error_limit{ 5e-7f };
+        constexpr std::uint32_t fast_exp2_ulp_limit{ 4u };
+        constexpr std::uint32_t precise_exp2_ulp_limit{ 1u };
+        constexpr std::uint32_t fast_log2_ulp_limit{ 4u };
+        constexpr std::uint32_t precise_log2_ulp_limit{ 1u };
+
+        bool exact_powers_match{ true };
+        for (int exponent{ -149 }; exponent <= 127; ++exponent)
+        {
+            const float expected{
+                exponent >= -126
+                    ? std::bit_cast<float>(static_cast<std::uint32_t>(exponent + 127) << 23u)
+                    : std::bit_cast<float>(1u << static_cast<unsigned>(exponent + 149))
+            };
+            exact_powers_match = exact_powers_match &&
+                std::bit_cast<std::uint32_t>(chlm::exp2(static_cast<float>(exponent))) ==
+                    std::bit_cast<std::uint32_t>(expected) &&
+                std::bit_cast<std::uint32_t>(chlm::exp2_precise(static_cast<float>(exponent))) ==
+                    std::bit_cast<std::uint32_t>(expected) &&
+                chlm::log2(expected) == static_cast<float>(exponent) &&
+                chlm::log2_precise(expected) == static_cast<float>(exponent);
+        }
+
+        float worst_fast_exp2_relative_error{ 0.f };
+        std::uint32_t worst_fast_exp2_ulp{ 0u };
+        std::uint32_t worst_precise_exp2_ulp{ 0u };
+        float worst_fast_exp2_input{ 0.f };
+        float worst_fast_exp2_ulp_input{ 0.f };
+        float worst_precise_exp2_input{ 0.f };
+        bool fast_exp2_monotonic{ true };
+        bool precise_exp2_monotonic{ true };
+        float previous_fast_exp2{ 0.f };
+        float previous_precise_exp2{ 0.f };
+
+        const auto measure_exp2 = [&](const float value)
+        {
+            const float oracle{ static_cast<float>(std::exp2(static_cast<double>(value))) };
+            const float fast{ chlm::exp2(value) };
+            const float precise{ chlm::exp2_precise(value) };
+
+            if (std::isfinite(oracle) && oracle != 0.f)
+            {
+                if (oracle >= std::numeric_limits<float>::min())
+                {
+                    const float relative_error{ std::abs(fast - oracle) / oracle };
+                    if (relative_error > worst_fast_exp2_relative_error)
+                    {
+                        worst_fast_exp2_relative_error = relative_error;
+                        worst_fast_exp2_input = value;
+                    }
+                }
+
+                const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+                if (fast_ulp > worst_fast_exp2_ulp)
+                {
+                    worst_fast_exp2_ulp = fast_ulp;
+                    worst_fast_exp2_ulp_input = value;
+                }
+
+                const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+                if (precise_ulp > worst_precise_exp2_ulp)
+                {
+                    worst_precise_exp2_ulp = precise_ulp;
+                    worst_precise_exp2_input = value;
+                }
+            }
+        };
+
+        for (int sample{ -614399 }; sample <= 524287; ++sample)
+        {
+            const float value{ static_cast<float>(sample) / 4096.f };
+            measure_exp2(value);
+            const float fast{ chlm::exp2(value) };
+            const float precise{ chlm::exp2_precise(value) };
+            if (fast < previous_fast_exp2)
+                fast_exp2_monotonic = false;
+            if (precise < previous_precise_exp2)
+                precise_exp2_monotonic = false;
+            previous_fast_exp2 = fast;
+            previous_precise_exp2 = precise;
+        }
+
+        for (int exponent{ -150 }; exponent <= 128; ++exponent)
+        {
+            const float boundary{ static_cast<float>(exponent) };
+            measure_exp2(boundary);
+            measure_exp2(std::nextafter(boundary, -std::numeric_limits<float>::infinity()));
+            measure_exp2(std::nextafter(boundary, std::numeric_limits<float>::infinity()));
+        }
+
+        std::uint32_t worst_fast_log2_ulp{ 0u };
+        std::uint32_t worst_precise_log2_ulp{ 0u };
+        float worst_fast_log2_input{ 0.f };
+        float worst_precise_log2_input{ 0.f };
+        bool fast_log2_monotonic{ true };
+        bool precise_log2_monotonic{ true };
+        float previous_fast_log2{ -std::numeric_limits<float>::infinity() };
+        float previous_precise_log2{ -std::numeric_limits<float>::infinity() };
+
+        const auto measure_log2 = [&](const float value)
+        {
+            const float oracle{ static_cast<float>(std::log2(static_cast<double>(value))) };
+            const float fast{ chlm::log2(value) };
+            const float precise{ chlm::log2_precise(value) };
+            const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+            const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+
+            if (fast_ulp > worst_fast_log2_ulp)
+            {
+                worst_fast_log2_ulp = fast_ulp;
+                worst_fast_log2_input = value;
+            }
+            if (precise_ulp > worst_precise_log2_ulp)
+            {
+                worst_precise_log2_ulp = precise_ulp;
+                worst_precise_log2_input = value;
+            }
+
+            if (fast < previous_fast_log2)
+                fast_log2_monotonic = false;
+            if (precise < previous_precise_log2)
+                precise_log2_monotonic = false;
+            previous_fast_log2 = fast;
+            previous_precise_log2 = precise;
+        };
+
+        constexpr std::uint32_t log_stride{ 0x00001001u };
+        for (std::uint32_t bits{ 1u }; bits < 0x7F800000u; bits += log_stride)
+            measure_log2(std::bit_cast<float>(bits));
+        measure_log2(std::numeric_limits<float>::max());
+
+        test_println("  exp2 worst fast relative error: {} at {} (bits {})",
+                     worst_fast_exp2_relative_error, worst_fast_exp2_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_exp2_input));
+        test_println("  exp2 worst fast error: {} ULP at {} (bits {})",
+                     worst_fast_exp2_ulp, worst_fast_exp2_ulp_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_exp2_ulp_input));
+        test_println("  exp2 worst precise error: {} ULP at {} (bits {})",
+                     worst_precise_exp2_ulp, worst_precise_exp2_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_exp2_input));
+        test_println("  log2 worst fast error: {} ULP at {} (bits {})",
+                     worst_fast_log2_ulp, worst_fast_log2_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_log2_input));
+        test_println("  log2 worst precise error: {} ULP at {} (bits {})",
+                     worst_precise_log2_ulp, worst_precise_log2_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_log2_input));
+
+        ctx.expect(exact_powers_match, "exp2/log2 exact power-of-two sweep");
+        ctx.expect(worst_fast_exp2_relative_error <= fast_exp2_relative_error_limit,
+                   "exp2 fast relative-error sweep");
+        ctx.expect(worst_fast_exp2_ulp <= fast_exp2_ulp_limit, "exp2 fast ULP sweep");
+        ctx.expect(worst_precise_exp2_ulp <= precise_exp2_ulp_limit,
+                   "exp2_precise ULP sweep");
+        ctx.expect(worst_fast_log2_ulp <= fast_log2_ulp_limit, "log2 fast ULP sweep");
+        ctx.expect(worst_precise_log2_ulp <= precise_log2_ulp_limit,
+                   "log2_precise ULP sweep");
+        ctx.expect(worst_precise_exp2_ulp < worst_fast_exp2_ulp,
+                   "exp2_precise worst-case improvement");
+        ctx.expect(worst_precise_log2_ulp < worst_fast_log2_ulp,
+                   "log2_precise worst-case improvement");
+        ctx.expect(fast_exp2_monotonic, "exp2 monotonicity sweep");
+        ctx.expect(precise_exp2_monotonic, "exp2_precise monotonicity sweep");
+        ctx.expect(fast_log2_monotonic, "log2 monotonicity sweep");
+        ctx.expect(precise_log2_monotonic, "log2_precise monotonicity sweep");
+    }
+
+    void run_natural_exponential_oracle_checks(test_context& ctx)
+    {
+        constexpr float fast_exp_relative_error_limit{ 5e-7f };
+        constexpr std::uint32_t fast_exp_ulp_limit{ 4u };
+        constexpr std::uint32_t precise_exp_ulp_limit{ 1u };
+        constexpr std::uint32_t fast_log_ulp_limit{ 4u };
+        constexpr std::uint32_t precise_log_ulp_limit{ 1u };
+
+        float worst_fast_exp_relative_error{ 0.f };
+        std::uint32_t worst_fast_exp_ulp{ 0u };
+        std::uint32_t worst_precise_exp_ulp{ 0u };
+        float worst_fast_exp_input{ 0.f };
+        float worst_fast_exp_ulp_input{ 0.f };
+        float worst_precise_exp_input{ 0.f };
+        bool fast_exp_monotonic{ true };
+        bool precise_exp_monotonic{ true };
+        float previous_fast_exp{ 0.f };
+        float previous_precise_exp{ 0.f };
+
+        const auto measure_exp = [&](const float value)
+        {
+            const float oracle{ static_cast<float>(std::exp(static_cast<double>(value))) };
+            const float fast{ chlm::exp(value) };
+            const float precise{ chlm::exp_precise(value) };
+
+            if (std::isfinite(oracle) && oracle != 0.f)
+            {
+                if (oracle >= std::numeric_limits<float>::min())
+                {
+                    const float relative_error{ std::abs(fast - oracle) / oracle };
+                    if (relative_error > worst_fast_exp_relative_error)
+                    {
+                        worst_fast_exp_relative_error = relative_error;
+                        worst_fast_exp_input = value;
+                    }
+                }
+
+                const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+                const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+                if (fast_ulp > worst_fast_exp_ulp)
+                {
+                    worst_fast_exp_ulp = fast_ulp;
+                    worst_fast_exp_ulp_input = value;
+                }
+                if (precise_ulp > worst_precise_exp_ulp)
+                {
+                    worst_precise_exp_ulp = precise_ulp;
+                    worst_precise_exp_input = value;
+                }
+            }
+        };
+
+        for (int sample{ -425983 }; sample <= 364543; ++sample)
+        {
+            const float value{ static_cast<float>(sample) / 4096.f };
+            measure_exp(value);
+            const float fast{ chlm::exp(value) };
+            const float precise{ chlm::exp_precise(value) };
+            if (fast < previous_fast_exp)
+                fast_exp_monotonic = false;
+            if (precise < previous_precise_exp)
+                precise_exp_monotonic = false;
+            previous_fast_exp = fast;
+            previous_precise_exp = precise;
+        }
+
+        constexpr float exp_boundaries[]{ -104.f, -103.f, 0.f, 88.f, 89.f };
+        for (const float boundary : exp_boundaries)
+        {
+            measure_exp(boundary);
+            measure_exp(std::nextafter(boundary, -std::numeric_limits<float>::infinity()));
+            measure_exp(std::nextafter(boundary, std::numeric_limits<float>::infinity()));
+        }
+
+        std::uint32_t worst_fast_log_ulp{ 0u };
+        std::uint32_t worst_precise_log_ulp{ 0u };
+        float worst_fast_log_input{ 0.f };
+        float worst_precise_log_input{ 0.f };
+        bool fast_log_monotonic{ true };
+        bool precise_log_monotonic{ true };
+        float previous_fast_log{ -std::numeric_limits<float>::infinity() };
+        float previous_precise_log{ -std::numeric_limits<float>::infinity() };
+
+        constexpr std::uint32_t log_stride{ 0x00001001u };
+        for (std::uint32_t bits{ 1u }; bits < 0x7F800000u; bits += log_stride)
+        {
+            const float value{ std::bit_cast<float>(bits) };
+            const float oracle{ static_cast<float>(std::log(static_cast<double>(value))) };
+            const float fast{ chlm::log(value) };
+            const float precise{ chlm::log_precise(value) };
+            const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+            const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+
+            if (fast_ulp > worst_fast_log_ulp)
+            {
+                worst_fast_log_ulp = fast_ulp;
+                worst_fast_log_input = value;
+            }
+            if (precise_ulp > worst_precise_log_ulp)
+            {
+                worst_precise_log_ulp = precise_ulp;
+                worst_precise_log_input = value;
+            }
+            if (fast < previous_fast_log)
+                fast_log_monotonic = false;
+            if (precise < previous_precise_log)
+                precise_log_monotonic = false;
+            previous_fast_log = fast;
+            previous_precise_log = precise;
+        }
+
+        test_println("  exp worst fast relative error: {} at {} (bits {})",
+                     worst_fast_exp_relative_error, worst_fast_exp_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_exp_input));
+        test_println("  exp worst fast error: {} ULP at {} (bits {})",
+                     worst_fast_exp_ulp, worst_fast_exp_ulp_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_exp_ulp_input));
+        test_println("  exp worst precise error: {} ULP at {} (bits {})",
+                     worst_precise_exp_ulp, worst_precise_exp_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_exp_input));
+        test_println("  log worst fast error: {} ULP at {} (bits {})",
+                     worst_fast_log_ulp, worst_fast_log_input,
+                     std::bit_cast<std::uint32_t>(worst_fast_log_input));
+        test_println("  log worst precise error: {} ULP at {} (bits {})",
+                     worst_precise_log_ulp, worst_precise_log_input,
+                     std::bit_cast<std::uint32_t>(worst_precise_log_input));
+
+        ctx.expect(worst_fast_exp_relative_error <= fast_exp_relative_error_limit,
+                   "exp fast relative-error sweep");
+        ctx.expect(worst_fast_exp_ulp <= fast_exp_ulp_limit, "exp fast ULP sweep");
+        ctx.expect(worst_precise_exp_ulp <= precise_exp_ulp_limit,
+                   "exp_precise ULP sweep");
+        ctx.expect(worst_fast_log_ulp <= fast_log_ulp_limit, "log fast ULP sweep");
+        ctx.expect(worst_precise_log_ulp <= precise_log_ulp_limit,
+                   "log_precise ULP sweep");
+        ctx.expect(worst_precise_exp_ulp < worst_fast_exp_ulp,
+                   "exp_precise worst-case improvement");
+        ctx.expect(worst_precise_log_ulp < worst_fast_log_ulp,
+                   "log_precise worst-case improvement");
+        ctx.expect(fast_exp_monotonic, "exp monotonicity sweep");
+        ctx.expect(precise_exp_monotonic, "exp_precise monotonicity sweep");
+        ctx.expect(fast_log_monotonic, "log monotonicity sweep");
+        ctx.expect(precise_log_monotonic, "log_precise monotonicity sweep");
+
+        bool round_trip_matches{ true };
+        for (int sample{ -1000 }; sample <= 1000; ++sample)
+        {
+            const float value{ static_cast<float>(sample) * .01f };
+            round_trip_matches = round_trip_matches &&
+                std::abs(chlm::log_precise(chlm::exp_precise(value)) - value) <= 2e-6f;
+        }
+        ctx.expect(round_trip_matches, "log_precise/exp_precise round-trip sweep");
+    }
+
+    void run_power_oracle_checks(test_context& ctx)
+    {
+        constexpr float fast_relative_error_limit{ 1.5e-6f };
+        constexpr float precise_relative_error_limit{ 5e-7f };
+        constexpr std::uint32_t fast_subnormal_ulp_limit{ 4u };
+        constexpr std::uint32_t precise_subnormal_ulp_limit{ 1u };
+
+        float worst_fast_relative_error{ 0.f };
+        float worst_precise_relative_error{ 0.f };
+        float worst_fast_base{ 0.f };
+        float worst_fast_exponent{ 0.f };
+        float worst_precise_base{ 0.f };
+        float worst_precise_exponent{ 0.f };
+        std::uint32_t worst_fast_subnormal_ulp{ 0u };
+        std::uint32_t worst_precise_subnormal_ulp{ 0u };
+        bool result_classes_match{ true };
+
+        const auto measure = [&](const float base, const float exponent)
+        {
+            const float oracle{
+                static_cast<float>(std::pow(static_cast<double>(base), static_cast<double>(exponent)))
+            };
+            const float fast{ chlm::pow(base, exponent) };
+            const float precise{ chlm::pow_precise(base, exponent) };
+
+            if (std::isnan(oracle))
+            {
+                result_classes_match = result_classes_match &&
+                    std::isnan(fast) && std::isnan(precise);
+                return;
+            }
+            if (std::isinf(oracle))
+            {
+                result_classes_match = result_classes_match &&
+                    std::isinf(fast) && std::isinf(precise) &&
+                    std::signbit(fast) == std::signbit(oracle) &&
+                    std::signbit(precise) == std::signbit(oracle);
+                return;
+            }
+            if (oracle == 0.f)
+            {
+                result_classes_match = result_classes_match &&
+                    fast == 0.f && precise == 0.f &&
+                    std::signbit(fast) == std::signbit(oracle) &&
+                    std::signbit(precise) == std::signbit(oracle);
+                return;
+            }
+
+            if (std::abs(oracle) >= std::numeric_limits<float>::min())
+            {
+                const float fast_relative_error{ std::abs(fast - oracle) / std::abs(oracle) };
+                const float precise_relative_error{ std::abs(precise - oracle) / std::abs(oracle) };
+
+                if (fast_relative_error > worst_fast_relative_error)
+                {
+                    worst_fast_relative_error = fast_relative_error;
+                    worst_fast_base = base;
+                    worst_fast_exponent = exponent;
+                }
+                if (precise_relative_error > worst_precise_relative_error)
+                {
+                    worst_precise_relative_error = precise_relative_error;
+                    worst_precise_base = base;
+                    worst_precise_exponent = exponent;
+                }
+            }
+            else
+            {
+                const std::uint32_t fast_ulp{ ulp_distance(fast, oracle) };
+                const std::uint32_t precise_ulp{ ulp_distance(precise, oracle) };
+                if (fast_ulp > worst_fast_subnormal_ulp)
+                    worst_fast_subnormal_ulp = fast_ulp;
+                if (precise_ulp > worst_precise_subnormal_ulp)
+                    worst_precise_subnormal_ulp = precise_ulp;
+
+                result_classes_match = result_classes_match &&
+                    std::isfinite(fast) && std::isfinite(precise) &&
+                    std::signbit(fast) == std::signbit(oracle) &&
+                    std::signbit(precise) == std::signbit(oracle);
+            }
+        };
+
+        std::uint32_t base_bits{ 0x3F123456u };
+        std::uint32_t exponent_bits{ 0xBADC0FFEu };
+        for (int sample{ 0 }; sample < 500000; ++sample)
+        {
+            base_bits = base_bits * 1664525u + 1013904223u;
+            exponent_bits = exponent_bits * 22695477u + 1u;
+            const std::uint32_t magnitude_bits{ base_bits & 0x7FFFFFFFu };
+            if (magnitude_bits == 0u || magnitude_bits >= 0x7F800000u)
+                continue;
+
+            const float base{ std::bit_cast<float>(magnitude_bits) };
+            const int scaled_exponent{ static_cast<int>(exponent_bits % 262145u) - 131072 };
+            const float exponent{ static_cast<float>(scaled_exponent) / 2048.f };
+            measure(base, exponent);
+        }
+
+        for (int base_sample{ 1 }; base_sample <= 4096; ++base_sample)
+        {
+            const float base{ static_cast<float>(base_sample) / 512.f };
+            for (int exponent_sample{ -128 }; exponent_sample <= 128; ++exponent_sample)
+                measure(base, static_cast<float>(exponent_sample) * .125f);
+        }
+
+        for (int base_sample{ 1 }; base_sample <= 4096; base_sample += 7)
+        {
+            const float base{ -static_cast<float>(base_sample) / 256.f };
+            for (int exponent{ -31 }; exponent <= 31; ++exponent)
+                measure(base, static_cast<float>(exponent));
+        }
+
+        const float above_one{ std::nextafter(1.f, 2.f) };
+        const float below_one{ std::nextafter(1.f, 0.f) };
+        constexpr float large_exponents[]{
+            -500000000.f, -100000000.f, -10000000.f, -100000.f,
+            100000.f, 10000000.f, 100000000.f, 500000000.f
+        };
+        for (const float exponent : large_exponents)
+        {
+            measure(above_one, exponent);
+            measure(below_one, exponent);
+            measure(-above_one, exponent);
+            measure(-below_one, exponent);
+        }
+
+        test_println("  pow worst fast relative error: {} at ({}, {})",
+                     worst_fast_relative_error, worst_fast_base, worst_fast_exponent);
+        test_println("  pow worst precise relative error: {} at ({}, {})",
+                     worst_precise_relative_error, worst_precise_base, worst_precise_exponent);
+        test_println("  pow worst subnormal error: {} ULP fast, {} ULP precise",
+                     worst_fast_subnormal_ulp, worst_precise_subnormal_ulp);
+
+        ctx.expect(result_classes_match, "pow result-class and sign sweep");
+        ctx.expect(worst_fast_relative_error <= fast_relative_error_limit,
+                   "pow fast relative-error sweep");
+        ctx.expect(worst_precise_relative_error <= precise_relative_error_limit,
+                   "pow_precise relative-error sweep");
+        ctx.expect(worst_fast_subnormal_ulp <= fast_subnormal_ulp_limit,
+                   "pow fast subnormal ULP sweep");
+        ctx.expect(worst_precise_subnormal_ulp <= precise_subnormal_ulp_limit,
+                   "pow_precise subnormal ULP sweep");
+        ctx.expect(worst_precise_relative_error < worst_fast_relative_error,
+                   "pow_precise worst-case improvement");
     }
 
     void run_trig_oracle_checks(test_context& ctx)
@@ -844,6 +1322,9 @@ void run_scalar_math_exhaustive_tests(test_context& ctx)
 
     run_classification_checks(ctx);
     run_rounding_oracle_checks(ctx);
+    run_base2_oracle_checks(ctx);
+    run_natural_exponential_oracle_checks(ctx);
+    run_power_oracle_checks(ctx);
     run_trig_oracle_checks(ctx);
     run_tan_oracle_checks(ctx);
     run_acos_oracle_checks(ctx);

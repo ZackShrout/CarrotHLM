@@ -59,6 +59,110 @@ void run_scalar_math_edge_case_tests(test_context& ctx)
                std::numeric_limits<float>::denorm_min(),
                "frac subnormal preservation test");
 
+    ctx.expect(chlm::exp2(inf) == inf && chlm::exp2(-inf) == 0.f &&
+               exp2_precise(inf) == inf && exp2_precise(-inf) == 0.f,
+               "exp2 infinity test");
+    ctx.expect(chlm::exp2(0.f) == 1.f && chlm::exp2(negative_zero) == 1.f &&
+               exp2_precise(0.f) == 1.f && exp2_precise(negative_zero) == 1.f,
+               "exp2 signed zero test");
+    ctx.expect(std::isnan(chlm::exp2(nan)) && std::isnan(exp2_precise(nan)),
+               "exp2 NaN propagation test");
+    ctx.expect(chlm::exp2(128.f) == inf && chlm::exp2(-150.f) == 0.f &&
+               exp2_precise(128.f) == inf && exp2_precise(-150.f) == 0.f,
+               "exp2 range boundary test");
+    ctx.expect(chlm::exp2(-149.f) == std::numeric_limits<float>::denorm_min() &&
+               exp2_precise(-149.f) == std::numeric_limits<float>::denorm_min(),
+               "exp2 minimum subnormal test");
+
+    ctx.expect(chlm::log2(0.f) == -inf && chlm::log2(negative_zero) == -inf &&
+               log2_precise(0.f) == -inf && log2_precise(negative_zero) == -inf,
+               "log2 signed zero test");
+    ctx.expect(std::isnan(chlm::log2(-1.f)) && std::isnan(chlm::log2(-inf)) &&
+               std::isnan(log2_precise(-1.f)) && std::isnan(log2_precise(-inf)),
+               "log2 negative domain test");
+    ctx.expect(chlm::log2(inf) == inf && log2_precise(inf) == inf,
+               "log2 positive infinity test");
+    ctx.expect(std::isnan(chlm::log2(nan)) && std::isnan(log2_precise(nan)),
+               "log2 NaN propagation test");
+    ctx.expect(chlm::log2(std::numeric_limits<float>::denorm_min()) == -149.f &&
+               log2_precise(std::numeric_limits<float>::denorm_min()) == -149.f,
+               "log2 minimum subnormal test");
+
+    ctx.expect(chlm::exp(inf) == inf && chlm::exp(-inf) == 0.f &&
+               exp_precise(inf) == inf && exp_precise(-inf) == 0.f,
+               "exp infinity test");
+    ctx.expect(chlm::exp(0.f) == 1.f && chlm::exp(negative_zero) == 1.f &&
+               exp_precise(0.f) == 1.f && exp_precise(negative_zero) == 1.f,
+               "exp signed zero test");
+    ctx.expect(std::isnan(chlm::exp(nan)) && std::isnan(exp_precise(nan)),
+               "exp NaN propagation test");
+    ctx.expect(chlm::exp(89.f) == inf && chlm::exp(-104.f) == 0.f &&
+               exp_precise(89.f) == inf && exp_precise(-104.f) == 0.f,
+               "exp outer range test");
+
+    ctx.expect(chlm::log(0.f) == -inf && chlm::log(negative_zero) == -inf &&
+               log_precise(0.f) == -inf && log_precise(negative_zero) == -inf,
+               "log signed zero test");
+    ctx.expect(std::isnan(chlm::log(-1.f)) && std::isnan(chlm::log(-inf)) &&
+               std::isnan(log_precise(-1.f)) && std::isnan(log_precise(-inf)),
+               "log negative domain test");
+    ctx.expect(chlm::log(inf) == inf && log_precise(inf) == inf,
+               "log positive infinity test");
+    ctx.expect(std::isnan(chlm::log(nan)) && std::isnan(log_precise(nan)),
+               "log NaN propagation test");
+    ctx.expect(std::isfinite(chlm::log(std::numeric_limits<float>::denorm_min())) &&
+               std::isfinite(log_precise(std::numeric_limits<float>::denorm_min())),
+               "log subnormal input test");
+
+    struct pow_special_case_t
+    {
+        float base;
+        float exponent;
+        float expected;
+        bool expected_nan;
+    };
+
+    const pow_special_case_t pow_special_cases[]{
+        { nan, 0.f, 1.f, false }, { 1.f, nan, 1.f, false },
+        { -1.f, inf, 1.f, false }, { -1.f, -inf, 1.f, false },
+        { nan, 2.f, nan, true }, { 2.f, nan, nan, true }, { -2.f, .5f, nan, true },
+        { 0.f, 3.f, 0.f, false }, { negative_zero, 3.f, negative_zero, false },
+        { negative_zero, 2.f, 0.f, false }, { 0.f, -3.f, inf, false },
+        { negative_zero, -3.f, -inf, false }, { negative_zero, -2.f, inf, false },
+        { negative_zero, .5f, 0.f, false }, { negative_zero, -.5f, inf, false },
+        { inf, 2.f, inf, false }, { inf, -2.f, 0.f, false },
+        { -inf, 3.f, -inf, false }, { -inf, -3.f, negative_zero, false },
+        { -inf, 2.f, inf, false }, { -inf, -2.f, 0.f, false },
+        { -inf, .5f, inf, false }, { -inf, -.5f, 0.f, false },
+        { 2.f, inf, inf, false }, { 2.f, -inf, 0.f, false },
+        { .5f, inf, 0.f, false }, { .5f, -inf, inf, false },
+        { -2.f, inf, inf, false }, { -.5f, -inf, inf, false },
+        { -2.f, 16777215.f, -inf, false }, { -2.f, 16777216.f, inf, false },
+        { -.5f, -16777215.f, -inf, false }, { -.5f, -16777216.f, inf, false }
+    };
+
+    bool pow_special_cases_match{ true };
+    for (const pow_special_case_t& test_case : pow_special_cases)
+    {
+        const float fast{ chlm::pow(test_case.base, test_case.exponent) };
+        const float precise{ pow_precise(test_case.base, test_case.exponent) };
+
+        if (test_case.expected_nan)
+        {
+            pow_special_cases_match = pow_special_cases_match &&
+                std::isnan(fast) && std::isnan(precise);
+        }
+        else
+        {
+            pow_special_cases_match = pow_special_cases_match &&
+                std::bit_cast<std::uint32_t>(fast) ==
+                    std::bit_cast<std::uint32_t>(test_case.expected) &&
+                std::bit_cast<std::uint32_t>(precise) ==
+                    std::bit_cast<std::uint32_t>(test_case.expected);
+        }
+    }
+    ctx.expect(pow_special_cases_match, "pow table-driven special-case matrix");
+
     ctx.expect(std::isnan(chlm::sqrt(-1.f)), "sqrt negative domain test");
     ctx.expect(std::isnan(sqrt_precise(-1.f)), "sqrt_precise negative domain test");
     ctx.expect(std::isnan(chlm::sqrt(-inf)), "sqrt negative infinity test");
